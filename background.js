@@ -30,11 +30,31 @@ for(let i = 0; i < images.length; i++) {
     )
 }
 
+const imageAdd = document.getElementsByClassName('img-add');
+for (let i = 0; i < imageAdd.length; i++) {
+    imageAdd[i].addEventListener('click', function (e) {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: "imageAdd" });
+        })
+    })
+};
+
 const textToSpeech = document.getElementsByClassName('text-to-speech');
 for (let i = 0; i < textToSpeech.length; i++) {
     textToSpeech[i].addEventListener('click', function (e) {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {action: "text-to-speech"});
+        }
+        )
+    }
+    )
+}
+
+const textToSpeechStop = document.getElementsByClassName('text-to-speech-stop');
+for (let i = 0; i < textToSpeech.length; i++) {
+    textToSpeech[i].addEventListener('click', function (e) {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {action: "text-to-speech-stop"});
         }
         )
     }
@@ -50,6 +70,17 @@ for (let i = 0; i < links.length; i++) {
         )
     })
 };
+
+const removeLinkHighlight = document.getElementsByClassName('remove-link-hg');
+for (let i = 0; i < links.length; i++) {
+    removeLinkHighlight[i].addEventListener('click', function (e) {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {action: "link-highlight-remove"});
+        }
+        )
+    })
+};
+
 
 const imageReader = document.getElementsByClassName('img-read');
 for (let i = 0; i < imageReader.length; i++) {
@@ -76,3 +107,37 @@ document.getElementsByClassName("revert-background-color")[0].addEventListener('
     })
 });
 
+
+
+const fontColorChanger = document.getElementById('fontColorChanger');
+fontColorChanger.addEventListener('submit', function (e) {
+    e.preventDefault();
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "fontColor", fontColor: e.target.color.value});
+    });
+});
+
+document.getElementsByClassName("revert-font-color")[0].addEventListener('click', function (e) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "revert-font-color" });
+    })
+});
+
+
+const highlightPara = document.getElementsByClassName('para-highlighter');
+for (let i = 0; i < highlightPara.length; i++) {
+    highlightPara[i].addEventListener('click', function () {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: "para-highlighter" });
+        })
+    })
+};
+
+const removeHighlightPara = document.getElementsByClassName('para-highlighter-remove');
+for (let i = 0; i < removeHighlightPara.length; i++) {
+    removeHighlightPara[i].addEventListener('click', function () {
+        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, { action: "para-highlighter-remove" });
+        })
+    })
+}

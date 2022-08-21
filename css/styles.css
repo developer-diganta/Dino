@@ -1,0 +1,86 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-style: normal;
+    font-weight: 800;
+    font-size:26px;
+}
+
+.centered{
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  align-items: center;
+}
+
+body{
+    width: 500px;
+    /* use dyslexic friendly background */
+    background-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+button {
+  align-items: center;
+  background-color: #fee6e3;
+  border: 2px solid #111;
+  cursor: pointer;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  /* display: flex; */
+  margin:25px;
+  font-size: 16px;
+  height: 48px;
+  /* justify-content: center; */
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  /* text-align: center; */
+  text-decoration: none;
+  /* user-select: none; */
+  /* -webkit-user-select: none; */
+  /* touch-action: manipulation; */
+}
+
+button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+button:hover:after {
+  transform: translate(0, 0);
+}
+
+button:active {
+  background-color: #ffdeda;
+  outline: 0;
+}
+
+button:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  button {
+    padding: 0 40px;
+  }
+}
