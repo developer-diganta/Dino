@@ -33,7 +33,10 @@ Permissions include tabs and active tabs which helps to manipulate the styles of
 
 
 ## Screen Shots
-![image](https://user-images.githubusercontent.com/65999534/185781708-674819ae-8ee7-4d97-b8a7-9c7a07219a47.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/65999534/185781708-674819ae-8ee7-4d97-b8a7-9c7a07219a47.png" alt="Dino Screen"/>
+</p>
+
 ![image](https://user-images.githubusercontent.com/65999534/185781763-af709c69-0a06-4918-a978-96f9248b58f1.png)
 ![image](https://user-images.githubusercontent.com/65999534/185781826-33c396dd-0375-4aa6-b0d5-2f1583f132ca.png)
 ![image](https://user-images.githubusercontent.com/65999534/185781957-b8328634-1cd9-4899-9886-17973a301efa.png)
