@@ -1,6 +1,7 @@
 const fontBtns = document.getElementsByClassName('fontSize');
 for (let i = 0; i < fontBtns.length; i++) {
     fontBtns[i].addEventListener('click', function (e) {
+        console.log('Hi');
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             chrome.tabs.sendMessage(tabs[0].id, {action: "fontSize", fontSize: e.target.innerText});
         });
@@ -40,21 +41,23 @@ for (let i = 0; i < imageAdd.length; i++) {
 };
 
 const textToSpeech = document.getElementsByClassName('text-to-speech');
+const rate = document.querySelector('#rate');
+console.log(rate.value);
 for (let i = 0; i < textToSpeech.length; i++) {
     textToSpeech[i].addEventListener('click', function (e) {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {action: "text-to-speech"});
+            chrome.tabs.sendMessage(tabs[0].id, {action: "text-to-speech", rate: rate.value});
         }
         )
     }
     )
 }
 
-const textToSpeechStop = document.getElementsByClassName('text-to-speech-stop');
-for (let i = 0; i < textToSpeech.length; i++) {
+const textToSpeechStop = document.getElementsByClassName('stop-speech');
+for (let i = 0; i < textToSpeechStop.length; i++) {
     textToSpeech[i].addEventListener('click', function (e) {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {action: "text-to-speech-stop"});
+            chrome.tabs.sendMessage(tabs[0].id, {action: "stop-speech"});
         }
         )
     }
