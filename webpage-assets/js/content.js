@@ -140,14 +140,18 @@ window.addEventListener("load", function load(event) {
         
 
       else if (action === "para-highlighter") {
-        const paras = document.getElementsByTagName('p');
+        const paras1 = document.getElementsByTagName('p');
+        const paras2 = document.getElementsByTagName('div');
+        const paras = [...paras1, ...paras2];
         for (let i = 0; i < paras.length; i++) {
           paras[i].style.setProperty('border', '2px solid yellow');
         }
       }
 
       else if (action === "para-highlighter-remove") {
-        const paras = document.getElementsByTagName('p');
+        const paras1 = document.getElementsByTagName('p');
+        const paras2 = document.getElementsByTagName('div');
+        const paras = [...paras1, ...paras2];
         for (let i = 0; i < paras.length; i++) {
           paras[i].style.setProperty('border', 'none');
         }
