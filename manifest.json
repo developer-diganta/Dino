@@ -7,7 +7,7 @@
     "action": {
         "default_popup": "popup.html"
     },
-        "background.service_worker":{
+    "background.service_worker":{
         "scripts":["background.js"]
     },
     "content_scripts":[

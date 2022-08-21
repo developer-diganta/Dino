@@ -1,3 +1,5 @@
+const synth = window.speechSynthesis;
+
 window.addEventListener("load", function load(event) {
 
 
@@ -8,12 +10,14 @@ window.addEventListener("load", function load(event) {
       let backColor = '';
       let fontColor = '';
       let originalLineHeight = 1;
+
       const action = request.action;
       if (action === 'fontSize') {
+        //console.log(request.fontSize);
         const fontSize = request.fontSize;
         const html = document.querySelector('html');
         html.style.fontSize = fontSize;
-        console.log(html.innerText);
+        //console.log(html.innerText);
       }
       else if (action === 'fontStyle') {
         console.log(request.fontStyle);
@@ -53,13 +57,21 @@ window.addEventListener("load", function load(event) {
       }
         
       else if (action === 'text-to-speech') {
+        console.log('Hi');
+        if (synth.speaking) {
+          synth.cancel();
+        }
         const text = document.getElementsByTagName('body')[0].innerText;
         const msg = new SpeechSynthesisUtterance(text);
-        window.speechSynthesis.speak(msg);
+        msg.rate = request.rate;
+        //console.log(msg);
+        synth.speak(msg);
       }
 
-      // else if (action === 'text-to-speech-stop') {
-      //   window.speechSynthesis.cancel();
+      // else if (action === 'stop-speech') {
+      //   if (synth.speaking) {
+      //     synth.cancel();
+      //   }
       // }
 
       else if (action === 'link-highlight') {
