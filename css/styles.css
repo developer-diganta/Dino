@@ -16,6 +16,7 @@
 
 body{
     width: 500px;
+    /* use dyslexic friendly background */
     background-color: rgba(0, 0, 0, 0.09) !important;
 }
 
