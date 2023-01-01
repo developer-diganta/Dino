@@ -20,6 +20,7 @@ for (let i = 0; i < fontStyleBtns.length; i++) {
 }
 
 // Change Word Spacing
+
 // const wordSpaceBtns = document.getElementByClassName('wordSpace');
 // for (let i = 0; i < wordSpaceBtns.length; i++) {
 //     wordSpaceBtns[i].addEventListener('click', function (e) {
@@ -75,8 +76,6 @@ for (let i = 0; i < textToSpeechStop.length; i++) {
     }
     )
 }
-
-// Raise Video Volume
 
 const links = document.getElementsByClassName('link');
 for (let i = 0; i < links.length; i++) {

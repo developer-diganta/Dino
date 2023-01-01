@@ -44,6 +44,7 @@ window.addEventListener("load", function load(event) {
         }
       }
       // Change Word Spacing
+      
       // else if (action === 'wordSpace') {
       //   console.log(request.wordSpace);
       //   document.getElementsByTagName('body')[0].setAttribute('id', 'wspace');

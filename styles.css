@@ -3,6 +3,7 @@
     font-style: normal;
     font-weight: 800;
     font-size:26px;
+    /* word-spacing added for default value*/
     word-spacing: normal;
 }
 
