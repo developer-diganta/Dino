@@ -5,7 +5,7 @@ window.addEventListener("load", function load(event) {
 
   window.removeEventListener("load", load, false);
   chrome.runtime.onMessage.addListener(
-  
+
     function (request, sender, sendResponse) {
       let backColor = '';
       let fontColor = '';
@@ -55,7 +55,7 @@ window.addEventListener("load", function load(event) {
           immgs[i].style.setProperty('display', 'block');
         }
       }
-        
+
       else if (action === 'text-to-speech') {
         console.log('Hi');
         if (synth.speaking) {
@@ -91,7 +91,7 @@ window.addEventListener("load", function load(event) {
       }
 
       else if (action === 'image-reader') {
-        
+
         const images = document.getElementsByTagName('img');
         console.log(images)
         for (let i = 0; i < images.length; i++) {
@@ -120,7 +120,7 @@ window.addEventListener("load", function load(event) {
       else if (action === "revert-background-color") {
         document.getElementsByTagName('body')[0].style.setProperty('background-color', backColor);
       }
-        
+
       else if (action === "fontColor") {
         console.log(request.fontColor);
         fontColor === '' ? fontColor = document.getElementsByTagName('*')[0].style.fontColor : null;
@@ -137,7 +137,7 @@ window.addEventListener("load", function load(event) {
       //   }
       // }
 
-        
+
 
       else if (action === "para-highlighter") {
         const paras1 = document.getElementsByTagName('p');
@@ -156,10 +156,16 @@ window.addEventListener("load", function load(event) {
           paras[i].style.setProperty('border', 'none');
         }
       }
-
-  
-  })
-},false);
+      else if (action === "select-text") {
+        const word = window.getSelection().toString();
+        if (word !== "") {
+          sendResponse({ data: word.replace(/ .*/, '') });
+        } else {
+          sendResponse({})
+        }
+      }
+    })
+}, false);
 
 
 

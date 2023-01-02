@@ -1,93 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DINO!</title>
-        <link rel="stylesheet" href="./css/styles.css">
-        
-    </head>
-    <body>
-        <header class="centered">
-            <img src="./assets/images/DINO!.png" height="120px" width="90px" alt="DINO LOGO">
-        </header>
-        <section id="about">
-            <p>
-                Dino is an extension developed to make the web more accessible to people with dyslexia and color blindness. Dino allows you to change colors, add and remove images, read out pages etc.
-            </p>
-        </section>
-        <section id="fonts">
-            <h1>FONT SIZE</h1>
-            <button class="fontSize">22px</button>
-            <button class="fontSize">26px</button>
-            <button class="fontSize">30px</button>
-            <button class="fontSize">40px</button>
-            <button class="fontSize">60px</button>
-        </section>
-        <section>
-            <h1>FONT STYLE</h1>
-            <!-- <button class="fontStyle">OpenDyslexic</button> -->
-            <button class="fontStyle">Arial</button>
-            <button class="fontStyle">Baskerville</button>
-            <button class="fontStyle">Calibri</button>
-            <button class="fontStyle">Garamond</button>
-            <button class="fontStyle">Trebuchet MS</button>
-            <button class="fontStyle">Verdana</button>
-        </section>
-        <section>
-            <h1>IMAGES</h1>
-            <button class="img-remmover">Remove images</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DINO!</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <header class="centered">
+      <img
+        src="./assets/images/DINO!.png"
+        height="120px"
+        width="90px"
+        alt="DINO LOGO"
+      />
+    </header>
+    <section id="about">
+      <p>
+        Dino is an extension developed to make the web more accessible to people
+        with dyslexia and color blindness. Dino allows you to change colors, add
+        and remove images, read out pages etc.
+      </p>
+    </section>
+    <section id="fonts">
+      <h1>FONT SIZE</h1>
+      <button class="fontSize">22px</button>
+      <button class="fontSize">26px</button>
+      <button class="fontSize">30px</button>
+      <button class="fontSize">40px</button>
+      <button class="fontSize">60px</button>
+    </section>
+    <!-- dictionary section -->
+    <section>
+      <h1>DICTIONARY</h1>
+      <button class="select-text">Get Definition</button>
+      <!-- <button class="para-highlighter-remove">
+        Remove Paragraph Highlighting
+      </button> -->
+      <p class="select-text-definition"></p>
+    </section>
 
-            <button class="img-add">Add images</button>
+    <section>
+      <h1>FONT STYLE</h1>
+      <!-- <button class="fontStyle">OpenDyslexic</button> -->
+      <button class="fontStyle">Arial</button>
+      <button class="fontStyle">Baskerville</button>
+      <button class="fontStyle">Calibri</button>
+      <button class="fontStyle">Garamond</button>
+      <button class="fontStyle">Trebuchet MS</button>
+      <button class="fontStyle">Verdana</button>
+    </section>
+    <section>
+      <h1>IMAGES</h1>
+      <button class="img-remmover">Remove images</button>
 
-             <button class="img-read">Read Out Images</button>
-        </section>
-        <section>
-            <h1>LSITEN TO WEB PAGE</h1>
-            <button class="text-to-speech">Speak</button>
-            <div id="rate-control">
-                <label for="rate">Rate:</label>
-                <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
-            </div>
-            <!-- <button class="stop-speech">Stop</button> -->
-        </section>
-        
-        <section>
-            <h1>LINKS</h1>
-            <button class="link">Highlight Links</button>
-            <button class="remove-link-hg">Remove Link Highlights</button>
-        </section>
+      <button class="img-add">Add images</button>
 
-        <section>
-            <h1>COLORS</h1>
-            <form id="backgroundColorChanger">
-                <input name="color" type="color"/>
-                <button type="submit">Change Background Color</button>
-            </form>
+      <button class="img-read">Read Out Images</button>
+    </section>
+    <section>
+      <h1>LSITEN TO WEB PAGE</h1>
+      <button class="text-to-speech">Speak</button>
+      <div id="rate-control">
+        <label for="rate">Rate:</label>
+        <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
+      </div>
+      <!-- <button class="stop-speech">Stop</button> -->
+    </section>
 
-            <button class="revert-background-color">Revert Background Color</button>
+    <section>
+      <h1>LINKS</h1>
+      <button class="link">Highlight Links</button>
+      <button class="remove-link-hg">Remove Link Highlights</button>
+    </section>
 
-            <form id="fontColorChanger">
-                <input name="color" type="color"/>
-                <button type="submit">Change Font Color</button>
-            </form>
+    <section>
+      <h1>COLORS</h1>
+      <form id="backgroundColorChanger">
+        <input name="color" type="color" />
+        <button type="submit">Change Background Color</button>
+      </form>
 
-            <!-- <button class="revert-font-color">Revert Background Color</button> -->
+      <button class="revert-background-color">Revert Background Color</button>
 
-        </section>
-        <section>
-            <h1>PARAGRPHS</h1>
-            <button class="para-highlighter">HighLight Paragraphs</button>
-            <button class="para-highlighter-remove">Remove Paragraph Highlighting</button>
-        </section>
+      <form id="fontColorChanger">
+        <input name="color" type="color" />
+        <button type="submit">Change Font Color</button>
+      </form>
 
-    </body>
-    <!-- <script>
+      <!-- <button class="revert-font-color">Revert Background Color</button> -->
+    </section>
+    <section>
+      <h1>PARAGRPHS</h1>
+      <button class="para-highlighter">HighLight Paragraphs</button>
+      <button class="para-highlighter-remove">
+        Remove Paragraph Highlighting
+      </button>
+    </section>
+  </body>
+  <!-- <script>
         function fontSize(size) {
             console.log(size);
         }
     </script> -->
-    <!-- link js file -->
-    <script src="background.js"></script>
+  <!-- link js file -->
+  <script src="background.js"></script>
 </html>
