@@ -81,8 +81,8 @@ button:hover {
 
 .select-text-definition {
   font-family: "Courier New", Courier, monospace;
-  margin-left: 10px;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 @media (min-width: 768px) {
