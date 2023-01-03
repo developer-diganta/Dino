@@ -19,7 +19,20 @@ for (let i = 0; i < fontStyleBtns.length; i++) {
     )
 }
 
-const images = document.getElementsByClassName('img-remmover');
+// Change Word Spacing
+
+// const wordSpaceBtns = document.getElementByClassName('wordSpace');
+// for (let i = 0; i < wordSpaceBtns.length; i++) {
+//     wordSpaceBtns[i].addEventListener('click', function (e) {
+//         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+//             chrome.tabs.sendMessage(tabs[0].id, {action: "wordSpace", wordSpace: e.target.innerText});
+//         }
+//         )
+//     }
+//     )
+// }
+
+const images = document.getElementsByClassName('img-remover');
 for(let i = 0; i < images.length; i++) {
     images[i].addEventListener('click', function (e) {
         console.log("clicked")
@@ -38,7 +51,7 @@ for (let i = 0; i < imageAdd.length; i++) {
             chrome.tabs.sendMessage(tabs[0].id, { action: "imageAdd" });
         })
     })
-};
+}
 
 const textToSpeech = document.getElementsByClassName('text-to-speech');
 const rate = document.querySelector('#rate');
@@ -72,7 +85,7 @@ for (let i = 0; i < links.length; i++) {
         }
         )
     })
-};
+}
 
 const removeLinkHighlight = document.getElementsByClassName('remove-link-hg');
 for (let i = 0; i < links.length; i++) {
@@ -82,7 +95,7 @@ for (let i = 0; i < links.length; i++) {
         }
         )
     })
-};
+}
 
 
 const imageReader = document.getElementsByClassName('img-read');
@@ -134,7 +147,7 @@ for (let i = 0; i < highlightPara.length; i++) {
             chrome.tabs.sendMessage(tabs[0].id, { action: "para-highlighter" });
         })
     })
-};
+}
 
 const removeHighlightPara = document.getElementsByClassName('para-highlighter-remove');
 for (let i = 0; i < removeHighlightPara.length; i++) {
