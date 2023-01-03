@@ -185,7 +185,7 @@ selectedText[0].addEventListener("click", function () {
           }
         } else {
           updateDefinition.innerHTML =
-            "Please select word first to get definition!";
+            "Please select word without space initially to get definition!";
         }
       }
     );
