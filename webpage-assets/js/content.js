@@ -1,149 +1,173 @@
 const synth = window.speechSynthesis;
 
-window.addEventListener(
-  "load",
-  function load(event) {
-    window.removeEventListener("load", load, false);
-    chrome.runtime.onMessage.addListener(function (
-      request,
-      sender,
-      sendResponse
-    ) {
-      let backColor = "";
-      let fontColor = "";
-      let originalLineHeight = 1;
+const html = document.querySelector("html");
+const body = document.querySelector("body");
+const links = document.querySelectorAll("a");
+const images = document.querySelectorAll("img");
 
-      const action = request.action;
-      if (action === 'fontSize') {
-   
-        const fontSize = request.fontSize;
-        const html = document.querySelector("html");
-        html.style.fontSize = fontSize;
-        
-      }
-      else if (action === 'fontStyle') {
-        console.log(request.fontStyle);
-        document.getElementsByTagName("body")[0].setAttribute("id", "fonter");
-        const html = document.querySelector("#fonter");
+let backColor = "";
+let fontColor = "";
+let originalLineHeight = 1;
+// Extract style manipulation into separate functions
+function setFontSize(fontSize) {
+    console.log("Font Size");
+    html.style.fontSize = fontSize;
+}
 
-        if (request.fontStyle === "Trebuchet MS") {
-          html.style.setProperty(
-            "font-family",
-            "Castellar, Trebuchet MS, sans-serif"
-          );
-        } else if (request.fontStyle === "Arial") {
-          html.style.setProperty("font-family", "Arial, sans-serif");
-        } else if (request.fontStyle === "Baskerville") {
-          html.style.setProperty("font-family", "Baskerville, serif");
-        } else if (request.fontStyle === "Calibri") {
-          html.style.setProperty("font-family", "Calibri, sans-serif");
-        } else if (request.fontStyle === "Garamond") {
-          html.style.setProperty("font-family", "Garamond, serif");
-        } else if (request.fontStyle === "Verdana") {
-          html.style.setProperty("font-family", "Verdana, sans-serif");
-        }
-      } else if (action === "image") {
-        const immgs = document.getElementsByTagName("img");
-        for (let i = 0; i < immgs.length; i++) {
-          immgs[i].style.setProperty("display", "none");
-        }
-      } else if (action === "imageAdd") {
-        const immgs = document.getElementsByTagName("img");
-        for (let i = 0; i < immgs.length; i++) {
-          immgs[i].style.setProperty("display", "block");
-        }
-      } else if (action === "text-to-speech") {
-        console.log("Hi");
-        if (synth.speaking) {
-          synth.cancel();
-        }
-        const text = document.getElementsByTagName("body")[0].innerText;
-        const msg = new SpeechSynthesisUtterance(text);
-        msg.rate = request.rate;
-        synth.speak(msg);
-      }
+function setFontStyle(fontStyle) {
+    body.style.fontFamily = fontStyle;
+}
 
+function hideImages() {
+    images.forEach(image => image.style.display = "none");
+}
 
-    
+function showImages() {
+    images.forEach(image => image.style.display = "block");
+}
 
-      else if (action === 'link-highlight') {
-        const links = document.getElementsByTagName('a');
-        for (let i = 0; i < links.length; i++) {
-          links[i].style.setProperty("background-color", "yellow");
-          links[i].style.setProperty("fontSize", "24px");
-        }
-      } else if (action === "link-highlight-remove") {
-        const links = document.getElementsByTagName("a");
-        for (let i = 0; i < links.length; i++) {
-          links[i].style.setProperty("background-color", "transparent");
-          links[i].style.setProperty("fontSize", "default");
-        }
-      } else if (action === "image-reader") {
-        const images = document.getElementsByTagName("img");
-        console.log(images);
-        for (let i = 0; i < images.length; i++) {
+function readOutImages() {
+    const images = document.getElementsByTagName("img");
 
-          images[i].addEventListener("mouseover", function (e) {
-            console.log("here");
-            console.log(images[i].alt);
-            const msg = new SpeechSynthesisUtterance(images[i].alt);
+    for (let i = 0; i < images.length; i++) {
+        images[i].addEventListener("mouseover", speakAltText);
+        images[i].addEventListener('mouseleave', speakAltText);
+    }
+
+    const msg = new SpeechSynthesisUtterance();
+
+    function speakAltText(event) {
+        if (event.type === 'mouseover') {
+            msg.text = event.target.alt;
             window.speechSynthesis.speak(msg);
-          });
-
-         
-          images[i].addEventListener('mouseleave', function (e) {
-            window.speechSynthesis.cancel();
-          });
-        }
-      } else if (action === "backgroundColor") {
-        backColor === ""
-          ? (backColor =
-              document.getElementsByTagName("body")[0].style.backgroundColor)
-          : null;
-        document
-          .getElementsByTagName("body")[0]
-          .style.setProperty("background-color", request.backgroundColor);
-      } else if (action === "revert-background-color") {
-        document
-          .getElementsByTagName("body")[0]
-          .style.setProperty("background-color", backColor);
-      } else if (action === "fontColor") {
-        console.log(request.fontColor);
-        fontColor === ""
-          ? (fontColor = document.getElementsByTagName("*")[0].style.fontColor)
-          : null;
-        const all = document.getElementsByTagName("*");
-        for (let i = 0; i < all.length; i++) {
-          all[i].style.setProperty("color", request.fontColor);
-        }
-      }
-
-
-        
-
-      else if (action === "para-highlighter") {
-        const paras1 = document.getElementsByTagName("p");
-        const paras2 = document.getElementsByTagName("div");
-        const paras = [...paras1, ...paras2];
-        for (let i = 0; i < paras.length; i++) {
-          paras[i].style.setProperty("border", "2px solid yellow");
-        }
-      } else if (action === "para-highlighter-remove") {
-        const paras1 = document.getElementsByTagName("p");
-        const paras2 = document.getElementsByTagName("div");
-        const paras = [...paras1, ...paras2];
-        for (let i = 0; i < paras.length; i++) {
-          paras[i].style.setProperty("border", "none");
-        }
-      } else if (action === "select-text") {
-        const word = window.getSelection().toString();
-        if (word !== "") {
-          sendResponse({ data: word.replace(/ .*/, "") });
         } else {
-          sendResponse({});
+            window.speechSynthesis.cancel();
         }
-      }
+    }
+}
+
+function highlightLinks() {
+    links.forEach(link => {
+        link.style.backgroundColor = "yellow";
+        link.style.fontSize = "24px";
     });
-  },
-  false
-);
+}
+
+function removeLinkHighlights() {
+    links.forEach(link => {
+        link.style.backgroundColor = "transparent";
+        link.style.fontSize = "default";
+    });
+}
+
+function imageReader() {
+    images.forEach(image => {
+        image.addEventListener("mouseover", function(e) {
+            console.log(image.getAttribute("alt"));
+            const alt = image.getAttribute("alt");
+            if (synth.speaking) {
+                synth.cancel();
+            }
+            const msg = new SpeechSynthesisUtterance(alt);
+            synth.speak(msg);
+        });
+    });
+}
+
+
+function highlightParagraphs() {
+    const paras1 = document.getElementsByTagName("p");
+    const paras2 = document.getElementsByTagName("div");
+    const paras = [...paras1, ...paras2];
+    for (let i = 0; i < paras.length; i++) {
+        paras[i].style.setProperty("border", "2px solid yellow");
+    }
+}
+
+function removeParagraphHighlight() {
+    const paras1 = document.getElementsByTagName("p");
+    const paras2 = document.getElementsByTagName("div");
+    const paras = [...paras1, ...paras2];
+    for (let i = 0; i < paras.length; i++) {
+        paras[i].style.setProperty("border", "none");
+    }
+}
+
+
+// Added a single event listener for different types of events
+window.addEventListener("load", () => {
+    chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+        const action = request.action;
+        switch (action) {
+            case "fontSize":
+                setFontSize(request.fontSize);
+                break;
+            case "fontStyle":
+                setFontStyle(request.fontStyle);
+                break;
+            case "image":
+                hideImages();
+                break;
+            case "imageAdd":
+                showImages();
+                break;
+            case "text-to-speech":
+                const text = body.innerText;
+                if (synth.speaking) {
+                    synth.cancel();
+                }
+                const msg = new SpeechSynthesisUtterance(text);
+                msg.rate = request.rate;
+                synth.speak(msg);
+                break;
+            case "link-highlight":
+                highlightLinks();
+                break;
+            case "link-highlight-remove":
+                removeLinkHighlights();
+                break;
+            case "image-reader":
+                imageReader();
+                break;
+            case "read-image":
+                imageReader();
+                break;
+            case "para-highlighter":
+                highlightParagraphs();
+                break;
+            case "para-highlighter-remove":
+                removeParagraphHighlight();
+                break;
+        }
+
+        if (action === "backgroundColor") {
+            backColor === "" ?
+                (backColor =
+                    document.getElementsByTagName("body")[0].style.backgroundColor) :
+                null;
+            document
+                .getElementsByTagName("body")[0]
+                .style.setProperty("background-color", request.backgroundColor);
+        } else if (action === "revert-background-color") {
+            document
+                .getElementsByTagName("body")[0]
+                .style.setProperty("background-color", backColor);
+        } else if (action === "fontColor") {
+            console.log(request.fontColor);
+            fontColor === "" ?
+                (fontColor = document.getElementsByTagName("*")[0].style.fontColor) :
+                null;
+            const all = document.getElementsByTagName("*");
+            for (let i = 0; i < all.length; i++) {
+                all[i].style.setProperty("color", request.fontColor);
+            }
+        } else if (action === "select-text") {
+            const word = window.getSelection().toString();
+            if (word !== "") {
+                sendResponse({ data: word.replace(/ .*/, "") });
+            } else {
+                sendResponse({});
+            }
+        }
+    });
+});

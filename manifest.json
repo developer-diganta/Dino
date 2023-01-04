@@ -1,28 +1,26 @@
 {
     "manifest_version": 3,
-    "name":"Dino",
-    "version":"1.0",
-    "description":"A chrome extension to help people with dyslexia and color blindness access web pages with more ease.",
-    "icons": { "128":"dino.png" },
+    "name": "Dino",
+    "version": "1.0",
+    "description": "A chrome extension to help people with dyslexia and color blindness access web pages with more ease.",
+    "icons": { "128": "dino.png" },
     "action": {
         "default_popup": "popup.html"
     },
-    "background.service_worker":{
-        "scripts":["background.js"]
+    "background.service_worker": {
+        "scripts": ["background.js"]
     },
-    "content_scripts":[
-        {
-            "matches": ["<all_urls>"],
-            "js":["webpage-assets/js/content.js"],
-            "css":["webpage-assets/css/styles.css"]
-        }
+    "content_scripts": [{
+        "matches": ["<all_urls>"],
+        "js": ["webpage-assets/js/content.js"],
+        "css": ["webpage-assets/css/styles.css"]
+    }],
+    "permissions": [
+        "tabs", "activeTab"
     ],
-        "permissions": [
-    "tabs","activeTab"
-  ],
     "host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ]
+        "http://*/*",
+        "https://*/*"
+    ]
 
 }
