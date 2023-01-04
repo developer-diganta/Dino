@@ -1,23 +1,23 @@
-*{
-    font-family: 'Courier New', Courier, monospace;
-    font-style: normal;
-    font-weight: 800;
-    font-size:26px;
+* {
+  font-family: "Courier New", Courier, monospace;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 26px;
 }
 
-.centered{
-    text-align: center;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+.centered {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
-body{
-    width: 500px;
-    /* use dyslexic friendly background */
-    background-color: rgba(0, 0, 0, 0.09) !important;
+body {
+  width: 500px;
+
+  background-color: rgba(0, 0, 0, 0.09) !important;
 }
 
 ::-webkit-scrollbar{
@@ -38,12 +38,12 @@ body{
   
 }
 
-h1{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+h1 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 button {
   align-items: center;
@@ -53,6 +53,7 @@ button {
   border-radius: 8px;
   box-sizing: border-box;
   color: #111;
+
   margin:25px;
   font-size: 16px;
   height: 48px;
@@ -74,7 +75,7 @@ button:after {
   position: absolute;
   top: -2px;
   transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
+  transition: transform 0.2s ease-out;
   z-index: -1;
 }
 
@@ -91,6 +92,12 @@ button:hover {
   outline: 0;
 }
 
+.select-text-definition {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
 @media (min-width: 768px) {
   button {
     padding: 0 40px;
@@ -103,3 +110,4 @@ button:hover {
   gap: 1rem;
   margin: 1rem 0;
 }
+
