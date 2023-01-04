@@ -14,13 +14,14 @@ window.addEventListener(
       let originalLineHeight = 1;
 
       const action = request.action;
-      if (action === "fontSize") {
-        //console.log(request.fontSize);
+      if (action === 'fontSize') {
+   
         const fontSize = request.fontSize;
         const html = document.querySelector("html");
         html.style.fontSize = fontSize;
-        //console.log(html.innerText);
-      } else if (action === "fontStyle") {
+        
+      }
+      else if (action === 'fontStyle') {
         console.log(request.fontStyle);
         document.getElementsByTagName("body")[0].setAttribute("id", "fonter");
         const html = document.querySelector("#fonter");
@@ -59,17 +60,14 @@ window.addEventListener(
         const text = document.getElementsByTagName("body")[0].innerText;
         const msg = new SpeechSynthesisUtterance(text);
         msg.rate = request.rate;
-        //console.log(msg);
         synth.speak(msg);
       }
 
-      // else if (action === 'stop-speech') {
-      //   if (synth.speaking) {
-      //     synth.cancel();
-      //   }
-      // }
-      else if (action === "link-highlight") {
-        const links = document.getElementsByTagName("a");
+
+    
+
+      else if (action === 'link-highlight') {
+        const links = document.getElementsByTagName('a');
         for (let i = 0; i < links.length; i++) {
           links[i].style.setProperty("background-color", "yellow");
           links[i].style.setProperty("fontSize", "24px");
@@ -84,7 +82,6 @@ window.addEventListener(
         const images = document.getElementsByTagName("img");
         console.log(images);
         for (let i = 0; i < images.length; i++) {
-          //read out alt text on mouse hover
 
           images[i].addEventListener("mouseover", function (e) {
             console.log("here");
@@ -93,8 +90,8 @@ window.addEventListener(
             window.speechSynthesis.speak(msg);
           });
 
-          //mouse exit
-          images[i].addEventListener("mouseleave", function (e) {
+         
+          images[i].addEventListener('mouseleave', function (e) {
             window.speechSynthesis.cancel();
           });
         }
@@ -121,12 +118,9 @@ window.addEventListener(
         }
       }
 
-      // else if (action === "revert-font-color") {
-      //   const all = document.getElementsByTagName('*');
-      //   for (let i = 0; i < all.length; i++) {
-      //     all[i].style.setProperty('color', request.fontColor);
-      //   }
-      // }
+
+        
+
       else if (action === "para-highlighter") {
         const paras1 = document.getElementsByTagName("p");
         const paras2 = document.getElementsByTagName("div");

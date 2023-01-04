@@ -16,8 +16,26 @@
 
 body {
   width: 500px;
-  /* use dyslexic friendly background */
+
   background-color: rgba(0, 0, 0, 0.09) !important;
+}
+
+::-webkit-scrollbar{
+  width: 12px;
+  
+}
+::-webkit-scrollbar-track{
+  background-color: pink;
+  margin-block: .3em;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgb(141, 215, 141);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: rgb(67, 171, 67);
+  
 }
 
 h1 {
@@ -35,20 +53,15 @@ button {
   border-radius: 8px;
   box-sizing: border-box;
   color: #111;
-  /* display: flex; */
-  margin: 25px;
+
+  margin:25px;
   font-size: 16px;
   height: 48px;
-  /* justify-content: center; */
   line-height: 24px;
   max-width: 100%;
   padding: 0 25px;
   position: relative;
-  /* text-align: center; */
   text-decoration: none;
-  /* user-select: none; */
-  /* -webkit-user-select: none; */
-  /* touch-action: manipulation; */
 }
 
 button:after {
@@ -97,3 +110,4 @@ button:hover {
   gap: 1rem;
   margin: 1rem 0;
 }
+
