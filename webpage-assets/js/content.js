@@ -5,6 +5,9 @@ const body = document.querySelector("body");
 const links = document.querySelectorAll("a");
 const images = document.querySelectorAll("img");
 
+let backColor = "";
+let fontColor = "";
+let originalLineHeight = 1;
 // Extract style manipulation into separate functions
 function setFontSize(fontSize) {
     console.log("Font Size");
@@ -90,6 +93,7 @@ function removeParagraphHighlight() {
     }
 }
 
+
 // Added a single event listener for different types of events
 window.addEventListener("load", () => {
     chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -134,9 +138,36 @@ window.addEventListener("load", () => {
             case "para-highlighter-remove":
                 removeParagraphHighlight();
                 break;
-            default:
-                console.log("Invalid action");
-                break;
+        }
+
+        if (action === "backgroundColor") {
+            backColor === "" ?
+                (backColor =
+                    document.getElementsByTagName("body")[0].style.backgroundColor) :
+                null;
+            document
+                .getElementsByTagName("body")[0]
+                .style.setProperty("background-color", request.backgroundColor);
+        } else if (action === "revert-background-color") {
+            document
+                .getElementsByTagName("body")[0]
+                .style.setProperty("background-color", backColor);
+        } else if (action === "fontColor") {
+            console.log(request.fontColor);
+            fontColor === "" ?
+                (fontColor = document.getElementsByTagName("*")[0].style.fontColor) :
+                null;
+            const all = document.getElementsByTagName("*");
+            for (let i = 0; i < all.length; i++) {
+                all[i].style.setProperty("color", request.fontColor);
+            }
+        } else if (action === "select-text") {
+            const word = window.getSelection().toString();
+            if (word !== "") {
+                sendResponse({ data: word.replace(/ .*/, "") });
+            } else {
+                sendResponse({});
+            }
         }
     });
 });
