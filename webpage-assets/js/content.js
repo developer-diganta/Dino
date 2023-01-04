@@ -13,11 +13,9 @@ window.addEventListener("load", function load(event) {
 
       const action = request.action;
       if (action === 'fontSize') {
-        //console.log(request.fontSize);
         const fontSize = request.fontSize;
         const html = document.querySelector('html');
         html.style.fontSize = fontSize;
-        //console.log(html.innerText);
       }
       else if (action === 'fontStyle') {
         console.log(request.fontStyle);
@@ -64,15 +62,8 @@ window.addEventListener("load", function load(event) {
         const text = document.getElementsByTagName('body')[0].innerText;
         const msg = new SpeechSynthesisUtterance(text);
         msg.rate = request.rate;
-        //console.log(msg);
         synth.speak(msg);
       }
-
-      // else if (action === 'stop-speech') {
-      //   if (synth.speaking) {
-      //     synth.cancel();
-      //   }
-      // }
 
       else if (action === 'link-highlight') {
         const links = document.getElementsByTagName('a');
@@ -95,7 +86,6 @@ window.addEventListener("load", function load(event) {
         const images = document.getElementsByTagName('img');
         console.log(images)
         for (let i = 0; i < images.length; i++) {
-          //read out alt text on mouse hover
 
 
           images[i].addEventListener('mouseover', function (e) {
@@ -105,7 +95,6 @@ window.addEventListener("load", function load(event) {
             window.speechSynthesis.speak(msg);
           });
 
-          //mouse exit
           images[i].addEventListener('mouseleave', function (e) {
             window.speechSynthesis.cancel();
           });
@@ -130,12 +119,6 @@ window.addEventListener("load", function load(event) {
         }
       }
 
-      // else if (action === "revert-font-color") {
-      //   const all = document.getElementsByTagName('*');
-      //   for (let i = 0; i < all.length; i++) {
-      //     all[i].style.setProperty('color', request.fontColor);
-      //   }
-      // }
 
         
 
