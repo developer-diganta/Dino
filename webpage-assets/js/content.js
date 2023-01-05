@@ -44,10 +44,17 @@ window.addEventListener(
           html.style.setProperty("font-family", "Garamond, serif");
         } else if (request.fontStyle === "Verdana") {
           html.style.setProperty("font-family", "Verdana, sans-serif");
-        } else if (request.fontStyle === "Times New Roman") {
-          html.style.setProperty("font-family", "Times New Roman, serif");
-        } else if (request.fontStyle === "Georgia") {
-          html.style.setProperty("font-family", "Georgia, serif");
+        }else if(request.fontStyle === "Georgia"){
+          html.style.setProperty("font-family", "Georgia", "serif");
+        }
+        else if(request.fontStyle=== "Times New Roman"){
+          html.style.setProperty("font-family", "Times New Roman", "serif");
+        }
+        else if(request.fontStyle === "Helvetica"){
+          html.style.setProperty("font-family", "Helvetica", "sans-serif");
+        }
+        else if(request.fontStyle=== "Monaco"){
+          html.style.setProperty("font-family", "Monaco", "Monospace");
         }
       } else if (action === "image") {
         const immgs = document.getElementsByTagName("img");
