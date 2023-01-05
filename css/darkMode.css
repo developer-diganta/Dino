@@ -1,0 +1,9 @@
+
+body {
+  background: linear-gradient(#232328bc, #25222bac);
+}
+button {
+  background-color: white;
+  color: black;
+  box-shadow: 2px 2px 5px black;
+}
