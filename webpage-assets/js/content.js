@@ -76,7 +76,12 @@ window.addEventListener(
         msg.rate = request.rate;
         synth.speak(msg);
       }
-
+      
+      else if (action === "stop-speech") {
+        if (synth.speaking) {
+             synth.cancel();
+        }
+        }
 
 
 
