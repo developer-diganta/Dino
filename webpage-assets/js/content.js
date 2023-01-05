@@ -3,6 +3,9 @@ const synth = window.speechSynthesis;
 window.addEventListener(
   "load",
   function load(event) {
+
+
+
     window.removeEventListener("load", load, false);
     chrome.runtime.onMessage.addListener(function (
       request,
@@ -15,11 +18,11 @@ window.addEventListener(
 
       const action = request.action;
       if (action === 'fontSize') {
-   
+
         const fontSize = request.fontSize;
         const html = document.querySelector("html");
         html.style.fontSize = fontSize;
-        
+
       }
       else if (action === 'fontStyle') {
         console.log(request.fontStyle);
@@ -75,7 +78,7 @@ window.addEventListener(
       }
 
 
-    
+
 
       else if (action === 'link-highlight') {
         const links = document.getElementsByTagName('a');
@@ -101,7 +104,7 @@ window.addEventListener(
             window.speechSynthesis.speak(msg);
           });
 
-         
+
           images[i].addEventListener('mouseleave', function (e) {
             window.speechSynthesis.cancel();
           });
@@ -109,7 +112,7 @@ window.addEventListener(
       } else if (action === "backgroundColor") {
         backColor === ""
           ? (backColor =
-              document.getElementsByTagName("body")[0].style.backgroundColor)
+            document.getElementsByTagName("body")[0].style.backgroundColor)
           : null;
         document
           .getElementsByTagName("body")[0]
@@ -130,7 +133,7 @@ window.addEventListener(
       }
 
 
-        
+
 
       else if (action === "para-highlighter") {
         const paras1 = document.getElementsByTagName("p");
