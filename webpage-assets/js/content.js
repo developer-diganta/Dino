@@ -130,6 +130,13 @@ window.addEventListener(
         for (let i = 0; i < all.length; i++) {
           all[i].style.setProperty("color", request.fontColor);
         }
+        document
+          .getElementsByTagName("body")[0]
+          .style.setProperty("Font-color", request.fontColor);
+      } else if (action === "revert-Font-color") {
+        document
+          .getElementsByTagName("body")[0]
+          .style.setProperty("Font-color", fontColor);
       }
 
 
