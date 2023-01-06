@@ -57,7 +57,7 @@ for (let i = 0; i < textToSpeech.length; i++) {
 
 const textToSpeechStop = document.getElementsByClassName("stop-speech");
 for (let i = 0; i < textToSpeechStop.length; i++) {
-  textToSpeech[i].addEventListener("click", function (e) {
+  textToSpeechStop[i].addEventListener("click", function (e) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "stop-speech" });
     });

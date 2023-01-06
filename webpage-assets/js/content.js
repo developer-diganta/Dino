@@ -3,6 +3,9 @@ const synth = window.speechSynthesis;
 window.addEventListener(
   "load",
   function load(event) {
+
+
+
     window.removeEventListener("load", load, false);
     chrome.runtime.onMessage.addListener(function (
       request,
@@ -15,11 +18,11 @@ window.addEventListener(
 
       const action = request.action;
       if (action === 'fontSize') {
-   
+
         const fontSize = request.fontSize;
         const html = document.querySelector("html");
         html.style.fontSize = fontSize;
-        
+
       }
       else if (action === 'fontStyle') {
         console.log(request.fontStyle);
@@ -41,6 +44,17 @@ window.addEventListener(
           html.style.setProperty("font-family", "Garamond, serif");
         } else if (request.fontStyle === "Verdana") {
           html.style.setProperty("font-family", "Verdana, sans-serif");
+        }else if(request.fontStyle === "Georgia"){
+          html.style.setProperty("font-family", "Georgia", "serif");
+        }
+        else if(request.fontStyle=== "Times New Roman"){
+          html.style.setProperty("font-family", "Times New Roman", "serif");
+        }
+        else if(request.fontStyle === "Helvetica"){
+          html.style.setProperty("font-family", "Helvetica", "sans-serif");
+        }
+        else if(request.fontStyle=== "Monaco"){
+          html.style.setProperty("font-family", "Monaco", "Monospace");
         }
       } else if (action === "image") {
         const immgs = document.getElementsByTagName("img");
@@ -62,9 +76,14 @@ window.addEventListener(
         msg.rate = request.rate;
         synth.speak(msg);
       }
+      
+      else if (action === "stop-speech") {
+        if (synth.speaking) {
+             synth.cancel();
+        }
+        }
 
 
-    
 
       else if (action === 'link-highlight') {
         const links = document.getElementsByTagName('a');
@@ -90,7 +109,7 @@ window.addEventListener(
             window.speechSynthesis.speak(msg);
           });
 
-         
+
           images[i].addEventListener('mouseleave', function (e) {
             window.speechSynthesis.cancel();
           });
@@ -98,7 +117,7 @@ window.addEventListener(
       } else if (action === "backgroundColor") {
         backColor === ""
           ? (backColor =
-              document.getElementsByTagName("body")[0].style.backgroundColor)
+            document.getElementsByTagName("body")[0].style.backgroundColor)
           : null;
         document
           .getElementsByTagName("body")[0]
@@ -119,7 +138,7 @@ window.addEventListener(
       }
 
 
-        
+
 
       else if (action === "para-highlighter") {
         const paras1 = document.getElementsByTagName("p");
