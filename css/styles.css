@@ -1,4 +1,6 @@
-
+.container a{
+    background-color: white;
+}
 body {
   background: linear-gradient(#383dc1c3, #5920cbaf);
 }
