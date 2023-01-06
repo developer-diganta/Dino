@@ -16,7 +16,7 @@
 
 body {
   width: 500px;
-  background-color: #000;
+  background-color: rgb(69, 138, 249);
   color: #fff;
 }
 
@@ -113,16 +113,14 @@ button:hover {
 
 .dark-mode {
   background-color: #fff;
-  color: rgb(0, 0, 0);
+  color: #000;
 }
 
 * {
   box-sizing: border-box;
 }
 
-body.dark {
-  background-color: #292c35;
-}
+
 .checkbox {
   opacity: 0;
   position: absolute;
