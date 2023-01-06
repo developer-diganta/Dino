@@ -127,8 +127,8 @@ button:hover {
 }
 
 .label {
-  width: 70px;
-  height: 30px;
+  width: 60px;
+  height: 25px;
   background-color:#111;
   display: flex;
   border-radius:50px;
@@ -140,8 +140,8 @@ button:hover {
 }
 
 .ball {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   background-color: white;
   position: absolute;
   left: 2px;
@@ -153,11 +153,5 @@ button:hover {
   transform: translateX(36px);
 }
 
-.fa-moon {
-  color: pink;
-}
 
-.fa-sun {
-  color: yellow;
-}
 
