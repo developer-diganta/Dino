@@ -22,14 +22,16 @@
   
   Dino offers a number of features to enhance your web experience. The features include:
   1. FONT SIZE: Change the font size of the web page using the various sizes available. 
-  2. FONT STYLE: Change the font style of the web page from the selected dyslexia friendly fonts. Source : [https://creativemarket.com/blog/best-fonts-for-dsylexia](https://creativemarket.com/blog/best-fonts-for-dsylexia)
-  3. IMAGES: Remove Images, Read out alt texts of images.
-  4. LISTEN TO THE WEB PAGE.
-  5. Control colors on the page.
-  6. Highlight links and paragraphs.
+  2. FONT STYLE: Change the font style of the web page from the selected dyslexia friendly fonts. 
+     Source : [https://creativemarket.com/blog/best-fonts-for-dsylexia](https://creativemarket.com/blog/best-fonts-for-dsylexia)
+  4. IMAGES: We can Remove Images, Add Images and also Read out alt texts of images.
+  5. LISTEN TO THE WEB PAGE.
+  6. Control colors on the page.
+  7. Highlight links and paragraphs.
   
   ## Permissions
-  Permissions include tabs and active tabs which helps to manipulate the styles of the web page. **NO DATA IS USED BY US.**
+  Permissions include tabs and active tabs which helps to manipulate the styles of the web page. 
+  **NO DATA IS USED BY US.**
   
   
   ## Screen Shots
