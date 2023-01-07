@@ -163,7 +163,7 @@ window.addEventListener(
         }
       }
       else if(action==="zoomPage"){
-        console.log("calling")
+        document.body.style.zoom=request.zoomValue
       }
     });
   },
