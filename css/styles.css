@@ -45,7 +45,7 @@ h1 {
   width: 100%;
   align-items: center;
 }
-button {
+button,.show-zoom-value {
   align-items: center;
   background-color: #fee6e3;
   border: 2px solid #111;
@@ -110,4 +110,29 @@ button:hover {
   gap: 1rem;
   margin: 1rem 0;
 }
-
+.magnifier{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.magnifier button{
+  padding:0 25px;
+}
+.magni-cnt,.magni-cnt button{
+  display: flex;
+  align-items: center;
+}
+.magni-cnt button i{
+  margin-right: 5px;
+}
+.show-zoom-value{
+  /* width: 60px; */
+  /* width: 100%;
+  height: auto;
+  padding: 20px; */
+  padding: 10px 20px;
+  margin-right: 0;
+}
+#magni{
+  width: 100%;
+}

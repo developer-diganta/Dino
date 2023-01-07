@@ -162,6 +162,9 @@ window.addEventListener(
           sendResponse({});
         }
       }
+      else if(action==="zoomPage"){
+        console.log("calling")
+      }
     });
   },
   false
