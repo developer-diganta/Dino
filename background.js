@@ -187,3 +187,9 @@ selectedText[0].addEventListener("click", function () {
     );
   });
 });
+
+document.getElementById('checkbox').addEventListener('click',()=>{
+  var element = document.body;
+  element.classList.toggle("dark-mode");
+})
+
