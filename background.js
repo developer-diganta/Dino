@@ -41,11 +41,11 @@ for (let i = 0; i < imageAdd.length; i++) {
   });
 }
 
-const textToSpeech = document.getElementsByClassName("text-to-speech");
+const textToSpeechHelper = document.getElementsByClassName("text-to-speech");
 const rate = document.querySelector("#rate");
 console.log(rate.value);
-for (let i = 0; i < textToSpeech.length; i++) {
-  textToSpeech[i].addEventListener("click", function (e) {
+for (let i = 0; i < textToSpeechHelper.length; i++) {
+  textToSpeechHelper[i].addEventListener("click", function (e) {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
         action: "text-to-speech",
@@ -188,8 +188,33 @@ selectedText[0].addEventListener("click", function () {
   });
 });
 
+
+
+
 document.getElementById('checkbox').addEventListener('click',()=>{
   var element = document.body;
   element.classList.toggle("dark-mode");
 })
 
+function wordToSpeechStop(){
+  speechSynthesis.cancel();
+}
+
+function wordToSpeech(text){
+  let utter = new SpeechSynthesisUtterance();
+  utter.lang = 'en-US';
+  utter.text = text;
+  utter.volume = 0.5;
+  window.speechSynthesis.speak(utter);
+}
+
+const extensionDescription = "Dino is an extension developed to make the web more accessible to people with dyslexia and color blindness. Dino allows you to change colors, add and remove images, read out pages etc.";
+
+const wordArray = [extensionDescription,"FONT SIZE","FONT STYLE","IMAGES","LISTEN TO WEB PAGE","LINKS","COLORS","DICTIONARY","PARAGRAPHS"];
+const speakerHelper = document.getElementsByClassName("speaker");
+for (let i = 0; i < speakerHelper.length; i++) {
+  speakerHelper[i].addEventListener("click", function (e) {
+    wordToSpeechStop();
+   wordToSpeech(wordArray[i]);
+  });
+}
