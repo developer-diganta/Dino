@@ -147,7 +147,7 @@ document.body.addEventListener('keypress', function (event)
 }
 , true);
 
-///////////////////////////////////////////////////////////////////////////////
+
 const imageReader = document.getElementsByClassName('img-read');
 for (let i = 0; i < imageReader.length; i++) {
     imageReader[i].addEventListener('click', function (e) {
