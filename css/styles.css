@@ -14,6 +14,11 @@
   align-items: center;
 }
 
+#about p{
+  text-align:left;
+   user-select: none;
+}
+
 body {
   width: 500px;
 
@@ -44,6 +49,7 @@ h1 {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  user-select: none;
 }
 button {
   align-items: center;
@@ -111,3 +117,8 @@ button:hover {
   margin: 1rem 0;
 }
 
+.speaker {
+  cursor: pointer;
+  display: contents;
+   user-select: none;
+}
