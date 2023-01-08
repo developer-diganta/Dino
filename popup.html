@@ -10,7 +10,11 @@
     </head>
     <body>
         <header class="centered">
+
             <img src="./assets/images/DINO!.png" height="120px" width="90px" alt="DINO LOGO">
+
+
+
         </header>
         <section id="about">
             <p>
@@ -18,17 +22,10 @@
             </p>
         </section>
 
-        <!-- Section for auto-scrolling the website -->
-        <section style="margin-top:40px;">
-            <h1>Auto-Scrolling</h1>
-            <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
-            <button class="autoscroll" id="slow_btn">Slow Speed</button>
-            <button class="autoscroll" id="medium_btn">Medium Speed</button>
-            <button class="autoscroll" id="fast_btn">Fast speed</button>
-        </section>
 
         <section id="fonts">
             <h1>FONT SIZE</h1>
+            <button class="fontSize">12px</button>
             <button class="fontSize">22px</button>
             <button class="fontSize">26px</button>
             <button class="fontSize">30px</button>
@@ -39,30 +36,37 @@
 
         <section>
             <h1>FONT STYLE</h1>
-            <!-- <button class="fontStyle">OpenDyslexic</button> -->
+        
             <button class="fontStyle">Arial</button>
             <button class="fontStyle">Baskerville</button>
             <button class="fontStyle">Calibri</button>
             <button class="fontStyle">Garamond</button>
             <button class="fontStyle">Trebuchet MS</button>
             <button class="fontStyle">Verdana</button>
+            <button class="fontStyle">Georgia</button>
+            <button class="fontStyle">Times New Roman</button>
+            <button class="fontStyle">Helvetica</button>
+            <button class="fontStyle">Monaco</button>
+           
+            
         </section>
         <section>
             <h1>IMAGES</h1>
             <button class="img-remmover">Remove images</button>
 
-            <button class="img-add">Add images</button>
+      <button class="img-add">Add images</button>
 
              <button class="img-read">Read Out Images</button>
         </section>
         <section>
-            <h1>LSITEN TO WEB PAGE</h1>
+            <h1>LISTEN TO WEB PAGE</h1>
             <button class="text-to-speech">Speak</button>
+            <button class="stop-speech">Stop</button>
             <div id="rate-control">
                 <label for="rate">Rate:</label>
                 <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
             </div>
-            <!-- <button class="stop-speech">Stop</button> -->
+       
         </section>
         
         <section>
@@ -72,35 +76,43 @@
         </section>
 
 
-        <section>
-            <h1>COLORS</h1>
-            <form id="backgroundColorChanger">
-                <input name="color" type="color"/>
-                <button type="submit">Change Background Color</button>
-            </form>
+    <section>
+      <h1>COLORS</h1>
+      <form id="backgroundColorChanger">
+        <input name="color" type="color" />
+        <button type="submit">Change Background Color</button>
+      </form>
 
-            <button class="revert-background-color">Revert Background Color</button>
+      <button class="revert-background-color">Revert Background Color</button>
 
-            <form id="fontColorChanger">
-                <input name="color" type="color"/>
-                <button type="submit">Change Font Color</button>
-            </form>
+      <form id="fontColorChanger">
+        <input name="color" type="color" />
+        <button type="submit">Change Font Color</button>
+      </form>
 
-            <!-- <button class="revert-font-color">Revert Background Color</button> -->
+        
 
         </section>
         <section>
-            <h1>PARAGRPHS</h1>
-            <button class="para-highlighter">HighLight Paragraphs</button>
+          <h1>DICTIONARY</h1>
+          <button class="select-text">Get Definition</button>
+          <p class="select-text-definition"></p>
+        </section>
+        <section>
+            <h1>PARAGRAPHS</h1>
+            <button class="para-highlighter">Highlight Paragraphs</button>
             <button class="para-highlighter-remove">Remove Paragraph Highlighting</button>
         </section>
 
+        <!-- Section for auto-scrolling the website -->
+        <section style="margin-top:40px;">
+            <h1>Auto-Scrolling</h1>
+            <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
+            <button class="autoscroll" id="slow_btn">Slow Speed</button>
+            <button class="autoscroll" id="medium_btn">Medium Speed</button>
+            <button class="autoscroll" id="fast_btn">Fast speed</button>
+        </section>
     </body>
-    <!-- <script>
-        function fontSize(size) {
-            console.log(size);
-        }
-    </script> -->
-    <!-- link js file -->
+
     <script src="background.js"></script>
 </html>

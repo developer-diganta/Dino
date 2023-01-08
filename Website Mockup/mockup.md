@@ -1,0 +1,1 @@
+This Folder contains the UI Screenshots layout with prototype of the webpage created using Figma.
