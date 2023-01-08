@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DINO!</title>
-        <link rel="stylesheet" href="./css/styles.css">
-        
-    </head>
-    <body>
-        <header class="centered">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DINO!</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="dark-mode">
+     <header class="centered">
 
             <img src="./assets/images/DINO!.png" height="120px" width="90px" alt="DINO LOGO">
-
-
+            <div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+              <label for="checkbox" class="label">
+                <div class='ball' ></div>
+              </label>
+            </div>
 
         </header>
+
         <section id="about">
             <p>
                 Dino is an extension developed to make the web more accessible to people with dyslexia and color blindness. Dino allows you to change colors, add and remove images, read out pages etc.
@@ -57,26 +61,57 @@
         <section>
             <h1>IMAGES</h1>
             <button class="img-remmover">Remove images</button>
+    <section id="about">
+      <p>
+        <span class="speaker">🔊 </span>Dino is an extension developed to make the web more accessible to people
+        with dyslexia and color blindness. Dino allows you to change colors, add
+        and remove images, read out pages etc.
+      </p>
+    </section>
+    <section id="fonts">
+      <h1><span class="speaker">🔊 </span>FONT SIZE</h1>
+      <button class="fontSize">12px</button>
+      <button class="fontSize">22px</button>
+      <button class="fontSize">26px</button>
+      <button class="fontSize">30px</button>
+      <button class="fontSize">40px</button>
+      <button class="fontSize">60px</button>
+    </section>
+    <section>
+      <h1><span class="speaker">🔊 </span>FONT STYLE</h1>
 
+      <button class="fontStyle">Arial</button>
+      <button class="fontStyle">Baskerville</button>
+      <button class="fontStyle">Calibri</button>
+      <button class="fontStyle">Garamond</button>
+      <button class="fontStyle">Trebuchet MS</button>
+      <button class="fontStyle">Verdana</button>
+      <button class="fontStyle">Georgia</button>
+      <button class="fontStyle">Times New Roman</button>
+      <button class="fontStyle">Helvetica</button>
+      <button class="fontStyle">Monaco</button>
+    </section>
+    <section>
+      <h1><span class="speaker">🔊 </span>IMAGES</h1>
+      <button class="img-remmover">Remove images</button>
       <button class="img-add">Add images</button>
+      <button class="img-read">Read Out Images</button>
+    </section>
+    <section>
+      <h1><span class="speaker">🔊 </span>LISTEN TO WEB PAGE</h1>
+      <button class="text-to-speech">Speak</button>
+      <button class="stop-speech">Stop</button>
+      <div id="rate-control">
+        <label for="rate">Rate:</label>
+        <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
+      </div>
+    </section>
 
-             <button class="img-read">Read Out Images</button>
-        </section>
-        <section>
-            <h1>LISTEN TO WEB PAGE</h1>
-            <button class="text-to-speech">Speak</button>
-            <div id="rate-control">
-                <label for="rate">Rate:</label>
-                <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
-            </div>
-       
-        </section>
-        
-        <section>
-            <h1>LINKS</h1>
-            <button class="link">Highlight Links</button>
-            <button class="remove-link-hg">Remove Link Highlights</button>
-        </section>
+    <section>
+      <h1><span class="speaker">🔊 </span>LINKS</h1>
+      <button class="link">Highlight Links</button>
+      <button class="remove-link-hg">Remove Link Highlights</button>
+    </section>
 
         <section>
             <h1>COLORS</h1>
@@ -86,7 +121,7 @@
             </form>
 
     <section>
-      <h1>COLORS</h1>
+      <h1><span class="speaker">🔊 </span>COLORS</h1>
       <form id="backgroundColorChanger">
         <input name="color" type="color" />
         <button type="submit">Change Background Color</button>
@@ -99,21 +134,20 @@
         <input name="color" type="color" />
         <button type="submit">Change Font Color</button>
       </form>
+    </section>
+    <section>
+      <h1><span class="speaker">🔊 </span>DICTIONARY</h1>
+      <button class="select-text">Get Definition</button>
+      <p class="select-text-definition"></p>
+    </section>
+    <section>
+      <h1><span class="speaker">🔊 </span>PARAGRAPHS</h1>
+      <button class="para-highlighter">Highlight Paragraphs</button>
+      <button class="para-highlighter-remove">
+        Remove Paragraph Highlighting
+      </button>
+    </section>
+  </body>
 
-        
-
-        </section>
-        <section>
-          <h1>DICTIONARY</h1>
-          <button class="select-text">Get Definition</button>
-          <p class="select-text-definition"></p>
-        </section>
-        <section>
-            <h1>PARAGRAPHS</h1>
-            <button class="para-highlighter">Highlight Paragraphs</button>
-            <button class="para-highlighter-remove">Remove Paragraph Highlighting</button>
-        </section>
-    </body>
-
-    <script src="background.js"></script>
+  <script src="background.js"></script>
 </html>
