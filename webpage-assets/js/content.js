@@ -95,7 +95,7 @@ window.addEventListener(
        else if (action === 'link-highlight-cb') {
             const links = document.getElementsByTagName('a');
             for (let i = 0; i < links.length; i++) {
-             links[i].style.setProperty("background-color", "blue");
+             links[i].style.setProperty("background-color", "#AAE3E3");
              links[i].style.setProperty("fontSize", "24px");
            }
          }
