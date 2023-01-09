@@ -91,7 +91,15 @@ window.addEventListener(
           links[i].style.setProperty("background-color", "yellow");
           links[i].style.setProperty("fontSize", "24px");
         }
-      } else if (action === "link-highlight-remove") {
+      } 
+       else if (action === 'link-highlight-cb') {
+            const links = document.getElementsByTagName('a');
+            for (let i = 0; i < links.length; i++) {
+             links[i].style.setProperty("background-color", "blue");
+             links[i].style.setProperty("fontSize", "24px");
+           }
+         }
+      else if (action === "link-highlight-remove") {
         const links = document.getElementsByTagName("a");
         for (let i = 0; i < links.length; i++) {
           links[i].style.setProperty("background-color", "transparent");
@@ -147,7 +155,16 @@ window.addEventListener(
         for (let i = 0; i < paras.length; i++) {
           paras[i].style.setProperty("border", "2px solid yellow");
         }
-      } else if (action === "para-highlighter-remove") {
+      } 
+      else if (action === "para-highlighter1") {
+        const paras1 = document.getElementsByTagName("p");
+        const paras2 = document.getElementsByTagName("div");
+        const paras = [...paras1, ...paras2];
+        for (let i = 0; i < paras.length; i++) {
+          paras[i].style.setProperty("border", "2px solid orange");
+        }
+      }
+      else if (action === "para-highlighter-remove") {
         const paras1 = document.getElementsByTagName("p");
         const paras2 = document.getElementsByTagName("div");
         const paras = [...paras1, ...paras2];
