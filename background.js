@@ -125,8 +125,6 @@ fontColorChanger.addEventListener("submit", function (e) {
   });
 });
 
-
-
 const highlightPara = document.getElementsByClassName("para-highlighter");
 for (let i = 0; i < highlightPara.length; i++) {
   highlightPara[i].addEventListener("click", function () {
@@ -228,3 +226,39 @@ for (let i = 0; i < speakerHelper.length; i++) {
    wordToSpeech(wordArray[i]);
   });
 }
+
+
+function handleZoom(zoomVal) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      action: "zoomPage",
+      zoomValue: zoomVal,
+    });
+  });
+}
+const zoomIn = document.getElementById("magni-inc");
+const zoomOut = document.getElementById("magni-dec");
+const zoomValue = document.getElementById("magni");
+const showZoomValue = document.getElementsByClassName("show-zoom-value");
+const resetZoom = document.getElementById("resetZoom");
+zoomIn.addEventListener("click", () => {
+  zoomValue.value = parseInt(zoomValue.value) + 10;
+  showZoomValue[0].innerText = zoomValue.value + "%";
+  handleZoom(zoomValue.value + "%");
+});
+zoomValue.addEventListener("input", () => {
+  showZoomValue[0].innerText = zoomValue.value + "%";
+  handleZoom(zoomValue.value + "%");
+});
+zoomOut.addEventListener("click", () => {
+  zoomValue.value = parseInt(zoomValue.value) - 10;
+  showZoomValue[0].innerText = zoomValue.value + "%";
+  handleZoom(zoomValue.value + "%");
+});
+
+resetZoom.addEventListener("click", () => {
+  const zoom = "100%";
+  zoomValue.value = zoom;
+  showZoomValue[0].innerText = zoom;
+  handleZoom(zoom);
+});
