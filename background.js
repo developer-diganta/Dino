@@ -73,6 +73,8 @@ for (let i = 0; i < links.length; i++) {
   });
 }
 
+
+
 const removeLinkHighlight = document.getElementsByClassName("remove-link-hg");
 for (let i = 0; i < links.length; i++) {
   removeLinkHighlight[i].addEventListener("click", function (e) {
@@ -133,6 +135,8 @@ for (let i = 0; i < highlightPara.length; i++) {
     });
   });
 }
+
+
 
 const removeHighlightPara = document.getElementsByClassName(
   "para-highlighter-remove"
