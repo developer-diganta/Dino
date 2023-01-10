@@ -73,14 +73,7 @@ for (let i = 0; i < links.length; i++) {
   });
 }
 
-const links_cb = document.getElementsByClassName("link1");
-   for (let i = 0; i < links_cb.length; i++) {
-     links_cb[i].addEventListener("click", function (e) {
-       chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-         chrome.tabs.sendMessage(tabs[0].id, { action: "link-highlight-cb" });
-       });
-     });
-   }
+
 
 const removeLinkHighlight = document.getElementsByClassName("remove-link-hg");
 for (let i = 0; i < links.length; i++) {
@@ -143,14 +136,7 @@ for (let i = 0; i < highlightPara.length; i++) {
   });
 }
 
-const highlightPara_cb = document.getElementsByClassName("para-highlighter1");
-for (let i = 0; i < highlightPara_cb.length; i++) {
-  highlightPara_cb[i].addEventListener("click", function () {
-    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-      chrome.tabs.sendMessage(tabs[0].id, { action: "para-highlighter1" });
-    });
-  });
-}
+
 
 const removeHighlightPara = document.getElementsByClassName(
   "para-highlighter-remove"
