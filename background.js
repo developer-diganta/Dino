@@ -125,8 +125,6 @@ fontColorChanger.addEventListener("submit", function (e) {
   });
 });
 
-
-
 const highlightPara = document.getElementsByClassName("para-highlighter");
 for (let i = 0; i < highlightPara.length; i++) {
   highlightPara[i].addEventListener("click", function () {
@@ -171,15 +169,25 @@ selectedText[0].addEventListener("click", function () {
       tabs[0].id,
       { action: "select-text" },
       async function (response) {
+        const loadingAnimation = ['|', '/', '-', '\\'];
+        let i = 0;
+        // Display the loading animation
+        const interval = setInterval(() => {
+          updateDefinition.innerHTML = ("\r" + "Loading data from API... " + loadingAnimation[i++ % loadingAnimation.length]);
+        }, 100);
         const word = response.data;
         if (word) {
-          const definition = await fetchMeaning(word);
-          if (definition)
+          await fetchMeaning(word).then(
+            (definition) => {
+              clearInterval(interval);
+              if (definition)
             updateDefinition.innerHTML = word + " :- " + definition;
-          else {
+              else 
             updateDefinition.innerHTML = "Word not found!";
           }
+          );
         } else {
+          clearInterval(interval);
           updateDefinition.innerHTML =
             "Please select word without space initially to get definition!";
         }
@@ -218,3 +226,39 @@ for (let i = 0; i < speakerHelper.length; i++) {
    wordToSpeech(wordArray[i]);
   });
 }
+
+
+function handleZoom(zoomVal) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      action: "zoomPage",
+      zoomValue: zoomVal,
+    });
+  });
+}
+const zoomIn = document.getElementById("magni-inc");
+const zoomOut = document.getElementById("magni-dec");
+const zoomValue = document.getElementById("magni");
+const showZoomValue = document.getElementsByClassName("show-zoom-value");
+const resetZoom = document.getElementById("resetZoom");
+zoomIn.addEventListener("click", () => {
+  zoomValue.value = parseInt(zoomValue.value) + 10;
+  showZoomValue[0].innerText = zoomValue.value + "%";
+  handleZoom(zoomValue.value + "%");
+});
+zoomValue.addEventListener("input", () => {
+  showZoomValue[0].innerText = zoomValue.value + "%";
+  handleZoom(zoomValue.value + "%");
+});
+zoomOut.addEventListener("click", () => {
+  zoomValue.value = parseInt(zoomValue.value) - 10;
+  showZoomValue[0].innerText = zoomValue.value + "%";
+  handleZoom(zoomValue.value + "%");
+});
+
+resetZoom.addEventListener("click", () => {
+  const zoom = "100%";
+  zoomValue.value = zoom;
+  showZoomValue[0].innerText = zoom;
+  handleZoom(zoom);
+});

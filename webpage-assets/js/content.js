@@ -162,6 +162,9 @@ window.addEventListener(
           sendResponse({});
         }
       }
+      else if(action==="zoomPage"){
+        document.body.style.zoom=request.zoomValue
+      }
     });
   },
   false
