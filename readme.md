@@ -43,7 +43,9 @@
   <img src="https://user-images.githubusercontent.com/65999534/185781826-33c396dd-0375-4aa6-b0d5-2f1583f132ca.png">
   <img src="https://user-images.githubusercontent.com/65999534/185781957-b8328634-1cd9-4899-9886-17973a301efa.png">
   
-  
+  ## Contributing
+  Please go through the [CONTRIBUTING.md](CONTRIBUTING.md) in order to begin contributing to the project.
+
   ## License
   [MIT](https://choosealicense.com/licenses/mit/)
   
