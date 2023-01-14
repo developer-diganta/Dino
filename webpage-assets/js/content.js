@@ -169,6 +169,42 @@ window.addEventListener(
       else if(action==="zoomPage"){
         document.body.style.zoom=request.zoomValue
       }
+      else if (action === 'italics-remove') {
+        const italics = document.getElementsByTagName('i');
+        for (let i = 0; i < italics.length; i++) {
+          italics[i].style.setProperty("font-style", "normal");
+          italics[i].style.setProperty("font-weight", "bold");
+        }
+      }
+      else if (action === "underscore-remove") {
+        const underscore = document.getElementsByTagName('u');
+        const links = document.getElementsByTagName('a');
+        for (let i = 0; i < underscore.length; i++) {
+          underscore[i].style.setProperty("font-style", "normal");
+          underscore[i].style.setProperty("font-weight", "bold");
+          underscore[i].style.setProperty("text-decoration", "none");
+        }
+        for (let i = 0; i < links.length; i++) {
+          links[i].style.setProperty("text-decoration", "none");
+        }
+      }
+      else if (action === "reset_italics_underscore") {
+        const italics = document.getElementsByTagName('i');
+        const underscore = document.getElementsByTagName('u');
+        const links = document.getElementsByTagName('a');
+        for (let i = 0; i < italics.length; i++) {
+          italics[i].style.removeProperty("font-style", "normal");
+          italics[i].style.removeProperty("font-weight", "bold");
+        }
+        for (let i = 0; i < underscore.length; i++) {
+          underscore[i].style.removeProperty("font-style", "normal");
+          underscore[i].style.removeProperty("font-weight", "bold");
+          underscore[i].style.removeProperty("text-decoration", "none");
+        }
+        for (let i = 0; i < links.length; i++) {
+          links[i].style.removeProperty("text-decoration", "none");
+        }
+      }
     });
   },
   false

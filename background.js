@@ -266,3 +266,31 @@ resetZoom.addEventListener("click", () => {
   showZoomValue[0].innerText = zoom;
   handleZoom(zoom);
 });
+
+
+const remove_italics = document.getElementsByClassName("remove-italics");
+for (let i = 0; i < remove_italics.length; i++) {
+  remove_italics[i].addEventListener("click", function (e) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "italics-remove" });
+    });
+  });
+}
+
+const remove_underscore = document.getElementsByClassName("remove-underscore");
+for (let i = 0; i < remove_underscore.length; i++) {
+  remove_underscore[i].addEventListener("click", function (e) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "underscore-remove" });
+    });
+  });
+}
+
+const italics_underscore_reset = document.getElementsByClassName("reset-italics-and-underscore");
+for (let i = 0; i < italics_underscore_reset.length; i++) {
+  italics_underscore_reset[i].addEventListener("click", function (e) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "reset_italics_underscore" });
+    });
+  });
+}
