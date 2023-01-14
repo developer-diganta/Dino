@@ -67,12 +67,26 @@ window.addEventListener(
           immgs[i].style.setProperty("display", "block");
         }
       } else if (action === "text-to-speech") {
-        console.log("Hi");
         if (synth.speaking) {
           synth.cancel();
         }
         const text = document.getElementsByTagName("body")[0].innerText;
         const msg = new SpeechSynthesisUtterance(text);
+        msg.rate = request.rate;
+        synth.speak(msg);
+      } else if (action === "text-to-speech-selected") {
+        if (synth.speaking) {
+          synth.cancel();
+        }
+        let txt="";
+        if (window.getSelection) {
+          txt = window.getSelection();
+        } else if (window.document.getSelection) {
+          txt = window.document.getSelection();
+        } else if (window.document.selection) {
+          txt = window.document.selection.createRange().text;
+        }
+        const msg = new SpeechSynthesisUtterance(txt);
         msg.rate = request.rate;
         synth.speak(msg);
       }
