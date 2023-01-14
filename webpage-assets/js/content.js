@@ -86,7 +86,7 @@ window.addEventListener(
         } else if (window.document.selection) {
           txt = window.document.selection.createRange().text;
         }
-        const msg = new SpeechSynthesisUtterance(txt);
+        const msg = new SpeechSynthesisUtterance(txt.toString());
         msg.rate = request.rate;
         synth.speak(msg);
       }
