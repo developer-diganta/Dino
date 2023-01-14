@@ -1,0 +1,63 @@
+*{
+    font-family: helvetica, arial;
+    box-sizing: border-box;
+    
+  }
+  .app{
+    width: 40%;
+   
+    padding: 13px;
+    margin-top: 25vh;
+    border-radius: 20px;
+  }
+  
+
+  button{
+    width: 30%;
+    background-color: #50bf2f;
+    outline: none;
+    font-weight: 1000;
+    font-size: 0.80em;
+    border-bottom: solid 3px #69A297;
+  border-left: none;
+    border-right: solid 1px #579B98;
+  }
+  button:hover{
+    background-color: #A3C9A8;
+  }
+  .lb{
+    border-radius: 10px 0 0 0;
+  }
+  .rb{
+    border-radius: 0 10px 0 0;
+  }
+  
+  .flex{
+    display: flex;
+    justify-content: space-between;
+  
+    height: 40px;
+  
+  }
+  
+  .title{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    padding: 20px 30px;
+    width: 315px;
+    background: #84B59F;
+    border-radius: 0 0 90px 0 ;
+    border-bottom: solid 5px #263D44;
+  }
+  
+  textarea{
+    background-color: #DDD8C4;
+    width: 100%;
+    padding: 20px;
+    font-size: 1em;
+    resize: none;
+    outline: none;
+  }
+  

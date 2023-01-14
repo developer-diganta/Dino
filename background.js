@@ -266,3 +266,14 @@ resetZoom.addEventListener("click", () => {
   showZoomValue[0].innerText = zoom;
   handleZoom(zoom);
 });
+
+setInterval(function(){
+  textarea();
+},0)
+
+function textarea(){
+  return $('textarea').value();
+}
+$('#lowercase').click(function(){
+  $('textarea').val(textarea().toLowerCase());
+})
