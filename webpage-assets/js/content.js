@@ -182,6 +182,7 @@ window.addEventListener(
         for (let i = 0; i < underscore.length; i++) {
           underscore[i].style.setProperty("font-style", "normal");
           underscore[i].style.setProperty("font-weight", "bold");
+          underscore[i].style.setProperty("text-decoration", "none");
         }
         for (let i = 0; i < links.length; i++) {
           links[i].style.setProperty("text-decoration", "none");
@@ -198,6 +199,7 @@ window.addEventListener(
         for (let i = 0; i < underscore.length; i++) {
           underscore[i].style.removeProperty("font-style", "normal");
           underscore[i].style.removeProperty("font-weight", "bold");
+          underscore[i].style.removeProperty("text-decoration", "none");
         }
         for (let i = 0; i < links.length; i++) {
           links[i].style.removeProperty("text-decoration", "none");
