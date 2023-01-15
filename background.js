@@ -267,13 +267,28 @@ resetZoom.addEventListener("click", () => {
   handleZoom(zoom);
 });
 
-setInterval(function(){
-  textarea();
-},0)
+// Content script
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    if (request.convertCase === "upper") {
+      document.body.innerHTML = document.body.innerHTML.toUpperCase();
+    } else if (request.convertCase === "lower") {
+      document.body.innerHTML = document.body.innerHTML.toLowerCase();
+    }
+  });
 
-function textarea(){
-  return $('textarea').value();
+// Background script
+function convertCase(caseType) {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {convertCase: caseType});
+  });
 }
-$('#lowercase').click(function(){
-  $('textarea').val(textarea().toLowerCase());
-})
+
+// Usage
+// Add click event listeners to buttons
+document.getElementById("upper-case-btn").addEventListener("click", function() {
+  convertCase("upper");
+});
+document.getElementById("lower-case-btn").addEventListener("click", function() {
+  convertCase("lower");
+});
