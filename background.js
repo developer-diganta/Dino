@@ -1,8 +1,8 @@
-let prefernce = {}
+let Preference = {}
 const fontBtns = document.getElementsByClassName("fontSize");
 for (let i = 0; i < fontBtns.length; i++) {
   fontBtns[i].addEventListener("click", function (e) {
-    prefernce.fontSize = e.target.innerText;
+    Preference.fontSize = e.target.innerText;
     console.log("Hi");
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
@@ -15,7 +15,7 @@ for (let i = 0; i < fontBtns.length; i++) {
 const fontStyleBtns = document.getElementsByClassName("fontStyle");
 for (let i = 0; i < fontStyleBtns.length; i++) {
   fontStyleBtns[i].addEventListener("click", function (e) {
-    prefernce.fontStyle = e.target.innerText;
+    Preference.fontStyle = e.target.innerText;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
         action: "fontStyle",
@@ -28,7 +28,7 @@ for (let i = 0; i < fontStyleBtns.length; i++) {
 const images = document.getElementsByClassName("img-remmover");
 for (let i = 0; i < images.length; i++) {
   images[i].addEventListener("click", function (e) {
-    prefernce.image = false;
+    Preference.image = false;
     console.log("clicked");
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "image" });
@@ -39,7 +39,7 @@ for (let i = 0; i < images.length; i++) {
 const imageAdd = document.getElementsByClassName("img-add");
 for (let i = 0; i < imageAdd.length; i++) {
   imageAdd[i].addEventListener("click", function (e) {
-    prefernce.image = true;
+    Preference.image = true;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "imageAdd" });
     });
@@ -86,7 +86,7 @@ for (let i = 0; i < textToSpeechStop.length; i++) {
 const links = document.getElementsByClassName("link");
 for (let i = 0; i < links.length; i++) {
   links[i].addEventListener("click", function (e) {
-    prefernce.linkHighlight = true;
+    Preference.linkHighlight = true;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "link-highlight" });
     });
@@ -98,7 +98,7 @@ for (let i = 0; i < links.length; i++) {
 const removeLinkHighlight = document.getElementsByClassName("remove-link-hg");
 for (let i = 0; i < links.length; i++) {
   removeLinkHighlight[i].addEventListener("click", function (e) {
-    prefernce.linkHighlight = false;
+    Preference.linkHighlight = false;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "link-highlight-remove" });
     });
@@ -120,7 +120,7 @@ const backgroundColorChanger = document.getElementById(
 backgroundColorChanger.addEventListener("submit", function (e) {
   
   e.preventDefault();
-  prefernce.backgroundColor = e.target.color.value;
+  Preference.backgroundColor = e.target.color.value;
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       action: "backgroundColor",
@@ -132,7 +132,7 @@ backgroundColorChanger.addEventListener("submit", function (e) {
 document
   .getElementsByClassName("revert-background-color")[0]
   .addEventListener("click", function (e) {
-    prefernce.backgroundColor = false;
+    Preference.backgroundColor = false;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
         action: "revert-background-color",
@@ -143,7 +143,7 @@ document
 const fontColorChanger = document.getElementById("fontColorChanger");
 fontColorChanger.addEventListener("submit", function (e) {
   e.preventDefault();
-  prefernce.fontColor = e.target.color.value;
+  Preference.fontColor = e.target.color.value;
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       action: "fontColor",
@@ -155,7 +155,7 @@ fontColorChanger.addEventListener("submit", function (e) {
 const highlightPara = document.getElementsByClassName("para-highlighter");
 for (let i = 0; i < highlightPara.length; i++) {
   highlightPara[i].addEventListener("click", function () {
-    prefernce.paraHighlight = true;
+    Preference.paraHighlight = true;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "para-highlighter" });
     });
@@ -169,7 +169,7 @@ const removeHighlightPara = document.getElementsByClassName(
 );
 for (let i = 0; i < removeHighlightPara.length; i++) {
   removeHighlightPara[i].addEventListener("click", function () {
-    prefernce.paraHighlight = false;
+    Preference.paraHighlight = false;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
         action: "para-highlighter-remove",
@@ -260,7 +260,7 @@ for (let i = 0; i < speakerHelper.length; i++) {
 
 
 function handleZoom(zoomVal) {
-  prefernce.zoomVal = zoomVal;
+  Preference.zoomVal = zoomVal;
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
       action: "zoomPage",
@@ -323,52 +323,52 @@ for (let i = 0; i < italics_underscore_reset.length; i++) {
   });
 }
 
-const savePrefernceBtn = document
-     .getElementById("savePrefernceBtn")
-     .addEventListener("click", savePrefernce);
-function savePrefernce(e) {
-     //will save prefernces
+const savePreferenceBtn = document
+     .getElementById("savePreferenceBtn")
+     .addEventListener("click", savePreference);
+function savePreference(e) {
+     //will save Preferences
      e.preventDefault();
 
-     localStorage.setItem("dinoPrefernces", JSON.stringify(prefernce));
+     localStorage.setItem("dinoPreferences", JSON.stringify(Preference));
 }
-document.getElementById("clearPrefernceBtn").addEventListener("click", (e) => {
+document.getElementById("clearPreferenceBtn").addEventListener("click", (e) => {
      e.preventDefault();
-     prefernce = {};
-     localStorage.setItem("dinoPrefernces", JSON.stringify(prefernce));
-}); // will clear all your prefernce
+     Preference = {};
+     localStorage.setItem("dinoPreferences", JSON.stringify(Preference));
+}); // will clear all your Preference
 
 document
      .getElementById("localStorageToggler")
      .addEventListener("click", (e) => {
-          let localPrefernce = JSON.parse(
-               localStorage.getItem("dinoPrefernces"),
+          let localPreference = JSON.parse(
+               localStorage.getItem("dinoPreferences"),
           );
 
-          if (localPrefernce) {
-               if (localPrefernce.fontSize) {
+          if (localPreference) {
+               if (localPreference.fontSize) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
                               chrome.tabs.sendMessage(tabs[0].id, {
                                    action: "fontSize",
-                                   fontSize: localPrefernce.fontSize,
+                                   fontSize: localPreference.fontSize,
                               });
                          },
                     );
                }
-               if (localPrefernce.fontStyle) {
+               if (localPreference.fontStyle) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
                               chrome.tabs.sendMessage(tabs[0].id, {
                                    action: "fontStyle",
-                                   fontStyle: localPrefernce.fontStyle,
+                                   fontStyle: localPreference.fontStyle,
                               });
                          },
                     );
                }
-               if (localPrefernce.image === false) {
+               if (localPreference.image === false) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
@@ -378,7 +378,7 @@ document
                          },
                     );
                }
-               if (localPrefernce.image === true) {
+               if (localPreference.image === true) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
@@ -388,19 +388,19 @@ document
                          },
                     );
                }
-               if (localPrefernce.backgroundColor) {
+               if (localPreference.backgroundColor) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
                               chrome.tabs.sendMessage(tabs[0].id, {
                                    action: "backgroundColor",
                                    backgroundColor:
-                                        localPrefernce.backgroundColor,
+                                        localPreference.backgroundColor,
                               });
                          },
                     );
                }
-               if (localPrefernce.backgroundColor === false) {
+               if (localPreference.backgroundColor === false) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
@@ -410,18 +410,18 @@ document
                          },
                     );
                }
-               if (localPrefernce.zoomVal) {
+               if (localPreference.zoomVal) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
                               chrome.tabs.sendMessage(tabs[0].id, {
                                    action: "zoomPage",
-                                   zoomValue: localPrefernce.zoomVal,
+                                   zoomValue: localPreference.zoomVal,
                               });
                          },
                     );
                }
-               if (localPrefernce.paraHighlight === true) {
+               if (localPreference.paraHighlight === true) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
@@ -431,7 +431,7 @@ document
                          },
                     );
                }
-               if (localPrefernce.paraHighlight === false) {
+               if (localPreference.paraHighlight === false) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
@@ -441,7 +441,7 @@ document
                          },
                     );
                }
-               if (localPrefernce.linkHighlight === true) {
+               if (localPreference.linkHighlight === true) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
@@ -451,7 +451,7 @@ document
                          },
                     );
                }
-               if (localPrefernce.linkHighlight === false) {
+               if (localPreference.linkHighlight === false) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
                          function (tabs) {
