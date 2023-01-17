@@ -19,7 +19,7 @@
     "content_scripts":[
         {
             "matches": ["<all_urls>"],
-            "js":["webpage-assets/js/content.js"],
+            "js":["webpage-assets/js/content.js","mark.js"],
             "css":["webpage-assets/css/styles.css"]
         }
     ],

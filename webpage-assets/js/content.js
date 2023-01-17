@@ -178,7 +178,18 @@ window.addEventListener(
         for (let i = 0; i < paras.length; i++) {
           paras[i].style.setProperty("border", "none");
         }
-      } else if (action === "select-text") {
+      }
+      else if (action === "para-highlighter-background") {
+        var instance = new Mark(document.querySelector("body"));
+      var RegExp=/./
+      instance.markRegExp(RegExp, {});
+      }
+    else if (action === "para-highlighter-background-remove") {
+              var context = document.querySelector("body");
+              var instance = new Mark(context);
+              instance.unmark();
+            }
+      else if (action === "select-text") {
         const word = window.getSelection().toString();
         if (word !== "") {
           sendResponse({ data: word.replace(/ .*/, "") });

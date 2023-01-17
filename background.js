@@ -187,6 +187,31 @@ for (let i = 0; i < removeHighlightPara.length; i++) {
   });
 }
 
+const highlightParaBackground = document.getElementsByClassName("para-highlighter-background");
+for (let i = 0; i < highlightParaBackground.length; i++) {
+  highlightParaBackground[i].addEventListener("click", function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "para-highlighter-background" });
+    });
+  });
+}
+
+
+
+const removeHighlightParaBackground = document.getElementsByClassName(
+  "para-highlighter-background-remove"
+);
+for (let i = 0; i < removeHighlightParaBackground.length; i++) {
+  removeHighlightParaBackground[i].addEventListener("click", function () {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        action: "para-highlighter-background-remove",
+      });
+    });
+  });
+}
+
+
 const api = "https://api.dictionaryapi.dev/api/v2/entries/en/";
 async function fetchMeaning(word) {
   return await fetch(api + word)
