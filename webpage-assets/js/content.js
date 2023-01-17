@@ -105,13 +105,19 @@ window.addEventListener(
           links[i].style.setProperty("background-color", "blue");
           links[i].style.setProperty("fontSize", "24px");
         }
-      } 
-       
+      }
+      else if (action === 'link-border-highlight') {
+        const b_links = document.getElementsByTagName('a');
+        for (let i = 0; i < b_links.length; i++) {
+          b_links[i].style.setProperty("border", "2px solid red");
+        }
+      }
       else if (action === "link-highlight-remove") {
         const links = document.getElementsByTagName("a");
         for (let i = 0; i < links.length; i++) {
           links[i].style.setProperty("background-color", "transparent");
           links[i].style.setProperty("fontSize", "default");
+          links[i].style.setProperty("border","none");
         }
       } else if (action === "image-reader") {
         const images = document.getElementsByTagName("img");

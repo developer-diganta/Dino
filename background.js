@@ -93,12 +93,21 @@ for (let i = 0; i < links.length; i++) {
   });
 }
 
-
+const show_borders = document.getElementsByClassName("border");
+for (let i = 0; i < show_borders.length; i++) {
+  show_borders[i].addEventListener("click", function (e) {
+    Preference.borderHighlight = true;
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "link-border-highlight" });
+    });
+  });
+}
 
 const removeLinkHighlight = document.getElementsByClassName("remove-link-hg");
 for (let i = 0; i < links.length; i++) {
   removeLinkHighlight[i].addEventListener("click", function (e) {
     Preference.linkHighlight = false;
+    Preference.borderHighlight = false;
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, { action: "link-highlight-remove" });
     });
@@ -451,6 +460,16 @@ document
                          },
                     );
                }
+               if (localPreference.borderHighlight === true) {
+                chrome.tabs.query(
+                     { active: true, currentWindow: true },
+                     function (tabs) {
+                          chrome.tabs.sendMessage(tabs[0].id, {
+                               action: "link-border-highlight",
+                          });
+                     },
+                );
+           }
                if (localPreference.linkHighlight === false) {
                     chrome.tabs.query(
                          { active: true, currentWindow: true },
