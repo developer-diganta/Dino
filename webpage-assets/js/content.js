@@ -67,12 +67,26 @@ window.addEventListener(
           immgs[i].style.setProperty("display", "block");
         }
       } else if (action === "text-to-speech") {
-        console.log("Hi");
         if (synth.speaking) {
           synth.cancel();
         }
         const text = document.getElementsByTagName("body")[0].innerText;
         const msg = new SpeechSynthesisUtterance(text);
+        msg.rate = request.rate;
+        synth.speak(msg);
+      } else if (action === "text-to-speech-selected") {
+        if (synth.speaking) {
+          synth.cancel();
+        }
+        let txt="";
+        if (window.getSelection) {
+          txt = window.getSelection();
+        } else if (window.document.getSelection) {
+          txt = window.document.getSelection();
+        } else if (window.document.selection) {
+          txt = window.document.selection.createRange().text;
+        }
+        const msg = new SpeechSynthesisUtterance(txt.toString());
         msg.rate = request.rate;
         synth.speak(msg);
       }
@@ -91,13 +105,19 @@ window.addEventListener(
           links[i].style.setProperty("background-color", "blue");
           links[i].style.setProperty("fontSize", "24px");
         }
-      } 
-       
+      }
+      else if (action === 'link-border-highlight') {
+        const b_links = document.getElementsByTagName('a');
+        for (let i = 0; i < b_links.length; i++) {
+          b_links[i].style.setProperty("border", "2px solid red");
+        }
+      }
       else if (action === "link-highlight-remove") {
         const links = document.getElementsByTagName("a");
         for (let i = 0; i < links.length; i++) {
           links[i].style.setProperty("background-color", "transparent");
           links[i].style.setProperty("fontSize", "default");
+          links[i].style.setProperty("border","none");
         }
       } else if (action === "image-reader") {
         const images = document.getElementsByTagName("img");
@@ -168,6 +188,42 @@ window.addEventListener(
       }
       else if(action==="zoomPage"){
         document.body.style.zoom=request.zoomValue
+      }
+      else if (action === 'italics-remove') {
+        const italics = document.getElementsByTagName('i');
+        for (let i = 0; i < italics.length; i++) {
+          italics[i].style.setProperty("font-style", "normal");
+          italics[i].style.setProperty("font-weight", "bold");
+        }
+      }
+      else if (action === "underscore-remove") {
+        const underscore = document.getElementsByTagName('u');
+        const links = document.getElementsByTagName('a');
+        for (let i = 0; i < underscore.length; i++) {
+          underscore[i].style.setProperty("font-style", "normal");
+          underscore[i].style.setProperty("font-weight", "bold");
+          underscore[i].style.setProperty("text-decoration", "none");
+        }
+        for (let i = 0; i < links.length; i++) {
+          links[i].style.setProperty("text-decoration", "none");
+        }
+      }
+      else if (action === "reset_italics_underscore") {
+        const italics = document.getElementsByTagName('i');
+        const underscore = document.getElementsByTagName('u');
+        const links = document.getElementsByTagName('a');
+        for (let i = 0; i < italics.length; i++) {
+          italics[i].style.removeProperty("font-style", "normal");
+          italics[i].style.removeProperty("font-weight", "bold");
+        }
+        for (let i = 0; i < underscore.length; i++) {
+          underscore[i].style.removeProperty("font-style", "normal");
+          underscore[i].style.removeProperty("font-weight", "bold");
+          underscore[i].style.removeProperty("text-decoration", "none");
+        }
+        for (let i = 0; i < links.length; i++) {
+          links[i].style.removeProperty("text-decoration", "none");
+        }
       }
     });
   },

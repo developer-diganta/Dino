@@ -28,6 +28,12 @@
       and remove images, read out pages etc.
     </p>
   </section>
+    <section id="localStorage">
+    <h1><span class="speaker">🔊 </span>Your Preferences</h1>
+    <button id="savePreferenceBtn">Save</button>
+    <button id="clearPreferenceBtn">Delete</button>
+    <button id="localStorageToggler">Apply from localStorage</button>
+  </section>
 
   <section id="fonts">
     <h1><span class="speaker">🔊 </span>FONT SIZE</h1>
@@ -64,6 +70,7 @@
     <h1><span class="speaker">🔊 </span>LISTEN TO WEB PAGE</h1>
     <button class="text-to-speech">Speak</button>
     <button class="stop-speech">Stop</button>
+    <button class="text-to-speech-selected">SpeakSelected</button>
     <div id="rate-control">
       <label for="rate">Rate:</label>
       <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
@@ -81,6 +88,7 @@
   <section>
     <h1><span class="speaker">🔊 </span>LINKS</h1>
     <button class="link">Highlight Links</button>
+      <button class="border">Show Borders</button>
     <button class="remove-link-hg">Remove Link Highlights</button>
   </section>
 
@@ -125,6 +133,7 @@
     </div>
   </section>
 
+
   <!-- Section for auto-scrolling the website -->
   <section style="margin-top:40px;">
     <h1>Auto-Scrolling</h1>
@@ -133,6 +142,14 @@
     <button class="autoscroll" id="medium_btn">Medium Speed</button>
     <button class="autoscroll" id="fast_btn">Fast speed</button>
 </section>
+
+  <section>
+    <h1><span class="speaker">🔊 </span>REMOVE ITALICS AND UNDERSCORE</h1>
+    <button class="remove-italics">Remove Italics</button>
+    <button class="remove-underscore">Remove Underscore</button>
+    <button class="reset-italics-and-underscore">Reset</button>    
+  </section>
+
 
   
 </body>
