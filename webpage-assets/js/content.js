@@ -136,7 +136,7 @@ window.addEventListener(
       } else if (action === "revert-Font-color") {
         document
           .getElementsByTagName("body")[0]
-          .style.setProperty("Font-color", fontColor);
+          all[i].style.setProperty("Font-color", fontColor);
       }
 
 
