@@ -15,3 +15,8 @@ Run this code after adding the extension to chrome to get the path to the font f
     font-family: 'OpenDyslexic';
     src: url('chrome-extension://pnichcbbeibbccpepibfgdlakghphlgl/assets/fonts/OpenDyslexic-Regular.otf') format('opentype');
 }
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url('chrome-extension://ccmlnoaoobnogkfmccchhiogagejagod/assets/fonts/OpenSans-Regular.otf') format('opentype');
+}
