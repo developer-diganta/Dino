@@ -139,9 +139,9 @@ window.addEventListener(
           all[i].style.setProperty("color", request.fontColor);
         } }
         else if (action === "revert-Font-color") {
-          document
-            .getElementsByTagName("body")[0]
-            all[i].style.setProperty("Font-color", fontcolor);
+          const all = document.getElementsByTagName("*")[0];
+          all.style.setProperty("color", fontColor);
+            
       }
        else if (action === "para-highlighter") {
 
