@@ -1,161 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DINO!</title>
     <link rel="stylesheet" href="./css/styles.css" />
-  </head>
+</head>
 
-  <body class="dark-mode">
+<body class="dark-mode">
     <header class="centered">
-      <img
-        src="./assets/images/DINO!.png"
-        height="120px"
-        width="90px"
-        alt="DINO LOGO"
-      />
-      <div>
-        <input type="checkbox" class="checkbox" id="checkbox" />
-        <label for="checkbox" class="label">
-          <div class="ball"></div>
-        </label>
-      </div>
+
+        <img src="./assets/images/DINO!.png" height="120px" width="90px" alt="DINO LOGO">
+        <div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="label">
+        <div class='ball'></div>
+      </label>
+        </div>
+
     </header>
     <section id="about">
-      <p>
-        <span class="speaker">🔊 </span>Dino is an extension developed to make
-        the web more accessible to people with dyslexia and color blindness.
-        Dino allows you to change colors, add and remove images, read out pages
-        etc.
-      </p>
-    </section>
-    <section id="localStorage">
-      <h1><span class="speaker">🔊 </span>Your Preferences</h1>
-      <button id="savePreferenceBtn">Save</button>
-      <button id="clearPreferenceBtn">Delete</button>
-      <button id="localStorageToggler">Apply from localStorage</button>
+        <p>
+            <span class="speaker">🔊 </span>Dino is an extension developed to make the web more accessible to people with dyslexia and color blindness. Dino allows you to change colors, add and remove images, read out pages etc.
+        </p>
     </section>
 
     <section id="fonts">
-      <h1><span class="speaker">🔊 </span>FONT SIZE</h1>
-      <button class="fontSize">12px</button>
-      <button class="fontSize">22px</button>
-      <button class="fontSize">26px</button>
-      <button class="fontSize">30px</button>
-      <button class="fontSize">40px</button>
-      <button class="fontSize">60px</button>
+        <h1><span class="speaker">🔊 </span>FONT SIZE</h1>
+        <button class="fontSize">12px</button>
+        <button class="fontSize">22px</button>
+        <button class="fontSize">26px</button>
+        <button class="fontSize">30px</button>
+        <button class="fontSize">40px</button>
+        <button class="fontSize">60px</button>
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>FONT STYLE</h1>
-      <button class="fontStyle">Arial</button>
-      <button class="fontStyle">Baskerville</button>
-      <button class="fontStyle">Calibri</button>
-      <button class="fontStyle">Garamond</button>
-      <button class="fontStyle">Trebuchet MS</button>
-      <button class="fontStyle">Verdana</button>
-      <button class="fontStyle">Georgia</button>
-      <button class="fontStyle">Times New Roman</button>
-      <button class="fontStyle">Helvetica</button>
-      <button class="fontStyle">Monaco</button>
-      <button class="fontStyle">OpenSans</button>
+        <h1><span class="speaker">🔊 </span>FONT STYLE</h1>
+        <button class="fontStyle">Arial</button>
+        <button class="fontStyle">Baskerville</button>
+        <button class="fontStyle">Calibri</button>
+        <button class="fontStyle">Garamond</button>
+        <button class="fontStyle">Trebuchet MS</button>
+        <button class="fontStyle">Verdana</button>
+        <button class="fontStyle">Georgia</button>
+        <button class="fontStyle">Times New Roman</button>
+        <button class="fontStyle">Helvetica</button>
+        <button class="fontStyle">Monaco</button>
+        <button class="fontStyle">OpenSans</button>
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>IMAGES</h1>
-      <button class="img-remmover">Remove images</button>
-      <button class="img-add">Add images</button>
-      <button class="img-read">Read Out Images</button>
+        <h1><span class="speaker">🔊 </span>IMAGES</h1>
+        <button class="img-remmover">Remove images</button>
+        <button class="img-add">Add images</button>
+        <button class="img-read">Read Out Images</button>
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>LISTEN TO WEB PAGE</h1>
-      <button class="text-to-speech">Speak</button>
-      <button class="stop-speech">Stop</button>
-      <button class="text-to-speech-selected">SpeakSelected</button>
-      <div id="rate-control">
-        <label for="rate">Rate:</label>
-        <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
-      </div>
+        <h1><span class="speaker">🔊 </span>LISTEN TO WEB PAGE</h1>
+        <button class="text-to-speech">Speak</button>
+        <button class="stop-speech">Stop</button>
+        <button class="text-to-speech-selected">SpeakSelected</button>
+        <div id="rate-control">
+            <label for="rate">Rate:</label>
+            <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
+        </div>
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>PARAGRAPHS</h1>
-      <button class="para-highlighter">Highlight Paragraphs Border</button>
-      <button class="para-highlighter-remove">
-        Remove Paragraph Border Highlighting
+        <h1><span class="speaker">🔊 </span>PARAGRAPHS</h1>
+        <button class="para-highlighter">Highlight Paragraphs</button>
+        <button class="para-highlighter-remove">
+      Remove Paragraph Highlighting
+    </button>
+    </section>
+
+    <section>
+        <h1><span class="speaker">🔊 </span>LINKS</h1>
+        <button class="link">Highlight Links</button>
+        <button class="remove-link-hg">Remove Link Highlights</button>
+    </section>
+
+    <section>
+        <h1><span class="speaker">🔊 </span>COLORS</h1>
+        <form id="backgroundColorChanger">
+            <input name="color" type="color" />
+            <button type="submit">Change Background Color</button>
+        </form>
+        <button class="revert-background-color">Revert Background Color</button>
+        <form id="fontColorChanger">
+            <input name="color" type="color" />
+            <button type="submit">Change Font Color</button>
+        </form>
+    </section>
+
+    <section>
+        <h1><span class="speaker">🔊 </span>DICTIONARY</h1>
+        <button class="select-text">Get Definition</button>
+        <p class="select-text-definition"></p>
+    </section>
+
+    <section>
+        <h1><span class="speaker">🔊 </span>Translation</h1>
+        <a href="Translator/index.html"><button>Click here to translate anything</button></a>
+    </section>
+
+    <section>
+        <h1>Magnifier</h1>
+        <div class="magnifier">
+            <button id="magni-inc">+</button>
+            <input type="range" min="30" max="250" value="100" step="10" id="magni">
+            <button id="magni-dec">-</button>
+        </div>
+        <div class="magni-cnt">
+            <div class="show-zoom-value">
+                100%
+            </div>
+            <button id="resetZoom">
+        reset
       </button>
-
-      <button class="para-highlighter-background">
-        Highlight Paragraphs Background
-      </button>
-      <button class="para-highlighter-background-remove">
-        Remove Paragraph Background Highlighting
-      </button>
+        </div>
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>LINKS</h1>
-      <button class="link">Highlight Links</button>
-      <button class="border">Show Borders</button>
-      <button class="remove-link-hg">Remove Link Highlights</button>
+        <h1><span class="speaker">🔊 </span>REMOVE ITALICS AND UNDERSCORE</h1>
+        <button class="remove-italics">Remove Italics</button>
+        <button class="remove-underscore">Remove Underscore</button>
+        <button class="reset-italics-and-underscore">Reset</button>
     </section>
 
-    <section>
-      <h1><span class="speaker">🔊 </span>COLORS</h1>
-      <form id="backgroundColorChanger">
-        <input name="color" type="color" />
-        <button type="submit">Change Background Color</button>
-      </form>
-      <button class="revert-background-color">Revert Background Color</button>
-      <form id="fontColorChanger">
-        <input name="color" type="color" />
-        <button type="submit">Change Font Color</button>
-      </form>
-    </section>
 
-    <section>
-      <h1><span class="speaker">🔊 </span>DICTIONARY</h1>
-      <button class="select-text">Get Definition</button>
-      <p class="select-text-definition"></p>
-    </section>
+</body>
 
-    <section>
-      <h1><span class="speaker">🔊 </span>Translation</h1>
-      <a href="Translator/index.html"
-        ><button>Click here to translate anything</button></a>
-    </section>
+<script src="background.js"></script>
 
-    <section>
-      <h1>Magnifier</h1>
-      <div class="magnifier">
-        <button id="magni-inc">+</button>
-        <input
-          type="range"
-          min="30"
-          max="250"
-          value="100"
-          step="10"
-          id="magni"
-        />
-        <button id="magni-dec">-</button>
-      </div>
-      <div class="magni-cnt">
-        <div class="show-zoom-value">100%</div>
-        <button id="resetZoom">reset</button>
-      </div>
-    </section>
-
-    <section>
-      <h1><span class="speaker">🔊 </span>REMOVE ITALICS AND UNDERSCORE</h1>
-      <button class="remove-italics">Remove Italics</button>
-      <button class="remove-underscore">Remove Underscore</button>
-      <button class="reset-italics-and-underscore">Reset</button>
-    </section>
-  </body>
-
-  <script src="background.js"></script>
 </html>
-
