@@ -17,6 +17,6 @@ Run this code after adding the extension to chrome to get the path to the font f
 }
 
 @font-face {
-    font-family: 'OpenSans';
-    src: url('chrome-extension://ccmlnoaoobnogkfmccchhiogagejagod/assets/fonts/OpenSans-Regular.ttf') format('opentype');
+    font-family: 'OpenSans-Regular';
+    src: url('chrome-extension://ccmlnoaoobnogkfmccchhiogagejagod/assets/fonts/OpenSans-Regular.otf') format('opentype');
 }
