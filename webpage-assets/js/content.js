@@ -23,7 +23,7 @@ window.addEventListener(
         document.getElementsByTagName("body")[0].setAttribute("id", "fonter");
         const html = document.querySelector("#fonter");
 
-        if (request.fontStyle === "Trebuchet MS" || request.fontStyle === "OpenSans") {
+        if (request.fontStyle === "Trebuchet MS" || request.fontStyle === "OpenSans-Regular") {
           html.style.setProperty(
             "font-family",
             "Castellar, Trebuchet MS, sans-serif"
@@ -47,8 +47,8 @@ window.addEventListener(
         } else if (request.fontStyle === "Monaco") {
           html.style.setProperty("font-family", "Monaco", "Monospace");
         }
-         else if (request.fontStyle === "Opensans") {
-          html.style.setProperty("font-family", "OpenSans", "sans-serif");
+         else if (request.fontStyle === "OpenSans-Regular") {
+          html.style.setProperty("font-family", "OpenSans-Regular", "sans-serif");
          }
       } else if (action === "image") {
         const immgs = document.getElementsByTagName("img");
