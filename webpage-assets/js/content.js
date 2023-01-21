@@ -209,6 +209,10 @@ window.addEventListener(
           links[i].style.removeProperty("text-decoration", "none");
         }
       }
+      else if(action=="convertCase"){
+        document.getElementsByTagName("body")[0].style.setProperty("text-transform",request.payload);
+        console.log(request.payload)
+      }
     });
   },
   false
