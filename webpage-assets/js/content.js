@@ -137,8 +137,14 @@ window.addEventListener(
         const all = document.getElementsByTagName("*");
         for (let i = 0; i < all.length; i++) {
           all[i].style.setProperty("color", request.fontColor);
-        }
-      } else if (action === "para-highlighter") {
+        } }
+        else if (action === "revert-Font-color") {
+          const all = document.getElementsByTagName("*")[0];
+          all.style.setProperty("color", fontColor);
+            
+      }
+       else if (action === "para-highlighter") {
+
         const paras1 = document.getElementsByTagName("p");
         const paras2 = document.getElementsByTagName("div");
         const paras = [...paras1, ...paras2];
