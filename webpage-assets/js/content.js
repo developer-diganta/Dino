@@ -42,6 +42,9 @@ window.addEventListener("load", function load(event) {
         else if (request.fontStyle === 'Verdana') {
           html.style.setProperty('font-family', 'Verdana, sans-serif');
         }
+        else if (request.fontStyle === 'Tahoma') {
+          html.style.setProperty('font-family','Tahoma,sans-serif');
+        }
       }
       else if (action === 'image') {
         const immgs = document.getElementsByTagName('img');
