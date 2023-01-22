@@ -23,7 +23,7 @@ window.addEventListener(
         document.getElementsByTagName("body")[0].setAttribute("id", "fonter");
         const html = document.querySelector("#fonter");
 
-        if (request.fontStyle === "Trebuchet MS" || request.fontStyle === "OpenSans-Regular") {
+        if (request.fontStyle === "Trebuchet MS") {
           html.style.setProperty(
             "font-family",
             "Castellar, Trebuchet MS, sans-serif"
