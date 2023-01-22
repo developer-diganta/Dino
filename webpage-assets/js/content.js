@@ -47,6 +47,9 @@ window.addEventListener(
         } else if (request.fontStyle === "Monaco") {
           html.style.setProperty("font-family", "Monaco", "Monospace");
         }
+         else if (request.fontStyle === "OpenSans-Regular") {
+          html.style.setProperty("font-family", "OpenSans-Regular", "sans-serif");
+         }
       } else if (action === "image") {
         const immgs = document.getElementsByTagName("img");
         for (let i = 0; i < immgs.length; i++) {
