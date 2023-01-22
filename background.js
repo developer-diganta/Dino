@@ -293,19 +293,22 @@ const extensionDescription =
 
 const wordArray = [
   extensionDescription,
+  "YOUR PREFERENCES",
   "FONT SIZE",
   "FONT STYLE",
   "IMAGES",
   "LISTEN TO WEB PAGE",
+  "PARAGRAPHS",
   "LINKS",
   "COLORS",
   "DICTIONARY",
-  "PARAGRAPHS",
+  "TRANSLATION",
+  "REMOVE ITALIC AND UNDERSCORE"
 ];
 const speakerHelper = document.getElementsByClassName("speaker");
 for (let i = 0; i < speakerHelper.length; i++) {
   speakerHelper[i].addEventListener("click", function (e) {
-    wordToSpeechStop();
+    wordToSpeechStop(e);
     wordToSpeech(wordArray[i]);
   });
 }
