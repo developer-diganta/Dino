@@ -5,6 +5,7 @@
   font-size: 26px;
 }
 
+
 .centered {
   text-align: center;
   width: 100%;
@@ -101,6 +102,7 @@ button:hover {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   margin-left: 10px;
+ 
 }
 
 @media (min-width: 768px) {
@@ -188,4 +190,16 @@ button:hover {
   cursor: pointer;
   display: contents;
   user-select: none;
+}
+#fontChange {
+ 
+display: flex; 
+justify-content: flex-end;
+margin-top:20px;
+
+
+}
+.dropDown{
+   background-color: #ffdeda;
+   border-radius: 8px !important;
 }
