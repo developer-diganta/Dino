@@ -68,6 +68,10 @@ button,
   position: relative;
   text-decoration: none;
 }
+.magni-cnt .show-zoom-value {
+  text-align: center;
+  margin-left: 130px;
+}
 
 button:after {
   background-color: #111;
