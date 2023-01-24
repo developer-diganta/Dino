@@ -207,11 +207,7 @@ margin-top:20px;
 .convertBtns{
   display: flex;
 }
-#upper-case-btn {
+#upper-case-btn, #lower-case-btn {
   margin: 10px !important;
-  padding: 0 18px !important;
-}
-#lower-case-btn {
-  margin: 10px !important;
-  padding: 0 18px !important;
+  padding: 0 14px !important;
 }
