@@ -203,11 +203,9 @@ margin-top:20px;
    background-color: #ffdeda;
    border-radius: 8px !important;
 }
-
 .convertBtns{
   display: flex;
 }
-
 #upper-case-btn, #lower-case-btn {
   margin: 10px !important;
   padding: 0 14px !important;
