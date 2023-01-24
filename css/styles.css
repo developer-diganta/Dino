@@ -203,3 +203,11 @@ margin-top:20px;
    background-color: #ffdeda;
    border-radius: 8px !important;
 }
+
+.convertBtns{
+  display: flex;
+}
+.convertBtns > button {
+  margin: 5px !important;
+  padding: 0 18px !important;
+}
