@@ -21,12 +21,18 @@
   ## Features
   
   Dino offers a number of features to enhance your web experience. The features include:
-  1. FONT SIZE: Change the font size of the web page using the various sizes available. 
+  1. FONT SIZE: Change the font size of the web page using the various sizes available. (Ranging from 12px-60px)
   2. FONT STYLE: Change the font style of the web page from the selected dyslexia friendly fonts. Source : [https://creativemarket.com/blog/best-fonts-for-dsylexia](https://creativemarket.com/blog/best-fonts-for-dsylexia)
   3. IMAGES: Remove Images, Read out alt texts of images.
-  4. LISTEN TO THE WEB PAGE.
-  5. Control colors on the page.
-  6. Highlight links and paragraphs.
+  4. LISTEN TO THE WEB PAGE : Either reas out the whole page or just the selected text.
+  5. PARAGRAPHS: Highlight paragraph border, highlight paragraph background.
+  6. LINKS: Highlight links present on the webpage.Show borders to the links.
+  7. COLORS: Change Background color, font color
+  8. DICTIONARY: Get definition of the selected word on the webpage.
+  9. TRANSLATION: Enter the text to get translated
+  10. MAGNIFIER: Magnify/Demagnify the current webpage.
+  11. REMOVE ITALICS AND UNDERSCORE: Removes all the Italics text, underscore from the webpage.
+  
   
   ## Permissions
   Permissions include tabs and active tabs which helps to manipulate the styles of the web page. **NO DATA IS USED BY US.**
@@ -42,6 +48,10 @@
   <img src="https://user-images.githubusercontent.com/65999534/185781763-af709c69-0a06-4918-a978-96f9248b58f1.png">
   <img src="https://user-images.githubusercontent.com/65999534/185781826-33c396dd-0375-4aa6-b0d5-2f1583f132ca.png">
   <img src="https://user-images.githubusercontent.com/65999534/185781957-b8328634-1cd9-4899-9886-17973a301efa.png">
+ ![image](https://user-images.githubusercontent.com/95307102/214767338-3d48c9bc-90e8-465c-bbdf-164ddc4cae0c.png)
+ ![image](https://user-images.githubusercontent.com/95307102/214767488-4d60b90e-daee-4ef6-a42b-3b30b8e55353.png)
+x 
+
   
   ## Contributing
   Please go through the [contributing.md](contributing.md) in order to begin contributing to the project.
