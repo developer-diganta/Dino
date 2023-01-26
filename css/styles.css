@@ -23,7 +23,7 @@
 body {
   width: 500px;
   background-color: rgb(69, 138, 249);
-  color: #fff;
+  color: rgb(249, 246, 246);
 }
 
 ::-webkit-scrollbar {
@@ -104,7 +104,10 @@ button:hover {
   margin-left: 10px;
  
 }
+#fontstyle{
 
+  width: 800px;
+}
 @media (min-width: 768px) {
   button {
     padding: 0 40px;
@@ -202,4 +205,9 @@ margin-top:20px;
 .dropDown{
    background-color: #ffdeda;
    border-radius: 8px !important;
+}
+
+#fontstyle{
+
+  width: 700px;
 }

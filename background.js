@@ -47,7 +47,6 @@ for(let i=0;i<elements.length;i++){
  }
  else if(selectedFont=="Default"){
   element.style.fontFamily = "";
-  
  }
 
  }
@@ -419,8 +418,7 @@ for (let i = 0; i < italics_underscore_reset.length; i++) {
     });
   });
 }
-// Usage
-// Add click event listeners to buttons
+
 document.getElementById("upper-case-btn").addEventListener("click", function() {
   convertCase("uppercase");
 });
