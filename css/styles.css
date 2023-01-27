@@ -121,6 +121,20 @@ button:hover {
   gap: 1rem;
   margin: 1rem 0;
 }
+#rate-control input{
+  -webkit-appearance: none;
+  background: rgb(141, 215, 141);
+  height: 8px;
+  border-radius: 8px;
+}
+#rate::-webkit-slider-thumb{
+  -webkit-appearance: none;
+appearance: none;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+background: rgb(252, 77, 106);
+}
 .magnifier {
   display: flex;
   align-items: center;
@@ -148,7 +162,20 @@ button:hover {
 #magni {
   width: 100%;
 }
-
+.magnifier input{
+  -webkit-appearance: none;
+  background: rgb(141, 215, 141);
+  height: 8px;
+  border-radius: 8px;
+}
+#magni::-webkit-slider-thumb{
+  -webkit-appearance: none;
+appearance: none;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+background: rgb(252, 77, 106);
+}
 .dark-mode {
   background-color: #fff;
   color: #000;
