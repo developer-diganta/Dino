@@ -25,7 +25,10 @@ body {
   background-color: rgb(69, 138, 249);
   color: #fff;
 }
+#fontStyles{
 
+  width: 800px;
+}
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -213,4 +216,8 @@ margin-top:20px;
 #upper-case-btn, #lower-case-btn {
   margin: 10px !important;
   padding: 0 14px !important;
+}
+
+#fontStyles{
+  width: 700px;
 }
