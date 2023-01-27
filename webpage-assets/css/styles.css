@@ -1,0 +1,22 @@
+/* 
+
+console.log(chrome.runtime.getURL("assets/fonts/")); 
+Run this code after adding the extension to chrome to get the path to the font file
+*/
+@font-face {
+    font-family: 'Calibri';
+    /*
+    chrome-extension:// ID //
+    ID can be different for you so please run the above console.log to get the url and paste it here.
+    */
+    src: url('chrome-extension://pnichcbbeibbccpepibfgdlakghphlgl/assets/fonts/calibre/CalibreRegular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('chrome-extension://pnichcbbeibbccpepibfgdlakghphlgl/assets/fonts/OpenDyslexic-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url('chrome-extension://ccmlnoaoobnogkfmccchhiogagejagod/assets/fonts/OpenSans-Regular.otf') format('opentype');
+}
