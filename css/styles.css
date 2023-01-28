@@ -15,6 +15,18 @@
   align-items: center;
 }
 
+.images,
+.images button {
+  text-align:center;
+  align-items: center;
+}
+
+@media (min-width: 600px) {
+  .images button {
+    padding: 0 80px;
+  }
+}
+
 #about p {
   text-align: left;
   user-select: none;
