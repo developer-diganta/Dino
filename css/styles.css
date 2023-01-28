@@ -122,7 +122,7 @@ button:hover {
   margin: 1rem 0;
 }
 #rate-control input{
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   background: rgb(141, 215, 141);
   height: 8px;
   border-radius: 8px;
@@ -163,7 +163,7 @@ background: rgb(252, 77, 106);
   width: 100%;
 }
 .magnifier input{
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
   background: rgb(141, 215, 141);
   height: 8px;
   border-radius: 8px;
