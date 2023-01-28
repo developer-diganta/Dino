@@ -17,25 +17,7 @@ window.addEventListener(
 
       const action = request.action;
 
-      let scrollerID;
-      // let interval="";
-      // let paused = true;
-
-      function startScroll(interval){
-      let id = setInterval(function(event) {
-          window.scrollBy(0, 2); //scrollBy function of JS
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-              // Reached end of page
-              stopScroll();
-          }
-      }, interval);
-      id();
-      return id;
-      }
-
-      function stopScroll() {
-        clearInterval(scrollerID);
-      }
+      
      
 
       if (action === "fontSize") {
@@ -248,6 +230,26 @@ window.addEventListener(
       }
       else if(action == "fastautoscroll"){
         startScroll(request.interval);
+      }
+
+      let scrollerID;
+      // let interval="";
+      // let paused = true;
+
+      function startScroll(interval){
+      let id = setInterval(function(event) {
+          window.scrollBy(0, 2); //scrollBy function of JS
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+              // Reached end of page
+              stopScroll();
+          }
+      }, interval);
+      id();
+      return id;
+      }
+
+      function stopScroll() {
+        clearInterval(scrollerID);
       }
     });
   },
