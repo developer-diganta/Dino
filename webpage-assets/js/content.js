@@ -2,6 +2,7 @@ const synth = window.speechSynthesis;
 
 window.addEventListener(
   "load",
+  
   function load(event) {
     window.removeEventListener("load", load, false);
     chrome.runtime.onMessage.addListener(function (
@@ -9,6 +10,32 @@ window.addEventListener(
       sender,
       sendResponse
     ) {
+
+      let backColor = "";
+      let fontColor = "";
+      let originalLineHeight = 1;
+
+      const action = request.action;
+
+      let scrollerID;
+      // let interval="";
+      // let paused = true;
+
+      function startScroll(interval){
+      let id = setInterval(function(event) {
+          window.scrollBy(0, 2); //scrollBy function of JS
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+              // Reached end of page
+              stopScroll();
+          }
+      }, interval);
+      id();
+      return id;
+      }
+
+      function stopScroll() {
+        clearInterval(scrollerID);
+      }
      
 
       if (action === "fontSize") {
