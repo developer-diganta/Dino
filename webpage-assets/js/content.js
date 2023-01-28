@@ -12,6 +12,9 @@ window.addEventListener(
       let backColor = "";
       let fontColor = "";
       let originalLineHeight = 1;
+
+      const action = request.action;
+
       let scrollerID;
       // let interval="";
       // let paused = true;
@@ -31,8 +34,7 @@ window.addEventListener(
       function stopScroll() {
         clearInterval(scrollerID);
       }
-
-      const action = request.action;
+      
       if (action === "fontSize") {
         const fontSize = request.fontSize;
         const html = document.querySelector("html");
