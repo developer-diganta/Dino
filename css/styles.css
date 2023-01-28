@@ -15,6 +15,26 @@
   align-items: center;
 }
 
+.preference.show-zoom-value {
+  
+  text-align: center;
+  margin-left:  130px;
+}
+.preference,
+.preference button {
+  text-align:center;
+  align-items: center;
+}
+.preference button i {
+  margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .preference button {
+    padding: 0 80px;
+  }
+}
+
 #about p {
   text-align: left;
   user-select: none;
@@ -59,6 +79,7 @@ button,
   border-radius: 8px;
   box-sizing: border-box;
   color: #111;
+
 
   margin: 25px;
   font-size: 16px;
@@ -159,6 +180,7 @@ background: rgb(252, 77, 106);
   padding: 10px 20px;
   margin-right: 0;
 }
+
 #magni {
   width: 100%;
 }
