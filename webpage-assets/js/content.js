@@ -12,6 +12,25 @@ window.addEventListener(
       let backColor = "";
       let fontColor = "";
       let originalLineHeight = 1;
+      let scrollerID;
+      // let interval="";
+      // let paused = true;
+
+      function startScroll(interval){
+      let id = setInterval(function(event) {
+          window.scrollBy(0, 2); //scrollBy function of JS
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+              // Reached end of page
+              stopScroll();
+          }
+      }, interval);
+      id();
+      return id;
+      }
+
+      function stopScroll() {
+        clearInterval(scrollerID);
+      }
 
       const action = request.action;
       if (action === "fontSize") {
@@ -215,6 +234,15 @@ window.addEventListener(
       else if(action=="convertCase"){
         document.getElementsByTagName("body")[0].style.setProperty("text-transform",request.payload);
         console.log(request.payload)
+      }
+      else if(action == "slowautoscroll"){
+        startScroll(request.interval);
+      }
+      else if(action == "mediumautoscroll"){
+        startScroll(request.interval);
+      }
+      else if(action == "fastautoscroll"){
+        startScroll(request.interval);
       }
     });
   },

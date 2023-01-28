@@ -160,65 +160,83 @@ for (let i = 0; i < links.length; i++) {
 ////////////////////////AUTO SCROLLING FEATURE JS CODE///////////////////////////
 const autoScrollFeature = document.getElementById('autoscroll');
 let scrollerID;
-let paused = true;
+// let paused = true;
 let speed = 2; // 1 - Fast | 2 - Medium | 3 - Slow //default speed is medium.
 let interval = speed * 5;
 const slow_speed = document.getElementById('slow_btn');
 const medium_speed = document.getElementById('medium_btn');
 const high_speed = document.getElementById('fast_btn');
-if(slow_speed.addEventListener('click',function(event){
-    speed = 3;
-    interval = speed * 5;
-    scroling(event);
-}));
-if(medium_speed.addEventListener('click',function(event){
-    speed = 2;
-    interval = speed * 5;
-    scroling(event);
-}));
-if(high_speed.addEventListener('click',function(event){
-    speed = 1;
-    interval = speed * 5;
-    scroling(event);
-}));
+
+slow_speed.addEventListener("click",function(e){
+  chrome.tabs.query({active:true,currentWindow:true},function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id,{action:"slowautoscroll",interval:15});
+  });
+})
+
+medium_speed.addEventListener("click",function(e){
+  chrome.tabs.query({active:true,currentWindow:true},function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id,{action:"mediumautoscroll",interval:10});
+  });
+})
+
+high_speed.addEventListener("click",function(e){
+  chrome.tabs.query({active:true,currentWindow:true},function(tabs){
+    chrome.tabs.sendMessage(tabs[0].id,{action:"fastautoscroll",interval:5});
+  });
+});
+// if(slow_speed.addEventListener('click',function(event){
+//     speed = 3;
+//     interval = speed * 5;
+//     scroling(event);
+// }));
+// if(medium_speed.addEventListener('click',function(event){
+//     speed = 2;
+//     interval = speed * 5;
+//     scroling(event);
+// }));
+// if(high_speed.addEventListener('click',function(event){
+//     speed = 1;
+//     interval = speed * 5;
+//     scroling(event);
+// }));
 
 
 
-function startScroll(){
-    let id = setInterval(function(event) {
-        window.scrollBy(0, 2); //scrollBy function of JS
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            // Reached end of page
-            stopScroll();
-        }
-    }, interval);
-    return id;
-}
+// function startScroll(){
+//     let id = setInterval(function(event) {
+//         window.scrollBy(0, 2); //scrollBy function of JS
+//         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+//             // Reached end of page
+//             stopScroll();
+//         }
+//     }, interval);
+//     return id;
+// }
 
-function stopScroll() {
-    clearInterval(scrollerID);
-}
+// function stopScroll() {
+//     clearInterval(scrollerID);
+// }
 
-function scroling(event){
-    if (event.which == 13 || event.keyCode == 13) {
-        // It's the 'Enter' key
-        if(paused == true) {
-            scrollerID = startScroll();
-            paused = false;
-        }
-        else {
-            stopScroll();
-            paused = true;
-        }
-    }
-}
+// function scroling(event){
+//     if (event.which == 13 || event.keyCode == 13) {
+//         // It's the 'Enter' key
+//         if(paused == true) {
+//             scrollerID = startScroll();
+//             paused = false;
+//         }
+//         else {
+//             stopScroll();
+//             paused = true;
+//         }
+//     }
+// }
 
-document.body.addEventListener('keypress', function (event)
-// autoScrollFeature.addEventListener('click', function()
-{
-    scroling(event);
-}
-, true);
+// document.body.addEventListener('keypress', function (event)
+// // autoScrollFeature.addEventListener('click', function()
+// {
+//     scroling(event);
+// }
+// , true);
 
 
 /////////////////////////////////////////////////////////////////
