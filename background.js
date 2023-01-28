@@ -177,7 +177,8 @@ document.body.addEventListener('keypress', function (event)
 }
 , true);
 
-///////////////////////
+
+/////////////////////////////////////////////////////////////////
 const imageReader = document.getElementsByClassName('img-read');
 // const imageReader = document.getElementsByClassName("img-read");
 for (let i = 0; i < imageReader.length; i++) {
