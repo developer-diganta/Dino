@@ -335,8 +335,9 @@ const extensionDescription =
   "Dino is an extension developed to make the web more accessible to people with dyslexia and color blindness. Dino allows you to change colors, add and remove images, read out pages etc.";
 
 const wordArray = [
+  "TOGGLE THEME",
   extensionDescription,
-  "YOUR PREFERENCES",
+  "PREFERENCES",
   "FONT SIZE",
   "FONT STYLE",
   "IMAGES",
@@ -345,8 +346,10 @@ const wordArray = [
   "LINKS",
   "COLORS",
   "DICTIONARY",
-  "TRANSLATION",
-  "REMOVE ITALIC AND UNDERSCORE"
+  "TRANSLATE",
+  "MAGNIFIER",
+  "REMOVE EMPHASIS",
+  "CASE CONVERTER"
 ];
 const speakerHelper = document.getElementsByClassName("speaker");
 for (let i = 0; i < speakerHelper.length; i++) {
