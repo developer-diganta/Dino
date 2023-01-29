@@ -10,20 +10,23 @@
   text-align: center;
   width: 100%;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-between;
+  /* flex-direction: column; */
   align-items: center;
+  padding: 1em;
 }
 
 #about p {
-  text-align: left;
+  text-align: justify;
   user-select: none;
+  margin: 1em;
 }
 
 body {
   width: 500px;
   background-color: rgb(69, 138, 249);
   color: #fff;
+  transition: background-color 0.1s ease-in-out;
 }
 
 ::-webkit-scrollbar {
@@ -164,7 +167,7 @@ button:hover {
 }
 
 .label {
-  width: 60px;
+  width: 90px;
   height: 25px;
   background-color: #111;
   display: flex;
@@ -174,8 +177,16 @@ button:hover {
   padding: 5px;
   position: relative;
   transform: scale(1.5);
+  margin-left: 1em; 
+  
 }
-
+.label span{
+  font-size: 10px;
+  color: white;
+  margin-left: 20px;
+  margin-top: 1px;
+  transition: transform 0.2s linear;
+}
 .ball {
   width: 20px;
   height: 20px;
@@ -187,9 +198,12 @@ button:hover {
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(36px);
+  transform: translateX(65px);
 }
 
+.checkbox:checked + .label span {
+  transform: translateX(-20px);
+}
 .speaker {
   cursor: pointer;
   display: contents;
