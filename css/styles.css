@@ -194,6 +194,7 @@ background: rgb(252, 77, 106);
 }
 
 .label {
+  margin: auto;
   width: 60px;
   height: 25px;
   background-color: #111;
