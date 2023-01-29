@@ -18,8 +18,6 @@ window.addEventListener(
       const action = request.action;
 
       let scrollerID;
-      // let interval="";
-      // let paused = true;
 
       function startScroll(interval){
       let id = setInterval(function(event) {
