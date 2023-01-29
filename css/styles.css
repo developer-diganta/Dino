@@ -16,7 +16,7 @@
 }
 
 #about p {
-  text-align: left;
+  text-align: justify;
   user-select: none;
 }
 
@@ -114,7 +114,10 @@ button:hover {
     padding: 0 40px;
   }
 }
-
+#about p {
+  text-align: justify;
+  
+}
 #rate-control {
   display: flex;
   align-items: center;
