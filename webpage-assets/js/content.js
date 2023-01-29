@@ -233,8 +233,6 @@ window.addEventListener(
       }
 
       let scrollerID;
-      // let interval="";
-      // let paused = true;
 
       function startScroll(interval){
       let id = setInterval(function(event) {
