@@ -15,24 +15,11 @@
   align-items: center;
 }
 
-.preference.show-zoom-value {
-  
-  text-align: center;
-  margin-left:  130px;
-}
+
 .preference,
 .preference button {
   text-align:center;
   align-items: center;
-}
-.preference button i {
-  margin-right: 5px;
-}
-
-@media (min-width: 768px) {
-  .preference button {
-    padding: 0 80px;
-  }
 }
 
 #about p {
