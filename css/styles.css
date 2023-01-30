@@ -114,7 +114,7 @@ button:hover {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   margin-left: 10px;
- 
+
 }
 
 @media (min-width: 768px) {
@@ -124,7 +124,7 @@ button:hover {
 }
 #about p {
   text-align: justify;
-  
+
 }
 #rate-control {
   display: flex;
@@ -215,7 +215,7 @@ background: rgb(252, 77, 106);
   cursor: pointer;
   margin-top: 0.75em;
   margin-left: 0.75em;
-  
+
 }
 .label span{
   font-size: 8px;
@@ -247,8 +247,8 @@ background: rgb(252, 77, 106);
   user-select: none;
 }
 #fontChange {
- 
-display: flex; 
+
+display: flex;
 justify-content: flex-end;
 margin-top:20px;
 
