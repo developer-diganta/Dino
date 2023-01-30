@@ -56,10 +56,12 @@
       </p>
     </section>
     <section id="localStorage">
-      <h1><span class="speaker">🔊 </span>Your Preferences</h1>
-      <button id="savePreferenceBtn">Save</button>
-      <button id="clearPreferenceBtn">Delete</button>
-      <button id="localStorageToggler">Apply from localStorage</button>
+      <h1><span class="speaker">🔊 </span>PREFERENCES</h1>
+      <div class="preference">
+        <button id="savePreferenceBtn">Save</button>
+        <button id="clearPreferenceBtn">Delete</button>
+        <button id="localStorageToggler">Apply from localStorage</button>
+      </div>
     </section>
 
     <section id="fonts">
@@ -85,13 +87,16 @@
       <button class="fontStyle">Helvetica</button>
       <button class="fontStyle">Monaco</button>
       <button class="fontStyle">OpenSans</button>
+      <button class="fontStyle">Tahoma</button>
     </section>
 
     <section>
       <h1><span class="speaker">🔊 </span>IMAGES</h1>
+      <div class="images">
       <button class="img-remmover">Remove images</button>
       <button class="img-add">Add images</button>
       <button class="img-read">Read Out Images</button>
+    </div>
     </section>
 
     <section>
@@ -148,14 +153,30 @@
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>Translation</h1>
-      <a href="Translator/index.html"
-        ><button>Click here to translate anything</button></a
-      >
+      <h1><span class="speaker">🔊 </span>TRANSLATE</h1>
+      <a href="Translator/index.html">
+        <button>Click here to translate anything</button>
+      </a>
+    </section>
+
+    <section style="margin-top:40px;">
+      <h1>Auto-Scrolling</h1>
+      <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
+      <button class="autoscroll" id="slow_btn">Slow Speed</button>
+      <button class="autoscroll" id="medium_btn">Medium Speed</button>
+      <button class="autoscroll" id="fast_btn">Fast speed</button>
+    </section>
+
+    <section style="margin-top:40px;">
+      <h1>Auto-Scrolling</h1>
+      <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
+      <button class="autoscroll" id="slow_btn">Slow Speed</button>
+      <button class="autoscroll" id="medium_btn">Medium Speed</button>
+      <button class="autoscroll" id="fast_btn">Fast speed</button>
     </section>
 
     <section>
-      <h1>Magnifier</h1>
+      <h1><span class="speaker">🔊 </span>MAGNIFIER</h1>
       <div class="magnifier">
         <button id="magni-inc">-</button>
         <input
@@ -175,13 +196,14 @@
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>REMOVE ITALICS AND UNDERSCORE</h1>
+      <h1><span class="speaker">🔊 </span>REMOVE EMPHASIS</h1>
       <button class="remove-italics">Remove Italics</button>
       <button class="remove-underscore">Remove Underscore</button>
       <button class="reset-italics-and-underscore">Reset</button>
     </section>
+
     <section>
-      <h1>CASE CONVERTER</h1>
+      <h1><span class="speaker">🔊 </span>CASE CONVERTER</h1>
       <div class="convertBtns">
         <button id="upper-case-btn">Convert to Uppercase</button>
         <button id="lower-case-btn">Convert to Lowercase</button>
