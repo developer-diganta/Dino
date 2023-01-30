@@ -11,11 +11,16 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
-  padding: 1em;
 }
-
+.header-options{
+  display: flex;
+  align-items: center;
+}
+select{
+  margin-left: 1em;
+}
 #about p {
   text-align: justify;
   user-select: none;
@@ -26,7 +31,7 @@ body {
   width: 500px;
   background-color: rgb(69, 138, 249);
   color: #fff;
-  transition: background-color 0.1s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
 
 ::-webkit-scrollbar {
@@ -167,7 +172,7 @@ button:hover {
 }
 
 .label {
-  width: 90px;
+  width: 80px;
   height: 25px;
   background-color: #111;
   display: flex;
@@ -177,11 +182,13 @@ button:hover {
   padding: 5px;
   position: relative;
   transform: scale(1.5);
-  margin-left: 1em; 
+  cursor: pointer;
+  margin-top: 0.75em;
+  margin-left: 0.75em;
   
 }
 .label span{
-  font-size: 10px;
+  font-size: 8px;
   color: white;
   margin-left: 20px;
   margin-top: 1px;
@@ -198,7 +205,7 @@ button:hover {
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(65px);
+  transform: translateX(56px);
 }
 
 .checkbox:checked + .label span {
