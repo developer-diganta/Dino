@@ -12,11 +12,12 @@
     <header class="centered">
       <img
         src="./assets/images/DINO!.png"
-        height="120px"
-        width="90px"
+        height="150px"
+        width="150px"
         alt="DINO LOGO"
       />
       <div>
+        <h1><span class="speaker">🔊 </span>TOGGLE THEME</h1> 
         <input type="checkbox" class="checkbox" id="checkbox" />
         <label for="checkbox" class="label">
           <div class="ball"></div>
@@ -24,27 +25,24 @@
       </div>
 
     </header>
- <section id="fontChange">
- 
+
+    <section id="fontChange">
      <select class="dropDown">
         <option value="none" selected disabled hidden>Select Font For DINO</option>
-
-      <option value="Arial">Arial</option>
-  <option value="Baskerville">Baskerville</option>
-  <option value="Calibri">Calibri</option>
-  <option value="Garamond">Garamond</option>
-  <option value="Trebuchet MS">Trebuchet MS</option>
-<option value="Verdana">Verdana</option>
-   <option value="Georgia">Georgia</option>
-<option value="Times New Roman">Times New Roman</option>
- <option value="Helvetica">Helvetica</option>
-<option value="Monaco">Monaco</option>
-
-<option value="OpenSans">OpenSans</option>
-<option value="Tahoma">Tahoma</option>
-<option value="Default">Default</option>
-     </select>
- 
+        <option value="Arial">Arial</option>
+        <option value="Baskerville">Baskerville</option>
+        <option value="Calibri">Calibri</option>
+        <option value="Garamond">Garamond</option>
+        <option value="Trebuchet MS">Trebuchet MS</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Monaco">Monaco</option>
+        <option value="OpenSans">OpenSans</option>
+        <option value="Tahoma">Tahoma</option>
+        <option value="Default">Default</option>
+      </select>
     </section>
 
     <section id="about">
@@ -56,11 +54,11 @@
       </p>
     </section>
     <section id="localStorage">
-      <h1><span class="speaker">🔊 </span>Your Preferences</h1>
+      <h1><span class="speaker">🔊 </span>PREFERENCES</h1>
       <div class="preference">
-      <button id="savePreferenceBtn">Save</button>
-      <button id="clearPreferenceBtn">Delete</button>
-      <button id="localStorageToggler">Apply from localStorage</button>
+        <button id="savePreferenceBtn">Save</button>
+        <button id="clearPreferenceBtn">Delete</button>
+        <button id="localStorageToggler">Apply from localStorage</button>
       </div>
     </section>
 
@@ -87,6 +85,7 @@
       <button class="fontStyle">Helvetica</button>
       <button class="fontStyle">Monaco</button>
       <button class="fontStyle">OpenSans</button>
+      <button class="fontStyle">Tahoma</button>
     </section>
 
     <section>
@@ -152,16 +151,32 @@
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>Translation</h1>
-      <a href="Translator/index.html"
-        ><button>Click here to translate anything</button></a
-      >
+      <h1><span class="speaker">🔊 </span>TRANSLATE</h1>
+      <a href="Translator/index.html">
+        <button>Click here to translate anything</button>
+      </a>
+    </section>
+
+    <section style="margin-top:40px;">
+      <h1>Auto-Scrolling</h1>
+      <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
+      <button class="autoscroll" id="slow_btn">Slow Speed</button>
+      <button class="autoscroll" id="medium_btn">Medium Speed</button>
+      <button class="autoscroll" id="fast_btn">Fast speed</button>
+    </section>
+
+    <section style="margin-top:40px;">
+      <h1>Auto-Scrolling</h1>
+      <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
+      <button class="autoscroll" id="slow_btn">Slow Speed</button>
+      <button class="autoscroll" id="medium_btn">Medium Speed</button>
+      <button class="autoscroll" id="fast_btn">Fast speed</button>
     </section>
 
     <section>
-      <h1>Magnifier</h1>
+      <h1><span class="speaker">🔊 </span>MAGNIFIER</h1>
       <div class="magnifier">
-        <button id="magni-inc">+</button>
+        <button id="magni-inc">-</button>
         <input
           type="range"
           min="30"
@@ -170,7 +185,7 @@
           step="10"
           id="magni"
         />
-        <button id="magni-dec">-</button>
+        <button id="magni-dec">+</button>
       </div>
       <div class="magni-cnt">
         <div class="show-zoom-value">100%</div>
@@ -179,15 +194,18 @@
     </section>
 
     <section>
-      <h1><span class="speaker">🔊 </span>REMOVE ITALICS AND UNDERSCORE</h1>
+      <h1><span class="speaker">🔊 </span>REMOVE EMPHASIS</h1>
       <button class="remove-italics">Remove Italics</button>
       <button class="remove-underscore">Remove Underscore</button>
       <button class="reset-italics-and-underscore">Reset</button>
     </section>
+
     <section>
-      <h1>CASE CONVERTER</h1>
-      <button id="upper-case-btn">Convert to Uppercase</button>
-      <button id="lower-case-btn">Convert to Lowercase</button>
+      <h1><span class="speaker">🔊 </span>CASE CONVERTER</h1>
+      <div class="convertBtns">
+        <button id="upper-case-btn">Convert to Uppercase</button>
+        <button id="lower-case-btn">Convert to Lowercase</button>
+      </div>
     </section>
   </body>
 

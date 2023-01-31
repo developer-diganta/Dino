@@ -2,6 +2,7 @@ const synth = window.speechSynthesis;
 
 window.addEventListener(
   "load",
+  
   function load(event) {
     window.removeEventListener("load", load, false);
     chrome.runtime.onMessage.addListener(function (
@@ -9,11 +10,32 @@ window.addEventListener(
       sender,
       sendResponse
     ) {
+
       let backColor = "";
       let fontColor = "";
       let originalLineHeight = 1;
 
       const action = request.action;
+
+      let scrollerID;
+
+      function startScroll(interval){
+      let id = setInterval(function(event) {
+          window.scrollBy(0, 2); //scrollBy function of JS
+          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+              // Reached end of page
+              stopScroll();
+          }
+      }, interval);
+      id();
+      return id;
+      }
+
+      function stopScroll() {
+        clearInterval(scrollerID);
+      }
+     
+
       if (action === "fontSize") {
         const fontSize = request.fontSize;
         const html = document.querySelector("html");
@@ -47,10 +69,14 @@ window.addEventListener(
         } else if (request.fontStyle === "Monaco") {
           html.style.setProperty("font-family", "Monaco", "Monospace");
         }
-         else if (request.fontStyle === "OpenSans-Regular") {
+        else if (request.fontStyle === "OpenSans-Regular") {
           html.style.setProperty("font-family", "OpenSans-Regular", "sans-serif");
-         }
-      } else if (action === "image") {
+        }
+        else if (request.fontStyle === "Tahoma") {
+          html.style.setProperty("font-family", "Tahoma,sans-serif");
+        } 
+      }
+      else if (action === "image") {
         const immgs = document.getElementsByTagName("img");
         for (let i = 0; i < immgs.length; i++) {
           immgs[i].style.setProperty("display", "none");
@@ -82,6 +108,7 @@ window.addEventListener(
         }
         const msg = new SpeechSynthesisUtterance(txt.toString());
         msg.rate = request.rate;
+
         synth.speak(msg);
       } else if (action === "stop-speech") {
         if (synth.speaking) {
@@ -214,7 +241,16 @@ window.addEventListener(
       }
       else if(action=="convertCase"){
         document.getElementsByTagName("body")[0].style.setProperty("text-transform",request.payload);
-        console.log(request.payload)
+        console.log(request.payload);
+      }
+      else if(action == "slowautoscroll"){
+        startScroll(request.interval);
+      }
+      else if(action == "mediumautoscroll"){
+        startScroll(request.interval);
+      }
+      else if(action == "fastautoscroll"){
+        startScroll(request.interval);
       }
     });
   },
