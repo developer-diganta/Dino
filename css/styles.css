@@ -30,7 +30,7 @@
 }
 
 #about p {
-  text-align: left;
+  text-align: justify;
   user-select: none;
 }
 
@@ -83,6 +83,10 @@ button,
   position: relative;
   text-decoration: none;
 }
+.magni-cnt .show-zoom-value {
+  text-align: center;
+  margin-left: 130px;
+}
 
 button:after {
   background-color: #111;
@@ -124,12 +128,29 @@ button:hover {
     padding: 0 40px;
   }
 }
-
+#about p {
+  text-align: justify;
+  
+}
 #rate-control {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
+}
+#rate-control input{
+  /* -webkit-appearance: none; */
+  background: rgb(141, 215, 141);
+  height: 8px;
+  border-radius: 8px;
+}
+#rate::-webkit-slider-thumb{
+  -webkit-appearance: none;
+appearance: none;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+background: rgb(252, 77, 106);
 }
 .magnifier {
   display: flex;
@@ -158,7 +179,20 @@ button:hover {
 #magni {
   width: 100%;
 }
-
+.magnifier input{
+  /* -webkit-appearance: none; */
+  background: rgb(141, 215, 141);
+  height: 8px;
+  border-radius: 8px;
+}
+#magni::-webkit-slider-thumb{
+  -webkit-appearance: none;
+appearance: none;
+height: 20px;
+width: 20px;
+border-radius: 50%;
+background: rgb(252, 77, 106);
+}
 .dark-mode {
   background-color: #fff;
   color: #000;
@@ -174,6 +208,7 @@ button:hover {
 }
 
 .label {
+  margin: auto;
   width: 60px;
   height: 25px;
   background-color: #111;
@@ -216,4 +251,11 @@ margin-top:20px;
 .dropDown{
    background-color: #ffdeda;
    border-radius: 8px !important;
+}
+.convertBtns{
+  display: flex;
+}
+#upper-case-btn, #lower-case-btn {
+  margin: 10px !important;
+  padding: 0 14px !important;
 }
