@@ -10,11 +10,17 @@
   text-align: center;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
 }
-
+.header-options{
+  display: flex;
+  align-items: center;
+}
+select{
+  margin-left: 1em;
+}
 
 .preference,
 .preference button {
@@ -29,15 +35,19 @@
   align-items: center;
 }
 
+
+
 #about p {
   text-align: justify;
   user-select: none;
+  margin: 1em;
 }
 
 body {
   width: 500px;
   background-color: rgb(69, 138, 249);
   color: #fff;
+  transition: background-color 0.2s ease-in-out;
 }
 
 ::-webkit-scrollbar {
@@ -120,7 +130,7 @@ button:hover {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   margin-left: 10px;
- 
+
 }
 
 @media (min-width: 768px) {
@@ -130,7 +140,7 @@ button:hover {
 }
 #about p {
   text-align: justify;
-  
+
 }
 #rate-control {
   display: flex;
@@ -208,8 +218,7 @@ background: rgb(252, 77, 106);
 }
 
 .label {
-  margin: auto;
-  width: 60px;
+  width: 80px;
   height: 25px;
   background-color: #111;
   display: flex;
@@ -219,8 +228,18 @@ background: rgb(252, 77, 106);
   padding: 5px;
   position: relative;
   transform: scale(1.5);
-}
+  cursor: pointer;
+  margin-top: 0.75em;
+  margin-left: 0.75em;
 
+}
+.label span{
+  font-size: 8px;
+  color: white;
+  margin-left: 20px;
+  margin-top: 1px;
+  transition: transform 0.2s linear;
+}
 .ball {
   width: 20px;
   height: 20px;
@@ -232,17 +251,20 @@ background: rgb(252, 77, 106);
 }
 
 .checkbox:checked + .label .ball {
-  transform: translateX(36px);
+  transform: translateX(56px);
 }
 
+.checkbox:checked + .label span {
+  transform: translateX(-20px);
+}
 .speaker {
   cursor: pointer;
   display: contents;
   user-select: none;
 }
 #fontChange {
- 
-display: flex; 
+
+display: flex;
 justify-content: flex-end;
 margin-top:20px;
 
