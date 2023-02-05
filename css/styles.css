@@ -21,6 +21,20 @@
 select{
   margin-left: 1em;
 }
+
+.preference,
+.preference button {
+  text-align:center;
+  align-items: center;
+}
+
+.images,
+.images button {
+  text-align:center;
+  align-items: center;
+}
+
+
 #about p {
   text-align: justify;
   user-select: none;
