@@ -6,6 +6,44 @@
   
   **Dino is a Chrome extension designed to help people with dyslexia and color blindness navigate and interact with web pages more easily.**
   
+---
+
+# Workflow/Process of the Project
+
+   📌 Understanding the needs of people like what one need and which is not avialable in the market which can sort people need.
+   
+   📌 Based on user research we have got the best features that DINO extension will have.
+   
+   📌 Next we have designed the extension with good features which fulfill user need.
+   
+   📌 Once we built it we have also tested it so that it does not have any fault .
+   
+   📌 We also debuged it .
+   
+   📌 Extension is launched and the stpes to install and use it is given in below section.
+     
+---
+
+# Aim of DINO:
+  
+   📌 Extension that helps people with dyslexia and color blindness to acess web pages with greater ease. 
+   
+   📌 Dyslexia is a disorder that make it difficult for people to read,write,and spell.So for it Dino is created.
+   
+   📌 Dino solve these issue by customized font size,font style, images,listen to web page, paragraphs,links etc.
+   
+   📌 Dino also help peoplw with color blindness to better distinguish between things properly.
+   
+   📌 Dino goal is to promote greater accessibility on the web and to help people with dyslexia and color blindness to fully participate in online activites without barriers.
+   
+   📌 Make it easy for people to acess web content
+   
+   📌 Dino extension helps to increase theri independence and enable people to fully engage in the digital world
+   
+   📌 DINO extension gives people new life.
+   
+---
+  
   ## Installation
   
   To use Dino in your Chrome browser, follow these steps:
