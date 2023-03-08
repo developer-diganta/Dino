@@ -17,9 +17,6 @@ window.addEventListener(
 
       const action = request.action;
 
-<<<<<<< HEAD
-      
-=======
       let scrollerID;
 
       function startScroll(interval){
@@ -37,7 +34,6 @@ window.addEventListener(
       function stopScroll() {
         clearInterval(scrollerID);
       }
->>>>>>> 147424d9c4ad20bd44270430219812fa2fab748c
      
 
       if (action === "fontSize") {
@@ -255,24 +251,6 @@ window.addEventListener(
       }
       else if(action == "fastautoscroll"){
         startScroll(request.interval);
-      }
-
-      let scrollerID;
-
-      function startScroll(interval){
-      let id = setInterval(function(event) {
-          window.scrollBy(0, 2); //scrollBy function of JS
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-              // Reached end of page
-              stopScroll();
-          }
-      }, interval);
-      id();
-      return id;
-      }
-
-      function stopScroll() {
-        clearInterval(scrollerID);
       }
     });
   },

@@ -156,10 +156,6 @@ for (let i = 0; i < links.length; i++) {
     })
 };
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 147424d9c4ad20bd44270430219812fa2fab748c
 const autoScrollFeature = document.getElementById('autoscroll');
 let scrollerID;
 let speed = 2; // 1 - Fast | 2 - Medium | 3 - Slow //default speed is medium.
@@ -186,10 +182,7 @@ high_speed.addEventListener("click",function(e){
   });
 });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 147424d9c4ad20bd44270430219812fa2fab748c
 const imageReader = document.getElementsByClassName('img-read');
 for (let i = 0; i < imageReader.length; i++) {
   imageReader[i].addEventListener("click", function (e) {
