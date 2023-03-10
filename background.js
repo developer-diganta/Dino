@@ -206,6 +206,22 @@ backgroundColorChanger.addEventListener("submit", function (e) {
   });
 });
 
+const modeChanger = document.getElementById(
+  "modeChanger"
+);
+for(let i=0;i < modeChanger.length;i++){
+  
+modeChanger[i].addEventListener("click", function (e) {
+  console.log(e.target.value);
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, {
+      action: "ligh-on-darkmode",
+      modevalue:e.target.value,
+    });
+  });
+});
+}
+
 document
   .getElementsByClassName("revert-background-color")[0]
   .addEventListener("click", function (e) {
