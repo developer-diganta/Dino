@@ -148,9 +148,9 @@ window.addEventListener(
           });
         }
       }
-       else if(action === "light-on-dark"){
+       else if(action === "light-on-darkmode"){
         const condi=request.modevalue;
-        console.log("hi");
+
         if(condi === "darkmode"){
           
           document.querySelector("html").style.setProperty("filter","invert(1) hue-rotate(180deg)");
