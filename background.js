@@ -211,12 +211,12 @@ const modeChanger = document.getElementsByClassName(
 );
 for(let i=0;i < modeChanger.length;i++){
   
-modeChanger[i].addEventListener("submit", function (e) {
-  Preference.modevalue = e.target.value;
-  console.log(e.target.value);
+modeChanger[i].addEventListener("click", function (e) {
+  let modevalue = e.target.value;
+  console.log(modevalue);
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, {
-      action: "ligh-on-darkmode",
+      action: "light-on-darkmode",
       modevalue:e.target.value,
     });
   });

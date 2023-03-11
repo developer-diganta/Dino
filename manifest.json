@@ -22,7 +22,8 @@
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["*://*/*"],
+      "all_frames": true,
       "js": ["webpage-assets/js/content.js", "mark.js"],
       "css": ["webpage-assets/css/styles.css"]
     }

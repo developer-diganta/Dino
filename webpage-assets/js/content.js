@@ -150,20 +150,20 @@ window.addEventListener(
       }
        else if(action === "light-on-darkmode"){
         const condi=request.modevalue;
-
+     
         if(condi === "darkmode"){
           
-          document.querySelector("html").style.setProperty("filter","invert(1) hue-rotate(180deg)");
+          document.querySelector("html").style.filter="invert(1) hue-rotate(180deg)";
           let media = document.querySelectorAll("img, picture, video");
           media.forEach((mediaItem) => {
-          mediaItem.style.setProperty("filter","invert(1) hue-rotate(180deg)");
+          mediaItem.style.filter="invert(1) hue-rotate(180deg)"
           })
         }
         else if(condi === "lightmode"){
-          document.querySelector("html").style.setProperty("filter","invert(0) hue-rotate(0deg)");
+          document.querySelector("html").style.filter="invert(0) hue-rotate(0deg)";
           let media = document.querySelectorAll("img, picture, video");
           media.forEach((mediaItem) => {
-            mediaItem.style.setProperty("filter","invert(0) hue-rotate(0deg)");
+            mediaItem.style.filter="invert(0) hue-rotate(0deg)"
           })
         }
 
