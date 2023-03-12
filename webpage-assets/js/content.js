@@ -147,7 +147,31 @@ window.addEventListener(
             window.speechSynthesis.cancel();
           });
         }
-      } else if (action === "backgroundColor") {
+      }
+       else if(action === "light-on-darkmode"){
+        const condi=request.modevalue;
+     
+        if(condi === "darkmode"){
+          
+          document.querySelector("html").style.filter="invert(1) hue-rotate(180deg)";
+          let media = document.querySelectorAll("img, picture, video");
+          media.forEach((mediaItem) => {
+          mediaItem.style.filter="invert(1) hue-rotate(180deg)"
+          })
+        }
+        else if(condi === "lightmode"){
+          document.querySelector("html").style.filter="invert(0) hue-rotate(0deg)";
+          let media = document.querySelectorAll("img, picture, video");
+          media.forEach((mediaItem) => {
+            mediaItem.style.filter="invert(0) hue-rotate(0deg)"
+          })
+        }
+
+     
+
+      }
+      
+      else if (action === "backgroundColor") {
         backColor === ""
           ? (backColor =
               document.getElementsByTagName("body")[0].style.backgroundColor)
