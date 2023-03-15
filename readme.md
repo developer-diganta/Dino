@@ -232,6 +232,10 @@ To push your changes, run the following command in your terminal:
 ## That's it! You have made your contribution to the project.🙌
 ## Sit back patiently and relax while the project maintainers review your PR. 🚀
 
+## Contributors
+<a href="https://github.com/developer-diganta/Dino/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=developer-diganta/Dino"/>
+</a>
 
         
 ## License
