@@ -42,7 +42,7 @@ select{
 }
 
 body {
-  width: 500px;
+  width: 800px;
   background-color: rgb(69, 138, 249);
   color: #fff;
   transition: background-color 0.2s ease-in-out;
@@ -135,6 +135,9 @@ button:hover {
   button {
     padding: 0 40px;
   }
+}
+#about {
+  width: 800px;
 }
 #about p {
   text-align: justify;
@@ -278,4 +281,19 @@ margin-top:20px;
 #upper-case-btn, #lower-case-btn {
   margin: 10px !important;
   padding: 0 14px !important;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#fonts {
+  width: 70%;
+}
+
+#links {
+  width: 880px;
 }
