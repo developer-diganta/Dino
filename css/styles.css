@@ -5,7 +5,6 @@
   font-size: 26px;
 }
 
-
 .centered {
   text-align: center;
   width: 100%;
@@ -14,26 +13,27 @@
   flex-direction: column;
   align-items: center;
 }
-.header-options{
+
+.header-options {
   display: flex;
   align-items: center;
 }
-select{
+
+select {
   margin-left: 1em;
 }
 
 .preference,
 .preference button {
-  text-align:center;
+  text-align: center;
   align-items: center;
 }
 
 .images,
 .images button {
-  text-align:center;
+  text-align: center;
   align-items: center;
 }
-
 
 #about p {
   text-align: justify;
@@ -42,7 +42,7 @@ select{
 }
 
 body {
-  width: 500px;
+  width: 800px;
   background-color: rgb(69, 138, 249);
   color: #fff;
   transition: background-color 0.2s ease-in-out;
@@ -51,15 +51,18 @@ body {
 ::-webkit-scrollbar {
   width: 12px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: pink;
   margin-block: 0.3em;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: rgb(141, 215, 141);
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: rgb(67, 171, 67);
 }
@@ -72,6 +75,7 @@ h1 {
   align-items: center;
   user-select: none;
 }
+
 button,
 .show-zoom-value {
   align-items: center;
@@ -91,6 +95,7 @@ button,
   position: relative;
   text-decoration: none;
 }
+
 .magni-cnt .show-zoom-value {
   text-align: center;
   margin-left: 130px;
@@ -128,7 +133,6 @@ button:hover {
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   margin-left: 10px;
-
 }
 
 @media (min-width: 768px) {
@@ -136,46 +140,58 @@ button:hover {
     padding: 0 40px;
   }
 }
+
+#about {
+  width: 800px;
+}
+
 #about p {
   text-align: justify;
-
 }
+
 #rate-control {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
 }
-#rate-control input{
+
+#rate-control input {
   /* -webkit-appearance: none; */
   background: rgb(141, 215, 141);
   height: 8px;
   border-radius: 8px;
 }
-#rate::-webkit-slider-thumb{
+
+#rate::-webkit-slider-thumb {
   -webkit-appearance: none;
-appearance: none;
-height: 20px;
-width: 20px;
-border-radius: 50%;
-background: rgb(252, 77, 106);
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: rgb(252, 77, 106);
 }
+
 .magnifier {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .magnifier button {
   padding: 0 25px;
 }
+
 .magni-cnt,
 .magni-cnt button {
   display: flex;
   align-items: center;
 }
+
 .magni-cnt button i {
   margin-right: 5px;
 }
+
 .show-zoom-value {
   /* width: 60px; */
   /* width: 100%;
@@ -184,22 +200,25 @@ background: rgb(252, 77, 106);
   padding: 10px 20px;
   margin-right: 0;
 }
+
 #magni {
   width: 100%;
 }
-.magnifier input{
+
+.magnifier input {
   /* -webkit-appearance: none; */
   background: rgb(141, 215, 141);
   height: 8px;
   border-radius: 8px;
 }
-#magni::-webkit-slider-thumb{
+
+#magni::-webkit-slider-thumb {
   -webkit-appearance: none;
-appearance: none;
-height: 20px;
-width: 20px;
-border-radius: 50%;
-background: rgb(252, 77, 106);
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: rgb(252, 77, 106);
 }
 .dark-mode {
   background-color: #fff;
@@ -229,15 +248,16 @@ background: rgb(252, 77, 106);
   cursor: pointer;
   margin-top: 0.75em;
   margin-left: 0.75em;
-
 }
-.label span{
+
+.label span {
   font-size: 8px;
   color: white;
   margin-left: 20px;
   margin-top: 1px;
   transition: transform 0.2s linear;
 }
+
 .ball {
   width: 20px;
   height: 20px;
@@ -255,27 +275,45 @@ background: rgb(252, 77, 106);
 .checkbox:checked + .label span {
   transform: translateX(-20px);
 }
+
 .speaker {
   cursor: pointer;
   display: contents;
   user-select: none;
 }
+
 #fontChange {
-
-display: flex;
-justify-content: flex-end;
-margin-top:20px;
-
-
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
-.dropDown{
-   background-color: #ffdeda;
-   border-radius: 8px !important;
+
+.dropDown {
+  background-color: #ffdeda;
+  border-radius: 8px !important;
 }
-.convertBtns{
+
+.convertBtns {
   display: flex;
 }
-#upper-case-btn, #lower-case-btn {
+
+#upper-case-btn,
+#lower-case-btn {
   margin: 10px !important;
   padding: 0 14px !important;
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+#fonts {
+  width: 70%;
+}
+
+#links {
+  width: 880px;
 }
