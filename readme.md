@@ -153,19 +153,6 @@ Permissions include tabs and active tabs which helps to manipulate the styles of
   </tr>
 </table>
 
-<h2 align='center'> Co Maintainer </h2>
-<table align='center'>
-<tr>
-    <td align="center">
-        <a href="https://github.com/web-dev-kushal">
-            <img src="https://avatars.githubusercontent.com/u/68588123?v=4" width="100;" alt="Kushal Mitra"/>
-            <br />
-            <sub><b>Kushal Mitra</b></sub>
-        </a>
-    </td>
-  </tr>
-</table>
-
 # Contributing
 
 ## Raise an issue
