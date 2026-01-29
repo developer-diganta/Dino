@@ -1,216 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DINO!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
 
   <body class="dark-mode">
-    <header class="centered">
-      <img
-        src="./assets/images/DINO!.png"
-        height="160px"
-        width="120px"
-        alt="DINO LOGO"
-      />
-      <div class="header-options">
-        <input type="checkbox" class="checkbox" id="checkbox" />
-        <label for="checkbox" class="label">
-          <div class="ball"></div>
-          <span>Background</span>
-        </label>
-        <section id="fontChange">
+    <main class="app-container">
+      <header class="centered">
+        <div class="logo-container">
+          <img src="./assets/images/DINO!.png" height="100px" width="auto" alt="DINO LOGO" class="dino-logo" />
+        </div>
+        <div class="header-options">
+          <button id="designToggle" class="design-toggle">Switch to Accessible</button>
+          <div class="theme-switch-wrapper">
+            <input type="checkbox" class="checkbox" id="checkbox" />
+            <label for="checkbox" class="label">
+              <div class="ball"></div>
+              <span>Theme</span>
+            </label>
+          </div>
 
+          <section id="fontChange" class="font-selector-container">
             <select class="dropDown">
-               <option value="none" selected disabled hidden>Select Font For DINO</option>
-
-             <option value="Arial">Arial</option>
-         <option value="Baskerville">Baskerville</option>
-         <option value="Calibri">Calibri</option>
-         <option value="Garamond">Garamond</option>
-         <option value="Trebuchet MS">Trebuchet MS</option>
-       <option value="Verdana">Verdana</option>
-          <option value="Georgia">Georgia</option>
-       <option value="Times New Roman">Times New Roman</option>
-        <option value="Helvetica">Helvetica</option>
-       <option value="Monaco">Monaco</option>
-
-       <option value="OpenSans">OpenSans</option>
-       <option value="Tahoma">Tahoma</option>
-       <option value="Default">Default</option>
+              <option value="none" selected disabled hidden>Font</option>
+              <option value="Arial">Arial</option>
+              <option value="Baskerville">Baskerville</option>
+              <option value="Calibri">Calibri</option>
+              <option value="Garamond">Garamond</option>
+              <option value="Trebuchet MS">Trebuchet MS</option>
+              <option value="Verdana">Verdana</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Helvetica">Helvetica</option>
+              <option value="Monaco">Monaco</option>
+              <option value="OpenSans">OpenSans</option>
+              <option value="Tahoma">Tahoma</option>
+              <option value="Default">Default</option>
             </select>
+          </section>
+        </div>
+      </header>
 
-           </section>
+      <div class="content-grid">
+        <section id="about" class="card premium-card">
+          <p>
+            <span class="speaker">🔊 </span>
+            <strong>Dino</strong> makes the web accessible! Change colors, fonts, and more.
+          </p>
+        </section>
+
+        <section id="localStorage" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>PREFERENCES</h1>
+          </div>
+          <div class="preference actions-row">
+            <button id="savePreferenceBtn" class="btn-primary">Save</button>
+            <button id="clearPreferenceBtn" class="btn-danger">Delete</button>
+            <button id="localStorageToggler" class="btn-secondary">Load Saved</button>
+          </div>
+        </section>
+
+        <section id="mode" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>WEBSITE MODE</h1>
+          </div>
+          <div class="actions-row">
+            <button value="lightmode" class="modes btn-light">Light</button>
+            <button value="darkmode" class="modes btn-dark">Dark</button>
+          </div>
+        </section>
+
+        <section id="fonts" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>FONT SIZE</h1>
+          </div>
+          <div class="grid-buttons">
+            <button class="fontSize">12px</button>
+            <button class="fontSize">22px</button>
+            <button class="fontSize">26px</button>
+            <button class="fontSize">30px</button>
+            <button class="fontSize">40px</button>
+            <button class="fontSize">60px</button>
+          </div>
+        </section>
+
+        <section id="font-style" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>FONT STYLE</h1>
+          </div>
+          <div class="grid-buttons dense">
+            <button class="fontStyle">Arial</button>
+            <button class="fontStyle">Baskerville</button>
+            <button class="fontStyle">Calibri</button>
+            <button class="fontStyle">Garamond</button>
+            <button class="fontStyle">Trebuchet MS</button>
+            <button class="fontStyle">Verdana</button>
+            <button class="fontStyle">Georgia</button>
+            <button class="fontStyle">Times New Roman</button>
+            <button class="fontStyle">Helvetica</button>
+            <button class="fontStyle">Monaco</button>
+            <button class="fontStyle">OpenSans</button>
+            <button class="fontStyle">Tahoma</button>
+          </div>
+        </section>
+
+        <section id="images" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>IMAGES</h1>
+          </div>
+          <div class="images actions-row">
+            <button class="img-remmover btn-danger">Hide</button>
+            <button class="img-add btn-success">Show</button>
+            <button class="img-read btn-info">Read Alt</button>
+          </div>
+        </section>
+
+        <section id="listen_to_web_page" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>TEXT TO SPEECH</h1>
+          </div>
+          <div class="actions-row">
+            <button class="text-to-speech btn-primary">Speak Page</button>
+            <button class="text-to-speech-selected btn-secondary">Speak Selection</button>
+            <button class="stop-speech btn-danger">Stop</button>
+          </div>
+          <div id="rate-control" class="slider-control">
+            <label for="rate">Speed:</label>
+            <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
+          </div>
+        </section>
+
+        <section id="paragraphs" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>PARAGRAPHS</h1>
+          </div>
+          <div class="actions-column">
+            <div class="button-group">
+              <button class="para-highlighter">Highlight Borders</button>
+              <button class="para-highlighter-remove btn-ghost">Remove</button>
+            </div>
+            <div class="button-group">
+              <button class="para-highlighter-background">Highlight Background</button>
+              <button class="para-highlighter-background-remove btn-ghost">Remove</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="links" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>LINKS</h1>
+          </div>
+          <div class="actions-row">
+            <button class="link">Highlight</button>
+            <button class="border">Borders</button>
+            <button class="remove-link-hg btn-ghost">Remove</button>
+          </div>
+        </section>
+
+        <section id="colors" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>CUSTOM COLORS</h1>
+          </div>
+          <div class="color-pickers">
+            <div class="picker-group">
+              <span>Background</span>
+              <form id="backgroundColorChanger" class="color-form">
+                <input name="color" type="color" class="color-input" />
+                <button type="submit" class="btn-sm">Apply</button>
+              </form>
+              <button class="revert-background-color btn-xs">Reset</button>
+            </div>
+            <div class="picker-group">
+              <span>Font</span>
+              <form id="fontColorChanger" class="color-form">
+                <input name="color" type="color" class="color-input" />
+                <button type="submit" class="btn-sm">Apply</button>
+              </form>
+              <button class="revert-Font-color btn-xs">Reset</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="dictionary" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>DICTIONARY</h1>
+          </div>
+          <div class="actions-row">
+            <button class="select-text btn-block">Get Definition of Selection</button>
+          </div>
+          <p class="select-text-definition"></p>
+        </section>
+
+        <section id="translate" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>TRANSLATE</h1>
+          </div>
+          <a href="Translator/index.html" target="_blank" class="full-width-link">
+            <button class="btn-block">Open Translator</button>
+          </a>
+        </section>
+
+        <section id="auto-scrolling" class="card">
+          <div class="card-header">
+            <h1>AUTO SCROLLING</h1>
+          </div>
+          <h2 class="subtitle">Press Enter to Start/Stop</h2>
+          <div class="actions-row">
+            <button class="autoscroll" id="slow_btn">Slow</button>
+            <button class="autoscroll" id="medium_btn">Medium</button>
+            <button class="autoscroll" id="fast_btn">Fast</button>
+          </div>
+        </section>
+
+        <section id="magnifier" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>MAGNIFIER</h1>
+          </div>
+          <div class="magnifier-controls">
+            <button id="magni-inc" class="circle-btn">-</button>
+            <input type="range" min="30" max="250" value="100" step="10" id="magni" class="zoom-slider" />
+            <button id="magni-dec" class="circle-btn">+</button>
+          </div>
+          <div class="magni-cnt">
+            <div class="show-zoom-value">100%</div>
+            <button id="resetZoom" class="btn-ghost">Reset</button>
+          </div>
+        </section>
+
+        <section id="remove-emphasis" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>REMOVE EMPHASIS</h1>
+          </div>
+          <div class="actions-row">
+            <button class="remove-italics">No Italics</button>
+            <button class="remove-underscore">No Underline</button>
+            <button class="reset-italics-and-underscore btn-ghost">Reset</button>
+          </div>
+        </section>
+
+        <section id="case-converter" class="card">
+          <div class="card-header">
+            <h1><span class="speaker">🔊 </span>CASE CONVERTER</h1>
+          </div>
+          <div class="convertBtns actions-row">
+            <button id="upper-case-btn">UPPERCASE</button>
+            <button id="lower-case-btn">lowercase</button>
+          </div>
+        </section>
       </div>
-    </header>
-
-    <section id="about">
-      <p>
-        <span class="speaker">🔊 </span>Dino is an extension developed to make
-        the web more accessible to people with dyslexia and color blindness.
-        Dino allows you to change colors, add and remove images, read out pages
-        etc.
-      </p>
-    </section>
-    <section id="localStorage">
-      <h1><span class="speaker">🔊 </span>PREFERENCES</h1>
-      <div class="preference">
-      <button id="savePreferenceBtn">Save</button>
-      <button id="clearPreferenceBtn">Delete</button>
-      <button id="localStorageToggler">Apply from localStorage</button>
-    </div>
-    </section>
-
-    <section id="mode">
-      <h1><span class="speaker">🔊 </span>Mode</h1>
-
-        <button  value="lightmode" class="modes">Light Mode</button>
-        <button  value="darkmode" class="modes">Dark Mode</button>
-
-      
-    </section>
-
-    <section id="fonts">
-      <h1><span class="speaker">🔊 </span>FONT SIZE</h1>
-      <button class="fontSize">12px</button>
-      <button class="fontSize">22px</button>
-      <button class="fontSize">26px</button>
-      <button class="fontSize">30px</button>
-      <button class="fontSize">40px</button>
-      <button class="fontSize">60px</button>
-    </section>
-
-    <section id="font-style">
-      <h1><span class="speaker">🔊 </span>FONT STYLE</h1>
-      <button class="fontStyle">Arial</button>
-      <button class="fontStyle">Baskerville</button>
-      <button class="fontStyle">Calibri</button>
-      <button class="fontStyle">Garamond</button>
-      <button class="fontStyle">Trebuchet MS</button>
-      <button class="fontStyle">Verdana</button>
-      <button class="fontStyle">Georgia</button>
-      <button class="fontStyle">Times New Roman</button>
-      <button class="fontStyle">Helvetica</button>
-      <button class="fontStyle">Monaco</button>
-      <button class="fontStyle">OpenSans</button>
-      <button class="fontStyle">Tahoma</button>
-    </section>
-
-    <section id="images">
-      <h1><span class="speaker">🔊 </span>IMAGES</h1>
-      <div class="images">
-      <button class="img-remmover">Remove images</button>
-      <button class="img-add">Add images</button>
-      <button class="img-read">Read Out Images</button>
-      </div>
-    </section>
-
-    <section id="listen_to_web_page">
-      <h1><span class="speaker">🔊 </span>LISTEN TO WEB PAGE</h1>
-      <button class="text-to-speech">Speak</button>
-      <button class="stop-speech">Stop</button>
-      <button class="text-to-speech-selected">SpeakSelected</button>
-      <div id="rate-control">
-        <label for="rate">Rate:</label>
-        <input type="range" min="0.5" max="2" value="1" step="0.1" id="rate" />
-      </div>
-    </section>
-
-    <section id="paragraphs">
-      <h1><span class="speaker">🔊 </span>PARAGRAPHS</h1>
-      <button class="para-highlighter">Highlight Paragraphs Border</button>
-      <button class="para-highlighter-remove">
-        Remove Paragraph Border Highlighting
-      </button>
-
-      <button class="para-highlighter-background">
-        Highlight Paragraphs Background
-      </button>
-      <button class="para-highlighter-background-remove">
-        Remove Paragraph Background Highlighting
-      </button>
-    </section>
-
-    <section id="links">
-      <h1><span class="speaker">🔊 </span>LINKS</h1>
-      <button class="link">Highlight Links</button>
-      <button class="border">Show Borders</button>
-      <button class="remove-link-hg">Remove Link Highlights</button>
-    </section>
-
-    <section id="colors">
-      <h1><span class="speaker">🔊 </span>COLORS</h1>
-      <form id="backgroundColorChanger">
-        <input name="color" type="color" />
-        <button type="submit">Change Background Color</button>
-      </form>
-      <button class="revert-background-color">Revert Background Color</button>
-      <form id="fontColorChanger">
-        <input name="color" type="color" />
-        <button type="submit">Change Font Color</button>
-        <button class="revert-Font-color">Revert Font Color</button>
-      </form>
-    </section>
-    
-    <section id="dictionary">
-      <h1><span class="speaker">🔊 </span>DICTIONARY</h1>
-      <button class="select-text">Get Definition</button>
-      <p class="select-text-definition"></p>
-    </section>
-
-    <section id="translate">
-      <h1><span class="speaker">🔊 </span>TRANSLATE</h1>
-      <a href="Translator/index.html">
-        <button>Click here to translate anything</button>
-      </a>
-    </section>
-
-    <section style="margin-top:40px;" id="auto-scrolling">
-      <h1>Auto-Scrolling</h1>
-      <h2>Press Enter to Start Auto Scrolling and again press Enter to stop.</h2>
-      <button class="autoscroll" id="slow_btn">Slow Speed</button>
-      <button class="autoscroll" id="medium_btn">Medium Speed</button>
-      <button class="autoscroll" id="fast_btn">Fast speed</button>
-    </section>
-
-    <section id="magnifier">
-      <h1><span class="speaker">🔊 </span>MAGNIFIER</h1>
-      <div class="magnifier">
-        <button id="magni-inc">-</button>
-        <input
-          type="range"
-          min="30"
-          max="250"
-          value="100"
-          step="10"
-          id="magni"
-        />
-        <button id="magni-dec">+</button>
-      </div>
-      <div class="magni-cnt">
-        <div class="show-zoom-value">100%</div>
-        <button id="resetZoom">reset</button>
-      </div>
-    </section>
-
-    <section id="remove-emphasis">
-      <h1><span class="speaker">🔊 </span>REMOVE EMPHASIS</h1>
-      <button class="remove-italics">Remove Italics</button>
-      <button class="remove-underscore">Remove Underscore</button>
-      <button class="reset-italics-and-underscore">Reset</button>
-    </section>
-
-    <section id="case-converter">
-      <h1><span class="speaker">🔊 </span>CASE CONVERTER</h1>
-      <div class="convertBtns">
-        <button id="upper-case-btn">Convert to Uppercase</button>
-        <button id="lower-case-btn">Convert to Lowercase</button>
-      </div>
-    </section>
+    </main>
   </body>
 
   <script src="background.js"></script>
+
 </html>

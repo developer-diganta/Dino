@@ -632,3 +632,40 @@ document
       }
     }
   });
+
+// Logic for Design Toggle (Modern vs Accessible)
+const designToggleBtn = document.getElementById("designToggle");
+const bodyElement = document.body;
+
+function updateDesignState() {
+  const currentDesign = localStorage.getItem("dinoDesignTheme") || "theme-modern";
+  
+  // Remove existing
+  bodyElement.classList.remove("theme-modern", "theme-accessible");
+  // Add saved
+  bodyElement.classList.add(currentDesign);
+  
+  // Update button text
+  if (currentDesign === "theme-modern") {
+      designToggleBtn.innerText = "Switch to Accessible";
+  } else {
+      designToggleBtn.innerText = "Switch to Modern";
+  }
+}
+
+// Initialize on start
+updateDesignState();
+
+designToggleBtn.addEventListener("click", () => {
+  if (bodyElement.classList.contains("theme-modern")) {
+      localStorage.setItem("dinoDesignTheme", "theme-accessible");
+  } else {
+      localStorage.setItem("dinoDesignTheme", "theme-modern");
+  }
+  updateDesignState();
+});
+
+// Ensure defaults if missing
+if (!localStorage.getItem("dinoDesignTheme")) {
+    bodyElement.classList.add("theme-modern");
+}
