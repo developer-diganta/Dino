@@ -11,9 +11,6 @@
   "action": {
     "default_popup": "popup.html"
   },
-  "background.service_worker": {
-    "scripts": ["background.js"]
-  },
   "web_accessible_resources": [
     {
       "matches": ["<all_urls>"],
