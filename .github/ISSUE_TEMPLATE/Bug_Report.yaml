@@ -8,13 +8,6 @@ body:
       value: |
         Thanks for taking the time to fill out this bug report!
         
-  - type: textarea #description
-    attributes:
-      label: Did you selected this project in SWOC?
-      description: Give your answer along with your Full Name.
-      placeholder: Ex. Fill the info here
-    validations:
-      required: true
 
   - type: textarea #description
     attributes:
