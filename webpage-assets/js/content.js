@@ -176,10 +176,38 @@ window.addEventListener(
           ? (backColor =
               document.getElementsByTagName("body")[0].style.backgroundColor)
           : null;
-        document
-          .getElementsByTagName("body")[0]
-          .style.setProperty("background-color", request.backgroundColor);
+        
+        const existingStyle = document.getElementById('dino-custom-styles');
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+        
+        const styleElement = document.createElement('style');
+        styleElement.id = 'dino-custom-styles';
+        styleElement.textContent = `
+          html, body, [data-turbo-body], .application-main, 
+          .Box, .Box-body, .markdown-body, .container, 
+          .main-content, .content, .wrapper, .page, 
+          .layout, .section, .panel, .card, .modal {
+            background-color: ${request.backgroundColor} !important;
+          }
+          * {
+            background-color: transparent !important;
+          }
+          html, body, [data-turbo-body], .application-main, 
+          .Box, .Box-body, .markdown-body, .container, 
+          .main-content, .content, .wrapper, .page, 
+          .layout, .section, .panel, .card, .modal {
+            background-color: ${request.backgroundColor} !important;
+          }
+        `;
+        document.head.appendChild(styleElement);
       } else if (action === "revert-background-color") {
+        // Remove custom styles
+        const customStyle = document.getElementById('dino-custom-styles');
+        if (customStyle) {
+          customStyle.remove();
+        }
         document
           .getElementsByTagName("body")[0]
           .style.setProperty("background-color", backColor);
@@ -188,11 +216,30 @@ window.addEventListener(
         fontColor === ""
           ? (fontColor = document.getElementsByTagName("*")[0].style.fontColor)
           : null;
-        const all = document.getElementsByTagName("*");
-        for (let i = 0; i < all.length; i++) {
-          all[i].style.setProperty("color", request.fontColor);
-        } }
+        
+        const existingFontStyle = document.getElementById('dino-font-styles');
+        if (existingFontStyle) {
+          existingFontStyle.remove();
+        }
+        
+        const fontStyleElement = document.createElement('style');
+        fontStyleElement.id = 'dino-font-styles';
+        fontStyleElement.textContent = `
+          *, body, html, .color-fg-default, .Header-link, 
+          .btn, .Link--primary, .Link--secondary, .f1, .f2, 
+          .f3, .f4, .f5, .f6, h1, h2, h3, h4, h5, h6, 
+          p, span, div, a, button, input, textarea, select, 
+          label, li, td, th {
+            color: ${request.fontColor} !important;
+          }
+        `;
+          document.head.appendChild(fontStyleElement);
+        }
         else if (action === "revert-Font-color") {
+          const customFontStyle = document.getElementById('dino-font-styles');
+          if (customFontStyle) {
+            customFontStyle.remove();
+          }
           const all = document.getElementsByTagName("*")[0];
           all.style.setProperty("color", fontColor);
             
