@@ -39,8 +39,8 @@ document
       chrome.tabs.query(
         { active: true, currentWindow: true },
         function (tabs) {
+          if (!tabs || tabs.length === 0) return;
           const tabId = tabs[0].id;
-
           if (localPreference.fontSize) {
             chrome.tabs.sendMessage(tabId, {
               action: "fontSize",
