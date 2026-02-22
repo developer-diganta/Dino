@@ -25,6 +25,6 @@
       "css": ["webpage-assets/css/styles.css"]
     }
   ],
-  "permissions": ["tabs", "activeTab"],
+  "permissions": ["tabs", "activeTab", "storage"],
   "host_permissions": ["http://*/*", "https://*/*"]
 }
