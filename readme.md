@@ -133,7 +133,17 @@
 
 
 
-
+Dino/
+│
+├── manifest.json        # Chrome extension configuration
+├── popup.html           # Extension popup UI
+├── popup.js             # Popup functionality
+├── background.js        # Background service worker
+├── contentScript.js     # Injected scripts that modify webpages
+├── styles/              # CSS files for accessibility features
+├── icons/               # Extension icons
+├── assets/              # Images and UI resources
+└── README.md            # Project documentation
 
 ## Permissions
 
