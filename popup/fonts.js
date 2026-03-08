@@ -43,6 +43,8 @@ fontChange.addEventListener("change", function (e) {
             element.style.fontFamily = "Monaco, Monospace";
         } else if (selectedFont === "OpenSans") {
             element.style.fontFamily = "OpenSans-Regular, sans-serif";
+        } else if (selectedFont === "OpenDyslexic") {
+            element.style.fontFamily = "OpenDyslexic, sans-serif";
         } else if (selectedFont === "Tahoma") {
             element.style.fontFamily = "Tahoma,sans-serif";
         }
