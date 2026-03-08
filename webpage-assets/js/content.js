@@ -72,6 +72,9 @@ window.addEventListener(
         else if (request.fontStyle === "OpenSans-Regular") {
           html.style.setProperty("font-family", "OpenSans-Regular", "sans-serif");
         }
+        else if (request.fontStyle === "OpenDyslexic") {
+          html.style.setProperty("font-family", "OpenDyslexic, sans-serif");
+        }
         else if (request.fontStyle === "Tahoma") {
           html.style.setProperty("font-family", "Tahoma,sans-serif");
         } 
