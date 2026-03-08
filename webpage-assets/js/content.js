@@ -151,6 +151,22 @@ window.addEventListener(
           });
         }
       }
+      else if (action === "pause-all-media") {
+        const mediaElements = document.querySelectorAll("video, audio");
+        mediaElements.forEach(function (media) {
+          media.pause();
+        });
+      } else if (action === "play-all-media") {
+        const mediaElements = document.querySelectorAll("video, audio");
+        mediaElements.forEach(function (media) {
+          media.play();
+        });
+      } else if (action === "mute-all-media") {
+        const mediaElements = document.querySelectorAll("video, audio");
+        mediaElements.forEach(function (media) {
+          media.muted = true;
+        });
+      }
        else if(action === "light-on-darkmode"){
         const condi=request.modevalue;
      
