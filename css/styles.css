@@ -184,9 +184,9 @@ header.centered {
 
 /* Theme Switch */
 .theme-switch-wrapper {
-  position: relative;
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .checkbox {
@@ -197,44 +197,75 @@ header.centered {
 }
 
 .label {
-  background-color: var(--text-main);
-  /* High contrast bg */
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 50px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px;
+  padding: 3px;
   position: relative;
-  height: 26px;
-  width: 50px;
-  transform: scale(1);
+  height: 28px;
+  width: 52px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.label:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
 }
 
 .label .ball {
-  background-color: var(--bg-gradient);
-  /* Inverse contrast */
+  background: var(--text-muted);
   border-radius: 50%;
   position: absolute;
   top: 3px;
   left: 3px;
-  height: 20px;
-  width: 20px;
-  transition: transform 0.2s linear;
+  height: 22px;
+  width: 22px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.checkbox:checked+.label {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 .checkbox:checked+.label .ball {
   transform: translateX(24px);
-  background-color: var(--primary-color);
+  background: #fff;
 }
 
 .label span {
-  position: absolute;
-  right: -55px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--text-main);
-  width: max-content;
+  white-space: nowrap;
+  margin-left: 58px;
+}
+
+/* Accessible mode overrides for toggle */
+body.theme-accessible .label {
+  backdrop-filter: none;
+  border-width: 2px;
+  border-color: var(--text-main);
+}
+
+body.theme-accessible .label .ball {
+  background: var(--text-main);
+}
+
+body.theme-accessible .checkbox:checked+.label {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+body.theme-accessible .checkbox:checked+.label .ball {
+  background: #fff;
 }
 
 /* Font Selector */
