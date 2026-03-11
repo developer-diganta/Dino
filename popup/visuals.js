@@ -29,6 +29,43 @@ for (let i = 0; i < imageReader.length; i++) {
     });
 }
 
+// Media Control
+function sendActionToActiveTab(action) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        const activeTabId = tabs[0]?.id;
+        if (!activeTabId) {
+            return;
+        }
+
+        chrome.tabs.sendMessage(activeTabId, { action }, function () {
+            if (chrome.runtime.lastError) {
+                console.warn(`Unable to send ${action}: ${chrome.runtime.lastError.message}`);
+            }
+        });
+    });
+}
+
+const pauseAllMedia = document.getElementsByClassName("pause-all-media");
+for (let i = 0; i < pauseAllMedia.length; i++) {
+    pauseAllMedia[i].addEventListener("click", function () {
+        sendActionToActiveTab("pause-all-media");
+    });
+}
+
+const playAllMedia = document.getElementsByClassName("play-all-media");
+for (let i = 0; i < playAllMedia.length; i++) {
+    playAllMedia[i].addEventListener("click", function () {
+        sendActionToActiveTab("play-all-media");
+    });
+}
+
+const muteAllMedia = document.getElementsByClassName("mute-all-media");
+for (let i = 0; i < muteAllMedia.length; i++) {
+    muteAllMedia[i].addEventListener("click", function () {
+        sendActionToActiveTab("mute-all-media");
+    });
+}
+
 // Links
 const links = document.getElementsByClassName("link");
 for (let i = 0; i < links.length; i++) {

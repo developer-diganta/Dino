@@ -151,6 +151,27 @@ window.addEventListener(
           });
         }
       }
+      else if (action === "pause-all-media") {
+        const mediaElements = document.querySelectorAll("video, audio");
+        mediaElements.forEach(function (media) {
+          media.pause();
+        });
+      } else if (action === "play-all-media") {
+        const mediaElements = document.querySelectorAll("video, audio");
+        mediaElements.forEach(function (media) {
+          var playAttempt = media.play();
+          if (playAttempt && typeof playAttempt.catch === "function") {
+            playAttempt.catch(function (error) {
+              console.warn("Unable to start playback for media element:", error);
+            });
+          }
+        });
+      } else if (action === "mute-all-media") {
+        const mediaElements = document.querySelectorAll("video, audio");
+        mediaElements.forEach(function (media) {
+          media.muted = true;
+        });
+      }
        else if(action === "light-on-darkmode"){
         const condi=request.modevalue;
      
