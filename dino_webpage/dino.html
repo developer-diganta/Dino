@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino | Interactive Accessibility</title>
+    
+    <style>
+        :root {
+            /* Theme Colors */
+            --navy: #1a2f4b;
+            --pink: #e91e63;
+            --yellow: #ffd54f;
+            --primary: #4caf50; /* Green Glow */
+            --accent: #ff1744;  /* Red Glow */
+            --text-main: #2c3e50;
+            --border-color: #e2e8f0;
+            --background-card: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            overflow-x: hidden;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* ===== BACKGROUND & CURSOR ===== */
+        .pixel-blast-container { 
+            width: 100%; 
+            height: 100%; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            z-index: -1; 
+            overflow: hidden; 
+            background: #fdfdfd; 
+        }
+
+        .blob-main { 
+            pointer-events: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 9999; 
+            overflow: hidden; 
+            background: transparent; 
+            user-select: none; 
+            cursor: default; 
+        }
+
+        .blob { 
+            position: absolute; 
+            will-change: transform; 
+            transform: translate(-50%, -50%); 
+            width: 45px; 
+            height: 45px; 
+            border: 2px solid var(--pink); 
+            background: rgba(233, 30, 99, 0.1); 
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; 
+            animation: morph 6s linear infinite; 
+        }
+
+        @keyframes morph { 
+            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; } 
+            50% { border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%; } 
+        }
+
+        .inner-dot { 
+            position: absolute; 
+            width: 6px; 
+            height: 6px; 
+            background: var(--navy); 
+            border-radius: 50%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 8%; 
+            background: var(--navy); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        .logo-box img { height: 45px; }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 600; font-size: 16px; }
+
+        /* ===== HERO SECTION ===== */
+        .falling-text-container { 
+            position: relative; 
+            z-index: 1; 
+            width: 100%; 
+            min-height: 85vh; 
+            text-align: center; 
+            padding: 80px 8%; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+        }
+
+        .hero-content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text-side {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .falling-text-target h1 { 
+            font-size: clamp(60px, 8vw, 100px); 
+            font-weight: 900; 
+            color: var(--navy); 
+            line-height: 1; 
+            margin-bottom: 20px;
+        }
+
+        .falling-text-target h1 span { 
+            color: var(--pink); 
+            -webkit-text-stroke: 1.5px var(--yellow); 
+        }
+
+        .description-text {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 30px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .word { 
+            display: inline-block; 
+            margin: 0 2px; 
+            cursor: pointer; 
+            transition: color 0.3s; 
+        }
+
+        .word:hover { color: var(--pink); }
+        .highlighted { color: var(--pink); font-weight: bold; }
+
+        /* ===== BENTO FEATURE GRID ===== */
+        .card-grid {
+            display: grid;
+            gap: 1em;
+            padding: 1em;
+            max-width: 1100px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .magic-bento-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            min-height: 220px;
+            width: 100%;
+            padding: 2em;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            background: var(--background-card);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            --glow-x: 50%; --glow-y: 50%; --glow-intensity: 0;
+            --glow-color: var(--primary); 
+        }
+
+        .card-red { --glow-color: var(--accent); }
+
+        .magic-bento-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 3px;
+            background: radial-gradient(
+                300px circle at var(--glow-x) var(--glow-y),
+                var(--glow-color) 0%,
+                transparent 70%
+            );
+            border-radius: inherit;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .magic-bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --glow-intensity: 1;
+        }
+
+        .magic-bento-card:hover::after { opacity: 1; }
+
+        .magic-bento-card__title { font-weight: 800; font-size: 20px; color: var(--navy); margin: 15px 0 8px; }
+        .magic-bento-card__description { font-size: 15px; color: #555; line-height: 1.4; }
+
+        @media (min-width: 600px) { .card-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .btn-cta {
+            background: #89cff0;
+            color: var(--navy);
+            padding: 18px 45px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 800;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(137, 207, 240, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content-wrapper { text-align: center; }
+            .hero-text-side { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pixel-blast-container">
+        <canvas id="alphabet-blast-canvas"></canvas>
+    </div>
+
+    <div class="blob-main">
+        <div class="blob"></div>
+        <div class="inner-dot"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-box">
+            <img src="images_icons/dino_logo-removebg-preview (2).png" alt="Dino Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#download-section">Download</a>
+            <button aria-label="User profile" style="color:white; border: 2px solid white; border-radius: 50%; padding: 5px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: transparent; cursor: pointer;">👤</button>
+        </div>
+    </nav>
+
+    <div class="falling-text-container">
+        <div class="hero-content-wrapper">
+            <div class="hero-image-side">
+                <img src="images_icons/dino_logo-removebg-preview (2).png" style="width: 300px;" alt="Dino Mascot">
+            </div>
+            
+            <div class="hero-text-side">
+                <div class="falling-text-target">
+                    <h1><span>DINO</span>!</h1>
+                </div>
+                
+                <p class="description-text">
+                    <span class="word highlighted">Dino</span> 
+                    <span class="word">is</span> 
+                    <span class="word">an</span> 
+                    <span class="word">extension</span> 
+                    <span class="word">developed</span> 
+                    <span class="word">to</span> 
+                    <span class="word">make</span> 
+                    <span class="word">the</span> 
+                    <span class="word">web</span> 
+                    <span class="word highlighted">more</span> 
+                    <span class="word highlighted">accessible</span> 
+                    <span class="word">to</span> 
+                    <span class="word">people</span> 
+                    <span class="word">with</span> 
+                    <span class="word highlighted">dyslexia</span> 
+                    <span class="word">and</span> 
+                    <span class="word highlighted">color</span> 
+                    <span class="word highlighted">blindness.</span> 
+                    <span class="word">Dino</span> 
+                    <span class="word">allows</span> 
+                    <span class="word">you</span> 
+                    <span class="word">to</span> 
+                    <span class="word">change</span> 
+                    <span class="word highlighted">colors,</span> 
+                    <span class="word">add / remove images, read out pages etc.</span>
+                </p>
+
+                <button class="btn-cta" type="button" onclick="location.href='#extension-info'">
+                    Know more about the Extension
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section class="card-grid" id="extension-info">
+        <div class="magic-bento-card">
+            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/1160/1160040.png" width="50" alt="Color icon"></div>
+            <div class="content">
+                <h3 class="magic-bento-card__title">Change Colors</h3>
+                <p class="magic-bento-card__description">Modify contrast and color schemes on any website for better visibility.</p>
+            </div>
+        </div>
+
+        <div class="magic-bento-card card-red">
+            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="50" alt="Speech icon"></div>
+            <div class="content">
+                <h3 class="magic-bento-card__title">Read Out Pages</h3>
+                <p class="magic-bento-card__description">Smart text-to-speech engine specifically designed for content consumption.</p>
+            </div>
+        </div>
+
+        <div class="magic-bento-card">
+            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" width="50" alt="Image removal icon"></div>
+            <div class="content">
+                <h3 class="magic-bento-card__title">Remove Images</h3>
+                <p class="magic-bento-card__description">Declutter pages instantly to focus purely on the text information.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. BLOB CURSOR - Safety guard added for CodeRabbit
+        const blob = document.querySelector('.blob');
+        const dot = document.querySelector('.inner-dot');
+
+        if (blob && dot) {
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                dot.style.left = `${clientX}px`;
+                dot.style.top = `${clientY}px`;
+                blob.animate({
+                    left: `${clientX}px`,
+                    top: `${clientY}px`
+                }, { duration: 800, fill: "forwards" });
+            });
+        }
+
+        // 2. ALPHABET BLAST BACKGROUND - Added ctx null checks
+        const canvas = document.getElementById('alphabet-blast-canvas');
+        const ctx = canvas ? canvas.getContext('2d') : null;
+        let particles = [];
+        const chars = "DINO";
+
+        function init() {
+            if (!canvas) return;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = Array.from({length: 50}, () => ({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                char: chars[Math.floor(Math.random() * chars.length)],
+                size: Math.random() * 20 + 10,
+                v: Math.random() * 0.4 + 0.1,
+                opacity: Math.random() * 0.1 + 0.05
+            }));
+        }
+
+        function animate() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                ctx.fillStyle = `rgba(26, 47, 75, ${p.opacity})`;
+                ctx.font = `bold ${p.size}px system-ui`;
+                ctx.fillText(p.char, p.x, p.y);
+                p.y -= p.v;
+                if (p.y < -30) p.y = canvas.height + 30;
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', init);
+        init(); 
+        animate();
+
+        // 3. FALLING TEXT
+        document.querySelectorAll('.word').forEach(word => {
+            word.addEventListener('click', function() {
+                this.style.transition = "transform 1s cubic-bezier(.17,.67,.83,.67), opacity 1s";
+                this.style.transform = `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`;
+                this.style.opacity = "0";
+                setTimeout(() => {
+                    this.style.transition = "none";
+                    this.style.transform = "translateY(0) rotate(0)";
+                    this.style.opacity = "1";
+                }, 2000);
+            });
+        });
+
+        // 4. BENTO GLOW LOGIC
+        document.querySelectorAll('.magic-bento-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--glow-x', `${x}px`);
+                card.style.setProperty('--glow-y', `${y}px`);
+            });
+        });
+    </script>
+</body>
+</html>
