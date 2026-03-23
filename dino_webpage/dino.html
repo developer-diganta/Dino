@@ -269,8 +269,8 @@
             <img src="images_icons/dino_logo-removebg-preview (2).png" alt="Dino Logo">
         </div>
         <div class="nav-links">
-            <a href="#">Download</a>
-            <div style="color:white; border: 2px solid white; border-radius: 50%; padding: 5px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">👤</div>
+            <a href="#download-section">Download</a>
+            <button aria-label="User profile" style="color:white; border: 2px solid white; border-radius: 50%; padding: 5px; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: transparent; cursor: pointer;">👤</button>
         </div>
     </nav>
 
@@ -313,7 +313,7 @@
                     <span class="word">add / remove images, read out pages etc.</span>
                 </p>
 
-                <button class="btn-cta">
+                <button class="btn-cta" type="button" onclick="location.href='#extension-info'">
                     Know more about the Extension
                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
                 </button>
@@ -321,9 +321,9 @@
         </div>
     </div>
 
-    <section class="card-grid">
+    <section class="card-grid" id="extension-info">
         <div class="magic-bento-card">
-            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/1160/1160040.png" width="50"></div>
+            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/1160/1160040.png" width="50" alt="Color icon"></div>
             <div class="content">
                 <h3 class="magic-bento-card__title">Change Colors</h3>
                 <p class="magic-bento-card__description">Modify contrast and color schemes on any website for better visibility.</p>
@@ -331,7 +331,7 @@
         </div>
 
         <div class="magic-bento-card card-red">
-            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="50"></div>
+            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="50" alt="Speech icon"></div>
             <div class="content">
                 <h3 class="magic-bento-card__title">Read Out Pages</h3>
                 <p class="magic-bento-card__description">Smart text-to-speech engine specifically designed for content consumption.</p>
@@ -339,7 +339,7 @@
         </div>
 
         <div class="magic-bento-card">
-            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" width="50"></div>
+            <div class="header"><img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" width="50" alt="Image removal icon"></div>
             <div class="content">
                 <h3 class="magic-bento-card__title">Remove Images</h3>
                 <p class="magic-bento-card__description">Declutter pages instantly to focus purely on the text information.</p>
@@ -348,26 +348,30 @@
     </section>
 
     <script>
-        // 1. BLOB CURSOR
+        // 1. BLOB CURSOR - Safety guard added for CodeRabbit
         const blob = document.querySelector('.blob');
         const dot = document.querySelector('.inner-dot');
-        window.addEventListener('mousemove', (e) => {
-            const { clientX, clientY } = e;
-            dot.style.left = `${clientX}px`;
-            dot.style.top = `${clientY}px`;
-            blob.animate({
-                left: `${clientX}px`,
-                top: `${clientY}px`
-            }, { duration: 800, fill: "forwards" });
-        });
 
-        // 2. ALPHABET BLAST BACKGROUND
+        if (blob && dot) {
+            window.addEventListener('mousemove', (e) => {
+                const { clientX, clientY } = e;
+                dot.style.left = `${clientX}px`;
+                dot.style.top = `${clientY}px`;
+                blob.animate({
+                    left: `${clientX}px`,
+                    top: `${clientY}px`
+                }, { duration: 800, fill: "forwards" });
+            });
+        }
+
+        // 2. ALPHABET BLAST BACKGROUND - Added ctx null checks
         const canvas = document.getElementById('alphabet-blast-canvas');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas ? canvas.getContext('2d') : null;
         let particles = [];
         const chars = "DINO";
 
         function init() {
+            if (!canvas) return;
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             particles = Array.from({length: 50}, () => ({
@@ -381,6 +385,7 @@
         }
 
         function animate() {
+            if (!ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach(p => {
                 ctx.fillStyle = `rgba(26, 47, 75, ${p.opacity})`;
@@ -393,9 +398,10 @@
         }
 
         window.addEventListener('resize', init);
-        init(); animate();
+        init(); 
+        animate();
 
-        // 3. FALLING TEXT (Words in description react to clicks)
+        // 3. FALLING TEXT
         document.querySelectorAll('.word').forEach(word => {
             word.addEventListener('click', function() {
                 this.style.transition = "transform 1s cubic-bezier(.17,.67,.83,.67), opacity 1s";

@@ -4,51 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--==================== CSS ====================-->
+    <title>Dino | Home</title>
     <link rel="stylesheet" href="styles.css">
-    <!--==================== JQUERY FOR ANIMATIONS ====================-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <title>Dino</title>
 </head>
 <body>
     <div class="navbar">
-        <a href="#" class="nav__logo"><img src="images_icons/dino_logo-removebg-preview (2).png" height="75px" width="100px"></a>
+        <a href="#" class="nav__logo">
+            <img src="images_icons/dino_logo-removebg-preview (2).png" height="75px" width="100px" alt="Dino Logo">
+        </a>
         <ul class="nav__list">
             <li class="nav__item">
                 <a href="#home">Download</a>
             </li>
             <li class="nav__item">
-                <img src="images_icons/profile icon.png" width="55px" height="50px" style="margin-top: 20px; opacity: 95%; cursor: pointer;">
+                <img src="images_icons/profile icon.png" width="55px" height="50px" style="margin-top: 20px; opacity: 95%; cursor: pointer;" alt="User Profile">
             </li>
         </ul>
     </div>
 
     <div class="section1">
-    <div class="section1_content">
-        <img src="images_icons/dino_logo-removebg-preview (2).png" class="section1_img">
+        <div class="section1_content">
+            <img src="images_icons/dino_logo.png" alt="Dino Mascot">
             <p class="about__data">
-                <span style="color:black; font-size: 65px; font-weight: 550;"> Dino </span> is an extension <br> developed to make the web <br>more accessible to people with <br>dyslexia and color blindness. <br>Dino allows you to change<br> colors, add / remove images, <br>read out pages etc.
+                <span style="color:black; font-size: 65px; font-weight: 550;"> Dino </span> is an extension <br> 
+                developed to make the web <br>more accessible to people with <br>
+                dyslexia and color blindness. <br>Dino allows you to change<br> 
+                colors, add / remove images, <br>read out pages etc.
             </p>
-    </div>
-    <button class="section1_btn">Know more about extension <img src="images_icons/drop down.png" width="33px" height="36px" style="padding-top: 5px;"></button>
+        </div>
+        <button class="section1_btn">Know more about extension 
+            <img src="images_icons/drop down.png" width="33px" height="36px" style="padding-top: 5px;" alt="dropdown">
+        </button>
     </div>
 
     <div class="section2" id="section2_id">
         <div class="section2_btns">
-            <button style="display: flex; flex-direction: row; padding-left: 10%;">Installtion <img src="images_icons/1.png" width="57px" height="55px" style="margin-left: 30%;"></button>
-            <button style="display: flex; flex-direction: row; padding-left: 10%;">Features<img src="images_icons/2.png" width="57px" height="55px" style="margin-left: 38%;"></button>
-            <button style="display: flex; flex-direction: row; padding-left: 10%;">Permissions<img src="images_icons/3.png" width="57px" height="55px" style="margin-left: 23%;"></button>
-            <button style="display: flex; flex-direction: row; padding-left: 10%;">Screen Shots<img src="images_icons/4.png" width="57px" height="55px" style="margin-left: 21%;"></button>
-            <button style="display: flex; flex-direction: row; padding-left: 10%;">License<img src="images_icons/5.png" width="57px" height="55px" style="margin-left: 41%;"></button>
+            <button style="display: flex; flex-direction: row; padding-left: 10%;">Installation <img src="images_icons/1.png" width="57px" height="55px" style="margin-left: 30%;" alt="icon"></button>
+            <button style="display: flex; flex-direction: row; padding-left: 10%;">Features<img src="images_icons/2.png" width="57px" height="55px" style="margin-left: 38%;" alt="icon"></button>
+            <button style="display: flex; flex-direction: row; padding-left: 10%;">Permissions<img src="images_icons/3.png" width="57px" height="55px" style="margin-left: 23%;" alt="icon"></button>
+            <button style="display: flex; flex-direction: row; padding-left: 10%;">Screen Shots<img src="images_icons/4.png" width="57px" height="55px" style="margin-left: 21%;" alt="icon"></button>
+            <button style="display: flex; flex-direction: row; padding-left: 10%;">License<img src="images_icons/5.png" width="57px" height="55px" style="margin-left: 41%;" alt="icon"></button>
         </div>
-        <img src="images_icons/7.png" alt="" width="415px" height="447px" style="margin-left: 25%; margin-top: 10px;">
-        <img src="images_icons/8.png" alt="" width="434px" height="447px">
-    </div>
-    <div class="section2_download_btn">
-    <button>Download Now <img src="images_icons/6.png" width="57px" height="60px" style="padding-top: 11px;"></button>
+        <img src="images_icons/7.png" alt="Screenshot 1" width="415px" height="447px" style="margin-left: 25%; margin-top: 10px;">
+        <img src="images_icons/8.png" alt="Screenshot 2" width="434px" height="447px">
     </div>
 
-<a href="dino.html">Open Dino Extension</a>
-
+    <div class="section2_download_btn" id="section2_download_btn" style="display: flex; align-items: center; justify-content: center; padding: 40px 0;">
+        <button class="section1_btn" style="display: flex; align-items: center; gap: 10px;">
+            Download Now 
+            <img src="images_icons/6.png" width="57px" height="60px" style="padding-top: 5px;" alt="download">
+        </button>
+        
+        <a href="dino.html" class="section1_btn" style="text-decoration: none; margin-left: 20px; color: white; font-weight: bold; padding: 15px 25px; display: flex; align-items: center;">
+            Open Dino Extension
+        </a>
+    </div>
 </body>
 </html>
